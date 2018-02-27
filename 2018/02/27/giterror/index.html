@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Git错误“fatal：could not read Username for &#39;https://github.com&#39;：No error”解决方案 | WhiteRabbit的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="年后回来，小白兔觉得不能再慵懒下去，打算立刻发了一篇博文以正视听，好不容易写完一篇绕过WAF的九种方法，按照往常的方法更新博客，结果报错：“fatal: could not read Username for ‘https://github.com‘: No error”。date: 2018-2-27 11:39:32">
+  <meta name="description" content="年后回来，小白兔觉得不能再慵懒下去，打算立刻发了一篇博文以正视听，好不容易写完一篇绕过WAF的九种方法，按照往常的方法更新博客，结果报错：“fatal: could not read Username for ‘https://github.com‘: No error”。">
 <meta name="keywords" content="博客">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git错误“fatal：could not read Username for &#39;https:&#x2F;&#x2F;github.com&#39;：No error”解决方案">
 <meta property="og:url" content="http://yoursite.com/2018/02/27/giterror/index.html">
 <meta property="og:site_name" content="WhiteRabbit的博客">
-<meta property="og:description" content="年后回来，小白兔觉得不能再慵懒下去，打算立刻发了一篇博文以正视听，好不容易写完一篇绕过WAF的九种方法，按照往常的方法更新博客，结果报错：“fatal: could not read Username for ‘https://github.com‘: No error”。date: 2018-2-27 11:39:32">
+<meta property="og:description" content="年后回来，小白兔觉得不能再慵懒下去，打算立刻发了一篇博文以正视听，好不容易写完一篇绕过WAF的九种方法，按照往常的方法更新博客，结果报错：“fatal: could not read Username for ‘https://github.com‘: No error”。">
 <meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/blog/boke.png">
-<meta property="og:updated_time" content="2018-02-27T07:22:12.014Z">
+<meta property="og:updated_time" content="2018-02-27T07:25:14.749Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git错误“fatal：could not read Username for &#39;https:&#x2F;&#x2F;github.com&#39;：No error”解决方案">
-<meta name="twitter:description" content="年后回来，小白兔觉得不能再慵懒下去，打算立刻发了一篇博文以正视听，好不容易写完一篇绕过WAF的九种方法，按照往常的方法更新博客，结果报错：“fatal: could not read Username for ‘https://github.com‘: No error”。date: 2018-2-27 11:39:32">
+<meta name="twitter:description" content="年后回来，小白兔觉得不能再慵懒下去，打算立刻发了一篇博文以正视听，好不容易写完一篇绕过WAF的九种方法，按照往常的方法更新博客，结果报错：“fatal: could not read Username for ‘https://github.com‘: No error”。">
 <meta name="twitter:image" content="http://oz1sa62oq.bkt.clouddn.com/image/blog/boke.png">
   
     <link rel="alternative" href="/atom.xml" title="WhiteRabbit的博客" type="application/atom+xml">
@@ -206,9 +206,10 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p>年后回来，小白兔觉得不能再慵懒下去，打算立刻发了一篇博文以正视听，好不容易写完一篇<a href="http://blog.whiterabbitxyj.com/2018/02/27/WAFbypass/" target="_blank" rel="external">绕过WAF的九种方法</a>，按照往常的方法更新博客，结果报错：“fatal: could not read Username for ‘<a href="https://github.com" target="_blank" rel="external">https://github.com</a>‘: No error”。<br>date: 2018-2-27 11:39:32</p>
+        <p>年后回来，小白兔觉得不能再慵懒下去，打算立刻发了一篇博文以正视听，好不容易写完一篇<a href="http://blog.whiterabbitxyj.com/2018/02/27/WAFbypass/" target="_blank" rel="external">绕过WAF的九种方法</a>，按照往常的方法更新博客，结果报错：“fatal: could not read Username for ‘<a href="https://github.com" target="_blank" rel="external">https://github.com</a>‘: No error”。</p>
 <a id="more"></a>
-<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p> 真的是大写的懵逼，啥也没动啊，咋过个年回来就出问题了呢，问题截图如下：<br> <img src="http://oz1sa62oq.bkt.clouddn.com/image/blog/boke.png" alt="boke1"></p>
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p> 真的是大写的懵逼，啥也没动啊，咋过个年回来就出问题了呢，问题截图如下：</p>
+<p> <img src="http://oz1sa62oq.bkt.clouddn.com/image/blog/boke.png" alt="boke1"></p>
 <p> 于是我折腾了很久终于找到了解决问题的方法。</p>
 <h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p>解决问题方法如下，亲测有效。<br>1.打开_config.yml，修改其中的deploy节点<br>原来的配置为：</p>
 <pre><code>deploy:   
@@ -513,15 +514,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">流量</a>
+                <a href="javascript:void(0)" class="js-tag color3">安全</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">加密</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -537,19 +534,23 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安全</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">搜索</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">流量</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">加密</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
             
             <div class="clearfix"></div>
