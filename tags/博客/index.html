@@ -6,22 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Scapy库解析数据流SSL/TLS加密 | WhiteRabbit的博客</title>
+  <title>Tag: 博客 | WhiteRabbit的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="上一篇博客我详细地介绍了关于Python的Scapy使用，而常规的scapy库只能解析到传输层，传输层再往上的协议都无法解析，且剩余所有的原始16进制数据都存在Raw中。而在实际的工作中，我们往往是需要解析出流是否存在SSL/TLS加密的，wireshark就能很好解析出这些，那么scapy也能实现吗？自己写源码解析是个巨大的工程，我们这些单体开发人员望而却步，所以python提供了一个附加库sc">
-<meta name="keywords" content="python,流量,加密">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Scapy库解析数据流SSL&#x2F;TLS加密">
-<meta property="og:url" content="http://yoursite.com/2017/11/14/python-scapy-ssl_tls/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="WhiteRabbit的博客">
+<meta property="og:url" content="http://yoursite.com/tags/博客/index.html">
 <meta property="og:site_name" content="WhiteRabbit的博客">
-<meta property="og:description" content="上一篇博客我详细地介绍了关于Python的Scapy使用，而常规的scapy库只能解析到传输层，传输层再往上的协议都无法解析，且剩余所有的原始16进制数据都存在Raw中。而在实际的工作中，我们往往是需要解析出流是否存在SSL/TLS加密的，wireshark就能很好解析出这些，那么scapy也能实现吗？自己写源码解析是个巨大的工程，我们这些单体开发人员望而却步，所以python提供了一个附加库sc">
-<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/scapy/scapy-ssl_tls-1.png">
-<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/scapy/scapy-ssl_tls-2.png">
-<meta property="og:updated_time" content="2017-11-14T07:08:09.757Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Scapy库解析数据流SSL&#x2F;TLS加密">
-<meta name="twitter:description" content="上一篇博客我详细地介绍了关于Python的Scapy使用，而常规的scapy库只能解析到传输层，传输层再往上的协议都无法解析，且剩余所有的原始16进制数据都存在Raw中。而在实际的工作中，我们往往是需要解析出流是否存在SSL/TLS加密的，wireshark就能很好解析出这些，那么scapy也能实现吗？自己写源码解析是个巨大的工程，我们这些单体开发人员望而却步，所以python提供了一个附加库sc">
-<meta name="twitter:image" content="http://oz1sa62oq.bkt.clouddn.com/image/scapy/scapy-ssl_tls-1.png">
+<meta name="twitter:title" content="WhiteRabbit的博客">
   
     <link rel="alternative" href="/atom.xml" title="WhiteRabbit的博客" type="application/atom+xml">
   
@@ -158,264 +150,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-python-scapy-ssl_tls" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      Scapy库解析数据流SSL/TLS加密
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/02/27/giterror/" class="archive-article-date">
+  	<time datetime="2018-02-27T03:40:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-27</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/02/27/giterror/">Git错误“fatal：could not read Username for &#39;https://github.com&#39;：No error”解决方案</a>
     </h1>
   
 
-        
-        <a href="/2017/11/14/python-scapy-ssl_tls/" class="archive-article-date">
-  	<time datetime="2017-11-14T03:39:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-14</time>
-</a>
-        
-      </header>
-    
-
-<!-- 目录内容 -->
-    
-    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
-          <span class="btn-bg"></span>
-          <span class="btn-text">文章导航</span>
-          </p>
-	<div id="toc-article" class="toc-article">
-	    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
-		<strong class="toc-title">文章目录</strong>
-           <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安装scapy-ssl-tls库"><span class="toc-number">1.</span> <span class="toc-text">安装scapy-ssl_tls库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#导入scapy-ssl-tls库"><span class="toc-number">2.</span> <span class="toc-text">导入scapy-ssl_tls库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用scapy-ssl-tls库"><span class="toc-number">3.</span> <span class="toc-text">使用scapy-ssl_tls库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#感谢支持"><span class="toc-number">4.</span> <span class="toc-text">感谢支持</span></a></li></ol>
-         </div>
-   <script type="text/javascript">
-	function showToc(){
-		var toc_article = document.getElementById("toc-article");
-		var show_toc_btn = document.getElementById("show-toc-btn");
-		toc_article.setAttribute("style","display:block");
-		show_toc_btn.setAttribute("style","display:none");
-		};
-	function showBtn(){
-		var toc_article = document.getElementById("toc-article");
-		var show_toc_btn = document.getElementById("show-toc-btn");
-		toc_article.setAttribute("style","display:none");
-		show_toc_btn.setAttribute("style","display:block");
-		};
-   </script>
-      
-<!-- 目录内容结束 -->
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>上一篇博客我详细地介绍了关于Python的Scapy使用，而常规的scapy库只能解析到传输层，传输层再往上的协议都无法解析，且剩余所有的原始16进制数据都存在Raw中。而在实际的工作中，我们往往是需要解析出流是否存在SSL/TLS加密的，wireshark就能很好解析出这些，那么scapy也能实现吗？自己写源码解析是个巨大的工程，我们这些单体开发人员望而却步，所以python提供了一个附加库scapy-ssl_tls来补充解析ssl/tls加密的功能。</p>
-<a id="more"></a>
-<h1 id="安装scapy-ssl-tls库"><a href="#安装scapy-ssl-tls库" class="headerlink" title="安装scapy-ssl_tls库"></a>安装scapy-ssl_tls库</h1><p>关于scapy-ssl_tls的安装很简单，直接使用pip安装：</p>
-<pre><code>pip install scapy-ssl_tls
-</code></pre><p>就可以完成安装了，需要注意的是，这个python的附加库只支持python2.7及以下的版本。在linux中下载安装这个库时，它会自动检测系统中是否安装了scapy，若无，则自动安装scapy以及相关的库，十分方便，在一定程度解决了许多问题。<br>当然，我也知道有朋友看了我上篇博客，已经入了python3的深坑，那我也得负责，于是我找到了一位大牛写的支持python3的SSL/TLS解析库，附上链接：<a href="https://github.com/hackers-terabit/scapy-ssl_tls-python3" target="_blank" rel="external">here。</a></p>
-<h1 id="导入scapy-ssl-tls库"><a href="#导入scapy-ssl-tls库" class="headerlink" title="导入scapy-ssl_tls库"></a>导入scapy-ssl_tls库</h1><p>在使用scapy-ssl_tls库时，需要输入语句：</p>
-<pre><code>from scapy_ssl_tls.ssl_tls import *
-</code></pre><p>就可以使用了，值得注意的是，导入这个库的同时，scapy中的方法也已经被却全部导入，所以不需要再导入一遍scapy库。</p>
-<h1 id="使用scapy-ssl-tls库"><a href="#使用scapy-ssl-tls库" class="headerlink" title="使用scapy-ssl_tls库"></a>使用scapy-ssl_tls库</h1><p>关于scapy-ssl_tls库的使用也没什么特别的，函数方法和scapy差不多，只不过在scapy的基础上，会自动解析ssl/tls加密，具体效果如下：</p>
-<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/scapy/scapy-ssl_tls-1.png" alt="scapy-ssl/tls-1"></p>
-<p>使用<code>show()</code>函数可以打印出具体的加密信息：</p>
-<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/scapy/scapy-ssl_tls-2.png" alt="scapy-ssl/tls-2"></p>
-<h1 id="感谢支持"><a href="#感谢支持" class="headerlink" title="感谢支持"></a>感谢支持</h1><p>感谢阅读，喜欢的话可以订购，订购rss：<a href="https://blog.whiterabbitxyj.com/atom" target="_blank" rel="external">here</a> ,支持我请将鼠标下滑到赏，欢迎评论！</p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃萝卜<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="https://whiterabbitc.github.io/img/zhifubao.png">
-                      <span class="reward-type">支付宝^_^</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="https://whiterabbitc.github.io/img/weixin.png">
-                      <span class="reward-type">微信0_0</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">流量</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">加密</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
-      <span id="busuanzi_container_page_pv">
-	  | 阅读量(<span id="busuanzi_value_page_pv"></span>)
-      </span>
-      
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/11/14/python-scapy-ssl_tls/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2017/12/07/eta/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          对战加密的恶意流量：将机器学习应用到恶意软件识别中去
-        
-      </div>
-    </a>
   
   
-    <a href="/2017/11/07/python-scapy/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">使用Python的Scapy库解析Paca文件</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安装scapy-ssl-tls库"><span class="toc-number">1.</span> <span class="toc-text">安装scapy-ssl_tls库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#导入scapy-ssl-tls库"><span class="toc-number">2.</span> <span class="toc-text">导入scapy-ssl_tls库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用scapy-ssl-tls库"><span class="toc-number">3.</span> <span class="toc-text">使用scapy-ssl_tls库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#感谢支持"><span class="toc-number">4.</span> <span class="toc-text">感谢支持</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-  <div id="SOHUCS" sid="python-scapy-ssl_tls" ></div> 
-<script type="text/javascript"> 
-window.YiliaChangyanWrap = function() {
-    var appid = "cytj4oNi1"; 
-    var conf = "956774aadd9557459092650701f47376"; 
-    var width = window.innerWidth || document.documentElement.clientWidth; 
-    if (width < 960) { 
-    window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("//changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); }
-}
-</script>
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -448,9 +236,9 @@ window.YiliaChangyanWrap = function() {
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

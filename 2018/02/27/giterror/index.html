@@ -6,22 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Scapy库解析数据流SSL/TLS加密 | WhiteRabbit的博客</title>
+  <title>Git错误“fatal：could not read Username for &#39;https://github.com&#39;：No error”解决方案 | WhiteRabbit的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="上一篇博客我详细地介绍了关于Python的Scapy使用，而常规的scapy库只能解析到传输层，传输层再往上的协议都无法解析，且剩余所有的原始16进制数据都存在Raw中。而在实际的工作中，我们往往是需要解析出流是否存在SSL/TLS加密的，wireshark就能很好解析出这些，那么scapy也能实现吗？自己写源码解析是个巨大的工程，我们这些单体开发人员望而却步，所以python提供了一个附加库sc">
-<meta name="keywords" content="python,流量,加密">
+  <meta name="description" content="年后回来，小白兔觉得不能再慵懒下去，打算立刻发了一篇博文以正视听，好不容易写完一篇绕过WAF的九种方法，按照往常的方法更新博客，结果报错：“fatal: could not read Username for ‘https://github.com‘: No error”。date: 2018-2-27 11:39:32">
+<meta name="keywords" content="博客">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Scapy库解析数据流SSL&#x2F;TLS加密">
-<meta property="og:url" content="http://yoursite.com/2017/11/14/python-scapy-ssl_tls/index.html">
+<meta property="og:title" content="Git错误“fatal：could not read Username for &#39;https:&#x2F;&#x2F;github.com&#39;：No error”解决方案">
+<meta property="og:url" content="http://yoursite.com/2018/02/27/giterror/index.html">
 <meta property="og:site_name" content="WhiteRabbit的博客">
-<meta property="og:description" content="上一篇博客我详细地介绍了关于Python的Scapy使用，而常规的scapy库只能解析到传输层，传输层再往上的协议都无法解析，且剩余所有的原始16进制数据都存在Raw中。而在实际的工作中，我们往往是需要解析出流是否存在SSL/TLS加密的，wireshark就能很好解析出这些，那么scapy也能实现吗？自己写源码解析是个巨大的工程，我们这些单体开发人员望而却步，所以python提供了一个附加库sc">
-<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/scapy/scapy-ssl_tls-1.png">
-<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/scapy/scapy-ssl_tls-2.png">
-<meta property="og:updated_time" content="2017-11-14T07:08:09.757Z">
+<meta property="og:description" content="年后回来，小白兔觉得不能再慵懒下去，打算立刻发了一篇博文以正视听，好不容易写完一篇绕过WAF的九种方法，按照往常的方法更新博客，结果报错：“fatal: could not read Username for ‘https://github.com‘: No error”。date: 2018-2-27 11:39:32">
+<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/blog/boke.png">
+<meta property="og:updated_time" content="2018-02-27T07:22:12.014Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Scapy库解析数据流SSL&#x2F;TLS加密">
-<meta name="twitter:description" content="上一篇博客我详细地介绍了关于Python的Scapy使用，而常规的scapy库只能解析到传输层，传输层再往上的协议都无法解析，且剩余所有的原始16进制数据都存在Raw中。而在实际的工作中，我们往往是需要解析出流是否存在SSL/TLS加密的，wireshark就能很好解析出这些，那么scapy也能实现吗？自己写源码解析是个巨大的工程，我们这些单体开发人员望而却步，所以python提供了一个附加库sc">
-<meta name="twitter:image" content="http://oz1sa62oq.bkt.clouddn.com/image/scapy/scapy-ssl_tls-1.png">
+<meta name="twitter:title" content="Git错误“fatal：could not read Username for &#39;https:&#x2F;&#x2F;github.com&#39;：No error”解决方案">
+<meta name="twitter:description" content="年后回来，小白兔觉得不能再慵懒下去，打算立刻发了一篇博文以正视听，好不容易写完一篇绕过WAF的九种方法，按照往常的方法更新博客，结果报错：“fatal: could not read Username for ‘https://github.com‘: No error”。date: 2018-2-27 11:39:32">
+<meta name="twitter:image" content="http://oz1sa62oq.bkt.clouddn.com/image/blog/boke.png">
   
     <link rel="alternative" href="/atom.xml" title="WhiteRabbit的博客" type="application/atom+xml">
   
@@ -158,20 +157,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-python-scapy-ssl_tls" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-giterror" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Scapy库解析数据流SSL/TLS加密
+      Git错误“fatal：could not read Username for &#39;https://github.com&#39;：No error”解决方案
     </h1>
   
 
         
-        <a href="/2017/11/14/python-scapy-ssl_tls/" class="archive-article-date">
-  	<time datetime="2017-11-14T03:39:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-14</time>
+        <a href="/2018/02/27/giterror/" class="archive-article-date">
+  	<time datetime="2018-02-27T03:40:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-27</time>
 </a>
         
       </header>
@@ -186,7 +185,7 @@
 	<div id="toc-article" class="toc-article">
 	    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
 		<strong class="toc-title">文章目录</strong>
-           <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安装scapy-ssl-tls库"><span class="toc-number">1.</span> <span class="toc-text">安装scapy-ssl_tls库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#导入scapy-ssl-tls库"><span class="toc-number">2.</span> <span class="toc-text">导入scapy-ssl_tls库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用scapy-ssl-tls库"><span class="toc-number">3.</span> <span class="toc-text">使用scapy-ssl_tls库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#感谢支持"><span class="toc-number">4.</span> <span class="toc-text">感谢支持</span></a></li></ol>
+           <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#问题"><span class="toc-number">1.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解决方法"><span class="toc-number">2.</span> <span class="toc-text">解决方法</span></a></li></ol>
          </div>
    <script type="text/javascript">
 	function showToc(){
@@ -207,20 +206,25 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p>上一篇博客我详细地介绍了关于Python的Scapy使用，而常规的scapy库只能解析到传输层，传输层再往上的协议都无法解析，且剩余所有的原始16进制数据都存在Raw中。而在实际的工作中，我们往往是需要解析出流是否存在SSL/TLS加密的，wireshark就能很好解析出这些，那么scapy也能实现吗？自己写源码解析是个巨大的工程，我们这些单体开发人员望而却步，所以python提供了一个附加库scapy-ssl_tls来补充解析ssl/tls加密的功能。</p>
+        <p>年后回来，小白兔觉得不能再慵懒下去，打算立刻发了一篇博文以正视听，好不容易写完一篇<a href="http://blog.whiterabbitxyj.com/2018/02/27/WAFbypass/" target="_blank" rel="external">绕过WAF的九种方法</a>，按照往常的方法更新博客，结果报错：“fatal: could not read Username for ‘<a href="https://github.com" target="_blank" rel="external">https://github.com</a>‘: No error”。<br>date: 2018-2-27 11:39:32</p>
 <a id="more"></a>
-<h1 id="安装scapy-ssl-tls库"><a href="#安装scapy-ssl-tls库" class="headerlink" title="安装scapy-ssl_tls库"></a>安装scapy-ssl_tls库</h1><p>关于scapy-ssl_tls的安装很简单，直接使用pip安装：</p>
-<pre><code>pip install scapy-ssl_tls
-</code></pre><p>就可以完成安装了，需要注意的是，这个python的附加库只支持python2.7及以下的版本。在linux中下载安装这个库时，它会自动检测系统中是否安装了scapy，若无，则自动安装scapy以及相关的库，十分方便，在一定程度解决了许多问题。<br>当然，我也知道有朋友看了我上篇博客，已经入了python3的深坑，那我也得负责，于是我找到了一位大牛写的支持python3的SSL/TLS解析库，附上链接：<a href="https://github.com/hackers-terabit/scapy-ssl_tls-python3" target="_blank" rel="external">here。</a></p>
-<h1 id="导入scapy-ssl-tls库"><a href="#导入scapy-ssl-tls库" class="headerlink" title="导入scapy-ssl_tls库"></a>导入scapy-ssl_tls库</h1><p>在使用scapy-ssl_tls库时，需要输入语句：</p>
-<pre><code>from scapy_ssl_tls.ssl_tls import *
-</code></pre><p>就可以使用了，值得注意的是，导入这个库的同时，scapy中的方法也已经被却全部导入，所以不需要再导入一遍scapy库。</p>
-<h1 id="使用scapy-ssl-tls库"><a href="#使用scapy-ssl-tls库" class="headerlink" title="使用scapy-ssl_tls库"></a>使用scapy-ssl_tls库</h1><p>关于scapy-ssl_tls库的使用也没什么特别的，函数方法和scapy差不多，只不过在scapy的基础上，会自动解析ssl/tls加密，具体效果如下：</p>
-<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/scapy/scapy-ssl_tls-1.png" alt="scapy-ssl/tls-1"></p>
-<p>使用<code>show()</code>函数可以打印出具体的加密信息：</p>
-<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/scapy/scapy-ssl_tls-2.png" alt="scapy-ssl/tls-2"></p>
-<h1 id="感谢支持"><a href="#感谢支持" class="headerlink" title="感谢支持"></a>感谢支持</h1><p>感谢阅读，喜欢的话可以订购，订购rss：<a href="https://blog.whiterabbitxyj.com/atom" target="_blank" rel="external">here</a> ,支持我请将鼠标下滑到赏，欢迎评论！</p>
-
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p> 真的是大写的懵逼，啥也没动啊，咋过个年回来就出问题了呢，问题截图如下：<br> <img src="http://oz1sa62oq.bkt.clouddn.com/image/blog/boke.png" alt="boke1"></p>
+<p> 于是我折腾了很久终于找到了解决问题的方法。</p>
+<h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p>解决问题方法如下，亲测有效。<br>1.打开_config.yml，修改其中的deploy节点<br>原来的配置为：</p>
+<pre><code>deploy:   
+   type: git   
+   repo: https://github.com/{yourname}/{yourname}.github.io.git   
+   branch: master
+</code></pre><p>修改为如下：</p>
+<pre><code>deploy:    
+   type: git   
+   repo: https://{yourname}:{yourpassword}@github.com/{yourname}/{yourname}.github.io.git
+   branch: master
+</code></pre><p>2.更新博客（素质三连）</p>
+<pre><code>hexo clean
+hexo g
+hexo d
+</code></pre>
       
 
       
@@ -264,15 +268,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">流量</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">加密</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
         		</li>
       		
 		</ul>
@@ -333,7 +329,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/11/14/python-scapy-ssl_tls/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/02/27/giterror/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -347,18 +343,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/12/07/eta/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          对战加密的恶意流量：将机器学习应用到恶意软件识别中去
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/11/07/python-scapy/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">使用Python的Scapy库解析Paca文件</div>
+    <a href="/2018/02/27/WAFbypass/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">绕过WAF的9种方法</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -385,7 +372,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安装scapy-ssl-tls库"><span class="toc-number">1.</span> <span class="toc-text">安装scapy-ssl_tls库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#导入scapy-ssl-tls库"><span class="toc-number">2.</span> <span class="toc-text">导入scapy-ssl_tls库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用scapy-ssl-tls库"><span class="toc-number">3.</span> <span class="toc-text">使用scapy-ssl_tls库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#感谢支持"><span class="toc-number">4.</span> <span class="toc-text">感谢支持</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#问题"><span class="toc-number">1.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解决方法"><span class="toc-number">2.</span> <span class="toc-text">解决方法</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -401,7 +388,7 @@
   
 
   
-  <div id="SOHUCS" sid="python-scapy-ssl_tls" ></div> 
+  <div id="SOHUCS" sid="giterror" ></div> 
 <script type="text/javascript"> 
 window.YiliaChangyanWrap = function() {
     var appid = "cytj4oNi1"; 

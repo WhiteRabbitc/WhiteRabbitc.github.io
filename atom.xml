@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-02-27T06:52:59.736Z</updated>
+  <updated>2018-02-27T07:22:12.014Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Git错误“fatal：could not read Username for &#39;https://github.com&#39;：No error”解决方案</title>
+    <link href="http://yoursite.com/2018/02/27/giterror/"/>
+    <id>http://yoursite.com/2018/02/27/giterror/</id>
+    <published>2018-02-27T03:40:32.000Z</published>
+    <updated>2018-02-27T07:22:12.014Z</updated>
+    
+    <content type="html"><![CDATA[<p>年后回来，小白兔觉得不能再慵懒下去，打算立刻发了一篇博文以正视听，好不容易写完一篇<a href="http://blog.whiterabbitxyj.com/2018/02/27/WAFbypass/" target="_blank" rel="external">绕过WAF的九种方法</a>，按照往常的方法更新博客，结果报错：“fatal: could not read Username for ‘<a href="https://github.com" target="_blank" rel="external">https://github.com</a>‘: No error”。<br>date: 2018-2-27 11:39:32</p><a id="more"></a><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p> 真的是大写的懵逼，啥也没动啊，咋过个年回来就出问题了呢，问题截图如下：<br> <img src="http://oz1sa62oq.bkt.clouddn.com/image/blog/boke.png" alt="boke1"></p><p> 于是我折腾了很久终于找到了解决问题的方法。</p><h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p>解决问题方法如下，亲测有效。<br>1.打开_config.yml，修改其中的deploy节点<br>原来的配置为：</p><pre><code>deploy:      type: git      repo: https://github.com/{yourname}/{yourname}.github.io.git      branch: master</code></pre><p>修改为如下：</p><pre><code>deploy:       type: git      repo: https://{yourname}:{yourpassword}@github.com/{yourname}/{yourname}.github.io.git   branch: master</code></pre><p>2.更新博客（素质三连）</p><pre><code>hexo cleanhexo ghexo d</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;年后回来，小白兔觉得不能再慵懒下去，打算立刻发了一篇博文以正视听，好不容易写完一篇&lt;a href=&quot;http://blog.whiterabbitxyj.com/2018/02/27/WAFbypass/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;绕过WAF的九种方法&lt;/a&gt;，按照往常的方法更新博客，结果报错：“fatal: could not read Username for ‘&lt;a href=&quot;https://github.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com&lt;/a&gt;‘: No error”。&lt;br&gt;date: 2018-2-27 11:39:32&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="博客" scheme="http://yoursite.com/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+  </entry>
   
   <entry>
     <title>绕过WAF的9种方法</title>
