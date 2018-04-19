@@ -6,25 +6,39 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>对战加密的恶意流量：将机器学习应用到恶意软件识别中去 | WhiteRabbit的博客</title>
+  <title>Cobra静态白盒审计工具规则编写基础 | WhiteRabbit的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="从2015年开始，思科信息安全团队中一位名叫Rich West的系统架构师就一直在与思科高级安全研究小组的一名工程师尝试去解决一个非常新颖的问题：思科信息安全团队希望能够找到一种方法来更好地保护思科员工的信息安全，并防止恶意软件通过加密流量窃取员工的个人隐私数据。但当时似乎只有一种可行的方法，即通过设置代理并解密通信数据来检查所有的SSL和TLS流量。">
-<meta name="keywords" content="流量,加密,机器学习">
+  <meta name="description" content="眼镜蛇(Cobra)是一款定位于静态代码安全分析的工具，目标是为了找出源代码中存在的安全隐患或者漏洞。由于开发人员的技术水平和安全意识各不相同，导致可能开发出一些存在安全漏洞的代码。 攻击者可以通过渗透测试来找到这些漏洞，从而导致应用被攻击、服务器被入侵、数据被下载、业务受到影响等等问题。 “源代码安全审计”是指通过审计发现源代码中的安全隐患和漏洞，而Cobra可将这个流程自动化。而本文主要讲解如">
+<meta name="keywords" content="cobra,审计,规则">
 <meta property="og:type" content="article">
-<meta property="og:title" content="对战加密的恶意流量：将机器学习应用到恶意软件识别中去">
-<meta property="og:url" content="http://yoursite.com/2017/12/07/eta/index.html">
+<meta property="og:title" content="Cobra静态白盒审计工具规则编写基础">
+<meta property="og:url" content="http://yoursite.com/2018/04/19/cobra/index.html">
 <meta property="og:site_name" content="WhiteRabbit的博客">
-<meta property="og:description" content="从2015年开始，思科信息安全团队中一位名叫Rich West的系统架构师就一直在与思科高级安全研究小组的一名工程师尝试去解决一个非常新颖的问题：思科信息安全团队希望能够找到一种方法来更好地保护思科员工的信息安全，并防止恶意软件通过加密流量窃取员工的个人隐私数据。但当时似乎只有一种可行的方法，即通过设置代理并解密通信数据来检查所有的SSL和TLS流量。">
-<meta property="og:image" content="http://image.3001.net/images/20170627/14984994806220.jpg">
-<meta property="og:image" content="http://image.3001.net/images/20170627/14984995004202.png">
-<meta property="og:image" content="http://image.3001.net/images/20170627/14984995202493.png">
-<meta property="og:image" content="http://image.3001.net/images/20170627/14984995304854.jpg">
-<meta property="og:image" content="http://image.3001.net/images/20170627/14984995445404.png">
-<meta property="og:updated_time" content="2017-07-02T01:28:52.587Z">
+<meta property="og:description" content="眼镜蛇(Cobra)是一款定位于静态代码安全分析的工具，目标是为了找出源代码中存在的安全隐患或者漏洞。由于开发人员的技术水平和安全意识各不相同，导致可能开发出一些存在安全漏洞的代码。 攻击者可以通过渗透测试来找到这些漏洞，从而导致应用被攻击、服务器被入侵、数据被下载、业务受到影响等等问题。 “源代码安全审计”是指通过审计发现源代码中的安全隐患和漏洞，而Cobra可将这个流程自动化。而本文主要讲解如">
+<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/cobra/cobra-2.png">
+<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/cobra/cobra-3.png">
+<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/cobra/cobra-4.png">
+<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/cobra/cobra-5.png">
+<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/cobra/cobra-7.png">
+<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/cobra/cobra-8.png">
+<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/cobra/cobra-9.png">
+<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/cobra/cobra-10.png">
+<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/cobra/cobra-12.png">
+<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/cobra/cobra-14.png">
+<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/cobra/cobra-13.png">
+<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/cobra/cobra-15.png">
+<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/cobra/cobra-16.png">
+<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/cobra/cobra-17.png">
+<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/cobra/cobra-18.png">
+<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/cobra/cobra-19.png">
+<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/cobra/cobra-20.png">
+<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/cobra/cobra-21.png">
+<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/cobra/cobra-22.png">
+<meta property="og:updated_time" content="2018-04-19T09:52:15.984Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="对战加密的恶意流量：将机器学习应用到恶意软件识别中去">
-<meta name="twitter:description" content="从2015年开始，思科信息安全团队中一位名叫Rich West的系统架构师就一直在与思科高级安全研究小组的一名工程师尝试去解决一个非常新颖的问题：思科信息安全团队希望能够找到一种方法来更好地保护思科员工的信息安全，并防止恶意软件通过加密流量窃取员工的个人隐私数据。但当时似乎只有一种可行的方法，即通过设置代理并解密通信数据来检查所有的SSL和TLS流量。">
-<meta name="twitter:image" content="http://image.3001.net/images/20170627/14984994806220.jpg">
+<meta name="twitter:title" content="Cobra静态白盒审计工具规则编写基础">
+<meta name="twitter:description" content="眼镜蛇(Cobra)是一款定位于静态代码安全分析的工具，目标是为了找出源代码中存在的安全隐患或者漏洞。由于开发人员的技术水平和安全意识各不相同，导致可能开发出一些存在安全漏洞的代码。 攻击者可以通过渗透测试来找到这些漏洞，从而导致应用被攻击、服务器被入侵、数据被下载、业务受到影响等等问题。 “源代码安全审计”是指通过审计发现源代码中的安全隐患和漏洞，而Cobra可将这个流程自动化。而本文主要讲解如">
+<meta name="twitter:image" content="http://oz1sa62oq.bkt.clouddn.com/image/cobra/cobra-2.png">
   
     <link rel="alternative" href="/atom.xml" title="WhiteRabbit的博客" type="application/atom+xml">
   
@@ -161,20 +175,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-eta" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-cobra" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      对战加密的恶意流量：将机器学习应用到恶意软件识别中去
+      Cobra静态白盒审计工具规则编写基础
     </h1>
   
 
         
-        <a href="/2017/12/07/eta/" class="archive-article-date">
-  	<time datetime="2017-12-07T03:39:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-07</time>
+        <a href="/2018/04/19/cobra/" class="archive-article-date">
+  	<time datetime="2018-04-19T03:39:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-19</time>
 </a>
         
       </header>
@@ -189,7 +203,7 @@
 	<div id="toc-article" class="toc-article">
 	    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
 		<strong class="toc-title">文章目录</strong>
-           <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一个待解决的复杂问题"><span class="toc-number">1.</span> <span class="toc-text">一个待解决的复杂问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#‘好吧，你到底需要什么？’-–-‘数据，很多很多的数据。’"><span class="toc-number">2.</span> <span class="toc-text">‘好吧，你到底需要什么？’ – ‘数据，很多很多的数据。’</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#隐藏的恶意软件与指纹"><span class="toc-number">3.</span> <span class="toc-text">隐藏的恶意软件与指纹</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#展望"><span class="toc-number">4.</span> <span class="toc-text">展望</span></a></li></ol>
+           <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#十大规则字段"><span class="toc-number">1.</span> <span class="toc-text">十大规则字段</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#name字段"><span class="toc-number">1.1.</span> <span class="toc-text">name字段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#language字段"><span class="toc-number">1.2.</span> <span class="toc-text">language字段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#level字段"><span class="toc-number">1.3.</span> <span class="toc-text">level字段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#status字段"><span class="toc-number">1.4.</span> <span class="toc-text">status字段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#match字段"><span class="toc-number">1.5.</span> <span class="toc-text">match字段</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#mode属性"><span class="toc-number">1.5.1.</span> <span class="toc-text">mode属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#规则内容"><span class="toc-number">1.5.2.</span> <span class="toc-text">规则内容</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#match2字段"><span class="toc-number">1.6.</span> <span class="toc-text">match2字段</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#block属性"><span class="toc-number">1.6.1.</span> <span class="toc-text">block属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#规则2内容"><span class="toc-number">1.6.2.</span> <span class="toc-text">规则2内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多次使用"><span class="toc-number">1.6.3.</span> <span class="toc-text">多次使用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#repair字段"><span class="toc-number">1.7.</span> <span class="toc-text">repair字段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#solution字段"><span class="toc-number">1.8.</span> <span class="toc-text">solution字段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#test字段"><span class="toc-number">1.9.</span> <span class="toc-text">test字段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#author字段"><span class="toc-number">1.10.</span> <span class="toc-text">author字段</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#规则文件命名"><span class="toc-number">2.</span> <span class="toc-text">规则文件命名</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#编写Rpo攻击漏洞规则"><span class="toc-number">3.</span> <span class="toc-text">编写Rpo攻击漏洞规则</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#rpo攻击"><span class="toc-number">3.1.</span> <span class="toc-text">rpo攻击</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编写规则文件"><span class="toc-number">3.2.</span> <span class="toc-text">编写规则文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试结果"><span class="toc-number">3.3.</span> <span class="toc-text">测试结果</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#其他"><span class="toc-number">4.</span> <span class="toc-text">其他</span></a></li></ol>
          </div>
    <script type="text/javascript">
 	function showToc(){
@@ -210,25 +224,181 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p>从2015年开始，思科信息安全团队中一位名叫Rich West的系统架构师就一直在与思科高级安全研究小组的一名工程师尝试去解决一个非常新颖的问题：思科信息安全团队希望能够找到一种方法来更好地保护思科员工的信息安全，并防止恶意软件通过加密流量窃取员工的个人隐私数据。但当时似乎只有一种可行的方法，即通过设置代理并解密通信数据来检查所有的SSL和TLS流量。</p>
+        <p>眼镜蛇(Cobra)是一款定位于静态代码安全分析的工具，目标是为了找出源代码中存在的安全隐患或者漏洞。<br>由于开发人员的技术水平和安全意识各不相同，导致可能开发出一些存在安全漏洞的代码。 攻击者可以通过渗透测试来找到这些漏洞，从而导致应用被攻击、服务器被入侵、数据被下载、业务受到影响等等问题。 “源代码安全审计”是指通过审计发现源代码中的安全隐患和漏洞，而Cobra可将这个流程自动化。<br>而本文主要讲解如何进行Cobra的规则库编写，希望对cobra有定制需求的朋友有所帮助。</p>
 <a id="more"></a>
-<p>如果是在恶意活动中，那么上述这种“可行方法”就是我们常说的中间人（MitM）攻击。但即便是出于安全防御端的角度来看，这种方法仍然会被视为一种侵犯用户隐私的行为，因为当用户需要向银行或加密邮件服务发送加密通讯信息时，上面的这种方法就会破坏加密信任链，从而导致用户隐私受到侵害。除此之外，这种方法的计算量也非常高，而且高到足以造成网络性能的大幅下降，更不用说管理额外的SSL证书（流量被检查之后需要重新签名）所带来的性能负担了。</p>
-<p>Rich West和他的团队最终认为，这种以牺牲隐私权和网络性能为代价来换取安全性的方法是不值当的。因此，他们需要一种新的方法，他们需要一种不涉及到向检查节点发送内部流量的方法。为了解决这个问题，West与思科工程师David McGrew取得了联系。</p>
-<h1 id="一个待解决的复杂问题"><a href="#一个待解决的复杂问题" class="headerlink" title="一个待解决的复杂问题"></a>一个待解决的复杂问题</h1><p>McGrew是思科高级安全研究小组的一员，他和他的团队一直都在研究如何使用NetFlows配合新的算法来检测恶意软件。当West将他的需求（设计一种新的方法在加密数据中识别恶意攻击）告知了McGrew的团队之后，这个耗时长达两年的项目便诞生了，而且该项目现在已接近完工。这个项目集合了多款新型网络产品和软件，旨在从根本上改变现代网络的底层架构和驱动模型，而思科在本周已经正式对外公布了该项目。<br><img src="http://image.3001.net/images/20170627/14984994806220.jpg" alt="working"><br>McGrew和他的团队所开发来的这种模型名叫Encrypted Traffic Analytics（ETA），即加密流量分析模型。思科公司手中掌握有庞大的网络资源和数据资源，思科也一直希望将手中的这些资源结合自动化技术以及机器学习来实现无处不在的安全保护，而ETA模型的出现让思科离这个目标近了一大步。</p>
-<p>数据加密通常都会被认为是一件好事，因为加密不仅能够保证网络交易和聊天的私密性，而且也可以防止攻击者（中间人攻击）窥探或篡改用户的网络通信数据。</p>
-<p>随着越来越多的企业环境开始使用云服务，这也让Google和Mozilla这样的公司开始强制网站去使用TLS等安全传输协议了。各大浏览器厂商首先要求所有的加密流量必须由受信任的证书机构（CA）所颁发的证书来进行签名，而相关机构也在努力试图通过简化证书申请以及流量加密等过程来推广TLS的使用。但正是因为加密所需的成本降低了，而且几乎毫无成本，所以很多网络攻击者也开始通过普通的TLS或SSL流量来试图掩盖他们的恶意命令、远程控制行为以及数据窃取活动。</p>
-<p>想要在普通流量中检测恶意软件的活动本身就是一件非常复杂的事情，而且还涉及到海量数据分析等情况，再加上TLS和SSL等加密协议的出现，使得目前所面临的挑战难上加难。但对于McGrew来说，这正是让他激动不已的地方。</p>
-<p>NetFlow中包含有大量有价值的信息，但它也会受到一定的语境限制。它可以表示网络上的两台设备正在交互，以及通信时长和发送的字节数等等，但这些数据毕竟还是不完整的。McGrew认为，隐私和安全并不应该是必须二选一的，为了解决这个复杂的问题，他不仅需要从头开始，而且还需要涉及到大量代码和密集的数据建模。<br><img src="http://image.3001.net/images/20170627/14984995004202.png" alt="eta2"></p>
-<h1 id="‘好吧，你到底需要什么？’-–-‘数据，很多很多的数据。’"><a href="#‘好吧，你到底需要什么？’-–-‘数据，很多很多的数据。’" class="headerlink" title="‘好吧，你到底需要什么？’ – ‘数据，很多很多的数据。’"></a>‘好吧，你到底需要什么？’ – ‘数据，很多很多的数据。’</h1><p>这个项目需要大量的资源，所以McGrew首先想到了思科的技术投资基金（Tech Fund）。思科的“Tech Fund”项目通常投资的都是那些能够改变现状的新型产品或高新技术，而且这些项目通常都需要好几年的开发时间。</p>
-<p>就算有了资金做保障，但在真正形成项目并开始编码之前，McGrew还需要从思科的网络系统中获取数据分析样本，包括恶意软件样本在内。为了解决这个问题，McGrew在2015年3月份邀请了Blake Anderson加入。Anderson是一名拥有博士学位的数据科学家，他主要研究的是机器学习在网络安全中的应用。当时，他也正在与美国洛斯阿拉莫斯国家实验室一起研究如何将机器学习方法应用到恶意软件的分析过程中。</p>
-<p>当Anderson加入到思科这个团队时，McGrew的团队正在开发相应的分析工具，而且他们已经可以通过NetFlow数据来识别出具体的应用程序了。比如说，他们可以识别出NetFlow数据是来源于Chrome浏览器还是来源于微软的更新服务，不过他们还没有将这项技术应用到针对恶意软件的数据分析活动中。</p>
-<p>为了获取到分析样本，Anderson以及McGrew的团队几乎与思科公司的每一个产品部门都沟通过，包括内部信息安全团队、Talos威胁情报小组和ThreatGRID团队等等。在花费了几个月的时间编写了一万多行代码之后，McGrew和Anderson便开始将他们的数据模型应用到实际的测试中。在获取到了数百万的数据包和已知的恶意软件样本之后，Anderson开始尝试在不进行任何解密的情况下对海量数据进行筛选和归类，并通过“最具描述性的特征”来识别出恶意流量和正常流量。<br><img src="http://image.3001.net/images/20170627/14984995202493.png" alt="eta3"><br>Anderson表示：“我认为收集正确的数据才是最重要的。很多人会在收集到了大量数据之后才去考虑他们能用这些数据去做什么，但我们打算采取相反的做法，我们会列出我们所需要的数据类型，然后再从思科的其他产品团队那里收集这些数据。”</p>
-<h1 id="隐藏的恶意软件与指纹"><a href="#隐藏的恶意软件与指纹" class="headerlink" title="隐藏的恶意软件与指纹"></a>隐藏的恶意软件与指纹</h1><p>如果网站拥有权威CA签发的TLS证书，这意味着用户可以放心地访问这个网站，但这并非绝对。据了解，至少从2009年起，很多攻击者就开始通过使用伪造的、窃取来的、甚至是合法的SSL签名证书来欺骗互联网的信任系统。这样一来，攻击者就可以通过安全证书来诱使用户交出自己的登录凭证或下载恶意Payload。</p>
-<p>在过去的几个月里，滥用合法TLS证书的攻击事件数量呈上升趋势，这很可能是由于类似Let’s Encrypt这样的CA机构开始免费签发TLS证书所导致的。这也就意味着，网络钓鱼攻击者将能够轻而易举地制作出足以以假乱真的PayPal或比特币钱包钓鱼网站。比如说，下图所示的就是一个使用了免费加密证书的钓鱼网站：<br><img src="http://image.3001.net/images/20170627/14984995304854.jpg" alt="eta4"><br>事实证明，降低密钥的获取难度确实是一把双刃剑</p>
-<p>Rich West认为，从某种程度上来说，他们的成功是以牺牲其他安全部门作为代价的。他们一直在敦促IT公司、厂商和App开发者通过加密技术来保证数据的安全，但这样也增加了处理这些加密数据的难度。不过幸运的是，通过对数百万TLS数据流、恶意软件样本和数据包进行了分析之后，Anderson和McGrew发现TLS数据流中未加密的元数据包含攻击者无法隐藏的数据指纹，而且即使数据经过加密也无法隐藏这种指纹。TLS擅长的就是隐藏明文信息，但它所创建出来的还有一系列可观测的复杂参数，而McGrew和Anderson这样的工程师就可以用这些数据来训练他们的模型了。</p>
-<p>比如说，当一段TLS流量开始发送时，首先从一个握手包开始。客户端（比如说Chrome浏览器）会给其尝试通信的服务器发送ClientHello消息。“Hello”消息包含一组参数，例如使用的密码套件、接受的版本以及可选的扩展。但类似“ClientHello”这样的TLS元数据是没有被加密的，因为它们在消息开始加密之前就发送出去了。这也就意味着，Anderson的模型可以在完全不知道消息内部数据的情况下对这些未加密的数据进行分析，而该模型将准确地分辨出该流量来自于恶意软件还是普通活动。<br><img src="http://image.3001.net/images/20170627/14984995445404.png" alt="eta5"></p>
-<h1 id="展望"><a href="#展望" class="headerlink" title="展望"></a>展望</h1><p>Anderson表示，他希望ETA能够通过软件代码更新等形式应用到任何地方，并给网络上的任何设备提供恶意软件识别服务，因为ETA的目标就是让任何需要处理网络数据的设备都变成安全设备。Anderson说到：“我们接下来会想办法将我们的技术应用到路由器和交换机上，这是非常有意义的。在这个过程中，我们依然可以通过云端来训练我们的模型，并将机器学习与网络层联系起来。”</p>
-<p>*译文转载自FreeBuf.COM，英文原文来源：<a href="https://continuum.cisco.com/2017/06/20/security-without-compromise-how-cisco-engineers-used-machine-learning-to-solve-an-impossible-problem/" target="_blank" rel="external">swc</a>，ETA项目开源地址：<a href="https://github.com/cisco/joy" target="_blank" rel="external">cisco</a>。</p>
+<h1 id="十大规则字段"><a href="#十大规则字段" class="headerlink" title="十大规则字段"></a>十大规则字段</h1><p>Cobra的规则文件格式是xml，因此在文件的开头往往需要声明版本和编码，然后以&lt; cobra >标签表明这是个cobra的规则文件：</p>
+<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/cobra/cobra-2.png" alt="cobra-2"></p>
+<p>而规则的具体内容就写在&lt; cobra >标签内，而Cobra提供了十种字段来让开发者描述规则，接下来我将详细讲解这十大规则字段。</p>
+<h2 id="name字段"><a href="#name字段" class="headerlink" title="name字段"></a>name字段</h2><p>name是由Cobra提供的用来描述规则的名字的字段，内容是字符串类型，因此在编写规则前先给你的规则取个合适的名字吧：</p>
+<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/cobra/cobra-3.png" alt="cobra-3"></p>
+<h2 id="language字段"><a href="#language字段" class="headerlink" title="language字段"></a>language字段</h2><p>language是由Cobra提供的用来声明规则适用的编程语言的字段，内容是字符串类型，当在language字段声明了指定语言时，扫描器将不会使用该规则检测language以外的编程语言代码：</p>
+<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/cobra/cobra-4.png" alt="cobra-4"></p>
+<p>上图所示，该规则只会由于检测以.php/.php3/.php4/.php5为后缀的文件代码，而Cobra支持检测的语言以及对应文件后缀详见：<a href="http://cobra.feei.cn/languages" target="_blank" rel="external">Cobra语言支持</a>。</p>
+<p>如果希望编写的规则适用于所有语言，则如下编写language字段:</p>
+<pre><code>&lt;language value=&quot;*&quot;/&gt;
+</code></pre><h2 id="level字段"><a href="#level字段" class="headerlink" title="level字段"></a>level字段</h2><p>level是由Cobra提供的用来声明该漏洞风险等级的字段，内容为一个整型数字，一共有十种风险等级，为1-10级，等级越高则说明危害越高。一般来说，风险等级按以下标准来设定：</p>
+<table>
+<thead>
+<tr>
+<th>等级</th>
+<th style="text-align:center">分值</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>严重</td>
+<td style="text-align:center">9-10</td>
+<td style="text-align:center">1.可获取服务器权限; 2.严重信息泄露;</td>
+</tr>
+<tr>
+<td>高危</td>
+<td style="text-align:center">6-8</td>
+<td style="text-align:center">1.敏感信息泄露; 2.越权; 3.任意文件读取; 4.SQL注入; 5.git/svn泄露; 6.SSRF;</td>
+</tr>
+<tr>
+<td>中危</td>
+<td style="text-align:center">3-5</td>
+<td style="text-align:center">1.XSS; 2.URL跳转; 3.CRLF; 4.LFI;</td>
+</tr>
+<tr>
+<td>低危</td>
+<td style="text-align:center">1-2</td>
+<td style="text-align:center">1.CSRF; 2.JSONP劫持; 3.异常堆栈信息; 3.PHPINFO; 4.路径泄露; 5.硬编码密码; 6.硬编码内网IP域名; 7.不安全的加密方法; 8.不安全的随机数; 9.日志敏感记录;</td>
+</tr>
+</tbody>
+</table>
+<p>我们声明一个风险等级为3的漏洞：</p>
+<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/cobra/cobra-5.png" alt="cobra-5"></p>
+<h2 id="status字段"><a href="#status字段" class="headerlink" title="status字段"></a>status字段</h2><p>status字段设置了是否开启该规则的扫描，使用on/off来标记，只有当标记为on时，该规则才会生效：</p>
+<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/cobra/cobra-7.png" alt="cobra-7"></p>
+<h2 id="match字段"><a href="#match字段" class="headerlink" title="match字段"></a>match字段</h2><p>match字段是用来声明规则具体内容的字段，而在&lt; match > 标签的内部就是规则的具体内容。<br>match是Cobra规则的核心字段，因为它定义了规则的具体内容和检测方法，而在编写规则前需要先定义match的唯一属性：mode。</p>
+<h3 id="mode属性"><a href="#mode属性" class="headerlink" title="mode属性"></a>mode属性</h3><p>mode属性决定了match的检测模式，当mode属性的值不同时，代码检测的模式不同，比如使用“regex-only-match”模式时，就是进行正则匹配的方式扫描代码，找出所有与正则表达式相匹配的源码，并将之标记为漏洞。而当检测模式设置为“function-param-controllable”时，就会检测所设定函数的所有调用，如果传入该函数的参数是用户可控的，则标记为漏洞。而mode一共有四种检测模式：</p>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">默认模式</th>
+<th style="text-align:center">支持语言</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>regex-only-match</td>
+<td style="text-align:center">正则仅匹配</td>
+<td style="text-align:center">是</td>
+<td style="text-align:center">*</td>
+<td style="text-align:left">默认是此模式，但需要显式的写在规则文件里。以正则的方式进行匹配，匹配到内容则算作漏洞</td>
+</tr>
+<tr>
+<td>regex-param-controllable</td>
+<td style="text-align:center">正则参数可控</td>
+<td style="text-align:center">否</td>
+<td style="text-align:center">PHP/Java</td>
+<td style="text-align:left">以正则模式进行匹配，匹配出的变量可外部控制则为漏洞</td>
+</tr>
+<tr>
+<td>function-param-controllable</td>
+<td style="text-align:center">函数参数可控</td>
+<td style="text-align:center">否</td>
+<td style="text-align:center">PHP</td>
+<td style="text-align:left">内容写函数名，将搜索所有该函数的调用，若参数外部可控则为漏洞</td>
+</tr>
+<tr>
+<td>find-extension</td>
+<td style="text-align:center">寻找指定后缀文件</td>
+<td style="text-align:center">否</td>
+<td style="text-align:center">*</td>
+<td style="text-align:left">找到指定后缀文件则算作漏洞</td>
+</tr>
+</tbody>
+</table>
+<h3 id="规则内容"><a href="#规则内容" class="headerlink" title="规则内容"></a>规则内容</h3><p>规则内容是写在&lt; match >标签内的具体检测内容，编写的规则内容要与mode属性相对应，不然无法检测，如当使用“regex-only-match”模式时，规则内容就应该是正则表达式，而使用“function-param-controllable”模式时，规则内容就应该是函数名。</p>
+<p>我们编写一个测试规则内容，以正则匹配的方式来匹配&lt; test &gt;标签：</p>
+<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/cobra/cobra-8.png" alt="cobra-8"></p>
+<p>我们编写一个php文件，在里面写入代码：<code>echo ‘&lt;test&gt; just for test &lt;/test&gt;’</code>，然后使用我们编写的规则对其进行检测，检测结果：</p>
+<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/cobra/cobra-9.png" alt="cobra-9"></p>
+<p>如图所示，能够按照规则检测出恶意代码。</p>
+<h2 id="match2字段"><a href="#match2字段" class="headerlink" title="match2字段"></a>match2字段</h2><p>由于仅仅使用match一个字段无法应对许多特殊的漏洞规则编写需求，因此Cobra提供了两个字段来辅助match字段更好地进行规则编写，而match2字段就是其中之一。match2的作用是在match成功匹配到的前提下，进行二次匹配，只有match2也匹配成功，则标记为漏洞。而match2拥有block属性，在编写二次规则前需要先给block属性赋值。</p>
+<h3 id="block属性"><a href="#block属性" class="headerlink" title="block属性"></a>block属性</h3><p>block属性是match2的唯一属性，其定义了二次匹配的匹配范围，比如当block的值为“in-current-line”时，二次匹配范围则在match匹配到的行中，而当block的值为“in-file”时，则范围会在match匹配到的位置所在的文件中。block属性具体可以取的值如下表所示：<br>| 区块 | 描述 |<br>| - | :-: |<br>| in-current-line | 由第一条规则触发的所在行 |<br>| in-function | 由第一条规则触发的函数体内 |<br>| in-function-up | 由第一条规则触发的所在行之上，所在函数体之内 |<br>| in-function-down | 由第一条规则触发的所在行之下，所在函数体之内 |<br>| in-file | 由第一条规则触发的文件内 |<br>| in-file-up | 由第一条规则触发的所在行之上，所在文件之内 |<br>| in-file-down | 由第一条规则触发的所在行之下，所在文件之内 |</p>
+<h3 id="规则2内容"><a href="#规则2内容" class="headerlink" title="规则2内容"></a>规则2内容</h3><p>规则2内容是写在<code>&lt;match2&gt;</code>标签内的二次检测规则，拿上面的例子，我们继续尝试编写二次匹配规则，在匹配<code>&lt;test&gt;</code>标签的前提下，检测该行内出现‘not’这个单词则视为漏洞：</p>
+<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/cobra/cobra-10.png" alt="cobra-10"></p>
+<p>对测试用例进行检测结果：</p>
+<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/cobra/cobra-12.png" alt="cobra-12"></p>
+<p>可以看见，语句<code>echo ‘&lt;test&gt; just for test &lt;/test&gt;’</code>已经不被视为漏洞，因为该行中不包含match2所要求的not单词。而<code>echo ‘&lt;test&gt; not just for test &lt;/test&gt;’</code>则与我们期待的一样被标记为漏洞。</p>
+<h3 id="多次使用"><a href="#多次使用" class="headerlink" title="多次使用"></a>多次使用</h3><p>值得一提的是，由于match2字段是用来辅助match而存在的字段，因此它并不能独立于match字段存在，只有match字段存在时，它才能被使用。而match2可以被多次使用，绑定于同个match进行多次匹配，我们尝试编写多个match2进行测试：</p>
+<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/cobra/cobra-14.png" alt="cobra-14"></p>
+<p>检测结果：</p>
+<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/cobra/cobra-13.png" alt="cobra-13"></p>
+<p>可以看到，多次使用的match2的结果并不是match+match2(1)+match2(2),而是match+match2(1)或match+match(2)。</p>
+<h2 id="repair字段"><a href="#repair字段" class="headerlink" title="repair字段"></a>repair字段</h2><p>上文说过，Cobra使用了2个字段来辅助match字段进行更好的匹配，除了match2字段，另一个就是repair字段。从用法上来说，repair字段和match2字段基本上一模一样，但是他们的作用却是完全相反。在match匹配的前提下，当match2二次匹配成功时，标记为漏洞，而repair却是二次匹配成功时，视为漏洞已被修复，不再标记为漏洞。</p>
+<p>继续上面的例子，我们编写二次匹配规则，在匹配<code>&lt;test&gt;</code>标签的前提下，检测该行内出现‘not’这个单词则视为漏洞已被修复：</p>
+<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/cobra/cobra-15.png" alt="cobra-15"></p>
+<p>检测结果：</p>
+<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/cobra/cobra-16.png" alt="cobra-16"></p>
+<p>可以看到，检测结果呈现与match2完全相反的结果，这是因为match的前提下，该行匹配到not则不视为漏洞，所以最后就呈现了这种结果。</p>
+<p>当match2字段和repair字段同时使用时，repair的优先级高于match2。</p>
+<h2 id="solution字段"><a href="#solution字段" class="headerlink" title="solution字段"></a>solution字段</h2><p>这个字段很好理解，当漏洞被标记时显示解决方法，内容为字符串，且会直接显示在被标记的漏洞下。往往在该字段内描述详细的解决方法以帮助商家修复漏洞，编辑：</p>
+<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/cobra/cobra-17.png" alt="cobra-17"></p>
+<p>直接显示：</p>
+<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/cobra/cobra-18.png" alt="cobra-18"></p>
+<h2 id="test字段"><a href="#test字段" class="headerlink" title="test字段"></a>test字段</h2><p>该字段用来写规则对应测试用例，在<code>&lt;test&gt;</code>字段内，每一个<code>&lt;case&gt;</code>字段都视为一个测试用例，case的属性assert用来表名该测试用例是正面例子还是反面例子，当assert值为true时，该测试用例是能匹配出漏洞的，而当assert为false时，该测试用例是没有漏洞的，而属性remark只是一个备注：</p>
+<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/cobra/cobra-19.png" alt="cobra-19"></p>
+<p>比较遗憾的是，我并没有找到直接在规则文件中测试测试用例的方法，希望Cobra在更新文档后能够对此进行说明。</p>
+<h2 id="author字段"><a href="#author字段" class="headerlink" title="author字段"></a>author字段</h2><p>这是Cobra提供的最后一个字段，用来标明该规则编写的作者是谁，毕竟辛苦编写了规则，那就署上你的大名吧：</p>
+<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/cobra/cobra-20.png" alt="cobra-20"></p>
+<h1 id="规则文件命名"><a href="#规则文件命名" class="headerlink" title="规则文件命名"></a>规则文件命名</h1><p>规则文件的命名规则：</p>
+<ol>
+<li>统一存放在rules目录</li>
+<li>大写字母CVI（Cobra Vulnerability ID）开头，横杠（-）分割</li>
+<li>六位数字组成，前三位为Label ID，后三位为自增ID</li>
+<li>结尾以小写.xml结束<br>例子：<code>rules/CVI-110001.xml</code><br>值得注意的是，六位数字的前三位代表了漏洞类型，比如上文中我的规则文件命名为CVI-110003.xml，开头为110，因此被分到了“错误的配置”这一类。</li>
+</ol>
+<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/cobra/cobra-21.png" alt="cobra-21"></p>
+<p>具体的漏洞类别分类与定制详见：<a href="http://cobra.feei.cn/labels" target="_blank" rel="external">Cobra漏洞命名分类</a>。</p>
+<h1 id="编写Rpo攻击漏洞规则"><a href="#编写Rpo攻击漏洞规则" class="headerlink" title="编写Rpo攻击漏洞规则"></a>编写Rpo攻击漏洞规则</h1><h2 id="rpo攻击"><a href="#rpo攻击" class="headerlink" title="rpo攻击"></a>rpo攻击</h2><p>rpo攻击是一种因为相对路径调用资源文件而产生的漏洞，详细见：<a href="http://blog.whiterabbitxyj.com/2018/04/02/rpo/" target="_blank" rel="external">rpo攻击浅析</a>。</p>
+<h2 id="编写规则文件"><a href="#编写规则文件" class="headerlink" title="编写规则文件"></a>编写规则文件</h2><p>由于rpo攻击属于xss攻击的一种，因此我把规则文件的名称设置成了CVE-140006.xml。规则的目的是匹配php中的使用相对路径调用js文件的语句，将其视为漏洞，提醒开发人员rpo攻击的可能性。具体规则如下：</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;cobra document=&quot;https://github.com/FeeiCN/cobra&quot;&gt;
+    &lt;name value=&quot;相对路径可能导致的rpo攻击漏洞&quot;/&gt;
+    &lt;language value=&quot;php&quot;/&gt;
+    &lt;match mode=&quot;regex-only-match&quot;&gt;
+        &lt;![CDATA[&lt;script(\s)+(.)*src(\s)*=(\s)*&quot;[^/\/{](.)*\.js&quot;(\s)*&gt;(\s)*(.)*(\s)*(&lt;/script&gt;)]]&gt;
+    &lt;/match&gt;
+    &lt;repair block=&quot;in-current-line&quot;&gt;
+        &lt;![CDATA[&lt;script(\s)+(.)*src(\s)*=(\s)*&quot;(http://|https://)(.)*\.js&quot;(\s)*&gt;(\s)*(.)*(\s)*(&lt;/script&gt;)]]&gt;
+    &lt;/repair&gt;
+    &lt;level value=&quot;3&quot;/&gt;
+    &lt;solution&gt;
+        ## 安全风险
+        js对资源进行引用时采用了相对路径，即有可能导致rpo攻击漏洞
+
+        ## 修复方案
+        使用绝对路径访问资源
+    &lt;/solution&gt;
+    &lt;test&gt;
+        &lt;case assert=&quot;true&quot;&gt;&lt;![CDATA[
+            &lt;script src = &quot;static/js/jquery.min.js&quot;&gt;&lt;/script&gt;
+        ]]&gt;&lt;/case&gt;
+    &lt;/test&gt;
+    &lt;test&gt;
+        &lt;case assert=&quot;false&quot;&gt;&lt;![CDATA[
+            &lt;script src = &quot;/static/js/jquery.min.js&quot;&gt;&lt;/script&gt;
+        ]]&gt;&lt;/case&gt;
+    &lt;/test&gt;
+    &lt;test&gt;
+        &lt;case assert=&quot;false&quot;&gt;&lt;![CDATA[
+            &lt;script src = &quot;http://1.1.1.1/static/js/jquery.min.js&quot;&gt;&lt;/script&gt;
+        ]]&gt;&lt;/case&gt;
+    &lt;/test&gt;
+    &lt;status value=&quot;on&quot;/&gt;
+    &lt;author name=&quot;whiterabbit&quot; email=&quot;whiterabbit@qq.com&quot;/&gt;
+&lt;/cobra&gt;
+</code></pre><h2 id="测试结果"><a href="#测试结果" class="headerlink" title="测试结果"></a>测试结果</h2><p>测试结果图:</p>
+<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/cobra/cobra-22.png" alt="rpo-22"></p>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><p>附上Cobra官方中文文档连接：<a href="http://cobra.feei.cn//cobra.feei.cn/labels" target="_blank" rel="external">Cobra中文文档</a>。</p>
 
       
 
@@ -273,15 +443,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">流量</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">cobra</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">加密</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">审计</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">规则</a>
         		</li>
       		
 		</ul>
@@ -342,7 +512,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/12/07/eta/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/04/19/cobra/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -356,18 +526,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/01/03/dataFrame-1/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Pandas库中Dataframe的浅析（1）
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/11/14/python-scapy-ssl_tls/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Scapy库解析数据流SSL/TLS加密</div>
+    <a href="/2018/04/02/rpo/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">RPO攻击初体验</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -394,7 +555,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一个待解决的复杂问题"><span class="toc-number">1.</span> <span class="toc-text">一个待解决的复杂问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#‘好吧，你到底需要什么？’-–-‘数据，很多很多的数据。’"><span class="toc-number">2.</span> <span class="toc-text">‘好吧，你到底需要什么？’ – ‘数据，很多很多的数据。’</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#隐藏的恶意软件与指纹"><span class="toc-number">3.</span> <span class="toc-text">隐藏的恶意软件与指纹</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#展望"><span class="toc-number">4.</span> <span class="toc-text">展望</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#十大规则字段"><span class="toc-number">1.</span> <span class="toc-text">十大规则字段</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#name字段"><span class="toc-number">1.1.</span> <span class="toc-text">name字段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#language字段"><span class="toc-number">1.2.</span> <span class="toc-text">language字段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#level字段"><span class="toc-number">1.3.</span> <span class="toc-text">level字段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#status字段"><span class="toc-number">1.4.</span> <span class="toc-text">status字段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#match字段"><span class="toc-number">1.5.</span> <span class="toc-text">match字段</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#mode属性"><span class="toc-number">1.5.1.</span> <span class="toc-text">mode属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#规则内容"><span class="toc-number">1.5.2.</span> <span class="toc-text">规则内容</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#match2字段"><span class="toc-number">1.6.</span> <span class="toc-text">match2字段</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#block属性"><span class="toc-number">1.6.1.</span> <span class="toc-text">block属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#规则2内容"><span class="toc-number">1.6.2.</span> <span class="toc-text">规则2内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多次使用"><span class="toc-number">1.6.3.</span> <span class="toc-text">多次使用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#repair字段"><span class="toc-number">1.7.</span> <span class="toc-text">repair字段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#solution字段"><span class="toc-number">1.8.</span> <span class="toc-text">solution字段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#test字段"><span class="toc-number">1.9.</span> <span class="toc-text">test字段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#author字段"><span class="toc-number">1.10.</span> <span class="toc-text">author字段</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#规则文件命名"><span class="toc-number">2.</span> <span class="toc-text">规则文件命名</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#编写Rpo攻击漏洞规则"><span class="toc-number">3.</span> <span class="toc-text">编写Rpo攻击漏洞规则</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#rpo攻击"><span class="toc-number">3.1.</span> <span class="toc-text">rpo攻击</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编写规则文件"><span class="toc-number">3.2.</span> <span class="toc-text">编写规则文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试结果"><span class="toc-number">3.3.</span> <span class="toc-text">测试结果</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#其他"><span class="toc-number">4.</span> <span class="toc-text">其他</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -410,7 +571,7 @@
   
 
   
-  <div id="SOHUCS" sid="eta" ></div> 
+  <div id="SOHUCS" sid="cobra" ></div> 
 <script type="text/javascript"> 
 window.YiliaChangyanWrap = function() {
     var appid = "cytj4oNi1"; 

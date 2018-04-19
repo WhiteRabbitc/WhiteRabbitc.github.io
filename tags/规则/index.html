@@ -6,25 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>对战加密的恶意流量：将机器学习应用到恶意软件识别中去 | WhiteRabbit的博客</title>
+  <title>Tag: 规则 | WhiteRabbit的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="从2015年开始，思科信息安全团队中一位名叫Rich West的系统架构师就一直在与思科高级安全研究小组的一名工程师尝试去解决一个非常新颖的问题：思科信息安全团队希望能够找到一种方法来更好地保护思科员工的信息安全，并防止恶意软件通过加密流量窃取员工的个人隐私数据。但当时似乎只有一种可行的方法，即通过设置代理并解密通信数据来检查所有的SSL和TLS流量。">
-<meta name="keywords" content="流量,加密,机器学习">
-<meta property="og:type" content="article">
-<meta property="og:title" content="对战加密的恶意流量：将机器学习应用到恶意软件识别中去">
-<meta property="og:url" content="http://yoursite.com/2017/12/07/eta/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="WhiteRabbit的博客">
+<meta property="og:url" content="http://yoursite.com/tags/规则/index.html">
 <meta property="og:site_name" content="WhiteRabbit的博客">
-<meta property="og:description" content="从2015年开始，思科信息安全团队中一位名叫Rich West的系统架构师就一直在与思科高级安全研究小组的一名工程师尝试去解决一个非常新颖的问题：思科信息安全团队希望能够找到一种方法来更好地保护思科员工的信息安全，并防止恶意软件通过加密流量窃取员工的个人隐私数据。但当时似乎只有一种可行的方法，即通过设置代理并解密通信数据来检查所有的SSL和TLS流量。">
-<meta property="og:image" content="http://image.3001.net/images/20170627/14984994806220.jpg">
-<meta property="og:image" content="http://image.3001.net/images/20170627/14984995004202.png">
-<meta property="og:image" content="http://image.3001.net/images/20170627/14984995202493.png">
-<meta property="og:image" content="http://image.3001.net/images/20170627/14984995304854.jpg">
-<meta property="og:image" content="http://image.3001.net/images/20170627/14984995445404.png">
-<meta property="og:updated_time" content="2017-07-02T01:28:52.587Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="对战加密的恶意流量：将机器学习应用到恶意软件识别中去">
-<meta name="twitter:description" content="从2015年开始，思科信息安全团队中一位名叫Rich West的系统架构师就一直在与思科高级安全研究小组的一名工程师尝试去解决一个非常新颖的问题：思科信息安全团队希望能够找到一种方法来更好地保护思科员工的信息安全，并防止恶意软件通过加密流量窃取员工的个人隐私数据。但当时似乎只有一种可行的方法，即通过设置代理并解密通信数据来检查所有的SSL和TLS流量。">
-<meta name="twitter:image" content="http://image.3001.net/images/20170627/14984994806220.jpg">
+<meta name="twitter:title" content="WhiteRabbit的博客">
   
     <link rel="alternative" href="/atom.xml" title="WhiteRabbit的博客" type="application/atom+xml">
   
@@ -161,270 +150,68 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-eta" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      对战加密的恶意流量：将机器学习应用到恶意软件识别中去
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/04/19/cobra/" class="archive-article-date">
+  	<time datetime="2018-04-19T03:39:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-19</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/04/19/cobra/">Cobra静态白盒审计工具规则编写基础</a>
     </h1>
   
 
-        
-        <a href="/2017/12/07/eta/" class="archive-article-date">
-  	<time datetime="2017-12-07T03:39:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-07</time>
-</a>
-        
-      </header>
-    
-
-<!-- 目录内容 -->
-    
-    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
-          <span class="btn-bg"></span>
-          <span class="btn-text">文章导航</span>
-          </p>
-	<div id="toc-article" class="toc-article">
-	    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
-		<strong class="toc-title">文章目录</strong>
-           <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一个待解决的复杂问题"><span class="toc-number">1.</span> <span class="toc-text">一个待解决的复杂问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#‘好吧，你到底需要什么？’-–-‘数据，很多很多的数据。’"><span class="toc-number">2.</span> <span class="toc-text">‘好吧，你到底需要什么？’ – ‘数据，很多很多的数据。’</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#隐藏的恶意软件与指纹"><span class="toc-number">3.</span> <span class="toc-text">隐藏的恶意软件与指纹</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#展望"><span class="toc-number">4.</span> <span class="toc-text">展望</span></a></li></ol>
-         </div>
-   <script type="text/javascript">
-	function showToc(){
-		var toc_article = document.getElementById("toc-article");
-		var show_toc_btn = document.getElementById("show-toc-btn");
-		toc_article.setAttribute("style","display:block");
-		show_toc_btn.setAttribute("style","display:none");
-		};
-	function showBtn(){
-		var toc_article = document.getElementById("toc-article");
-		var show_toc_btn = document.getElementById("show-toc-btn");
-		toc_article.setAttribute("style","display:none");
-		show_toc_btn.setAttribute("style","display:block");
-		};
-   </script>
-      
-<!-- 目录内容结束 -->
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>从2015年开始，思科信息安全团队中一位名叫Rich West的系统架构师就一直在与思科高级安全研究小组的一名工程师尝试去解决一个非常新颖的问题：思科信息安全团队希望能够找到一种方法来更好地保护思科员工的信息安全，并防止恶意软件通过加密流量窃取员工的个人隐私数据。但当时似乎只有一种可行的方法，即通过设置代理并解密通信数据来检查所有的SSL和TLS流量。</p>
-<a id="more"></a>
-<p>如果是在恶意活动中，那么上述这种“可行方法”就是我们常说的中间人（MitM）攻击。但即便是出于安全防御端的角度来看，这种方法仍然会被视为一种侵犯用户隐私的行为，因为当用户需要向银行或加密邮件服务发送加密通讯信息时，上面的这种方法就会破坏加密信任链，从而导致用户隐私受到侵害。除此之外，这种方法的计算量也非常高，而且高到足以造成网络性能的大幅下降，更不用说管理额外的SSL证书（流量被检查之后需要重新签名）所带来的性能负担了。</p>
-<p>Rich West和他的团队最终认为，这种以牺牲隐私权和网络性能为代价来换取安全性的方法是不值当的。因此，他们需要一种新的方法，他们需要一种不涉及到向检查节点发送内部流量的方法。为了解决这个问题，West与思科工程师David McGrew取得了联系。</p>
-<h1 id="一个待解决的复杂问题"><a href="#一个待解决的复杂问题" class="headerlink" title="一个待解决的复杂问题"></a>一个待解决的复杂问题</h1><p>McGrew是思科高级安全研究小组的一员，他和他的团队一直都在研究如何使用NetFlows配合新的算法来检测恶意软件。当West将他的需求（设计一种新的方法在加密数据中识别恶意攻击）告知了McGrew的团队之后，这个耗时长达两年的项目便诞生了，而且该项目现在已接近完工。这个项目集合了多款新型网络产品和软件，旨在从根本上改变现代网络的底层架构和驱动模型，而思科在本周已经正式对外公布了该项目。<br><img src="http://image.3001.net/images/20170627/14984994806220.jpg" alt="working"><br>McGrew和他的团队所开发来的这种模型名叫Encrypted Traffic Analytics（ETA），即加密流量分析模型。思科公司手中掌握有庞大的网络资源和数据资源，思科也一直希望将手中的这些资源结合自动化技术以及机器学习来实现无处不在的安全保护，而ETA模型的出现让思科离这个目标近了一大步。</p>
-<p>数据加密通常都会被认为是一件好事，因为加密不仅能够保证网络交易和聊天的私密性，而且也可以防止攻击者（中间人攻击）窥探或篡改用户的网络通信数据。</p>
-<p>随着越来越多的企业环境开始使用云服务，这也让Google和Mozilla这样的公司开始强制网站去使用TLS等安全传输协议了。各大浏览器厂商首先要求所有的加密流量必须由受信任的证书机构（CA）所颁发的证书来进行签名，而相关机构也在努力试图通过简化证书申请以及流量加密等过程来推广TLS的使用。但正是因为加密所需的成本降低了，而且几乎毫无成本，所以很多网络攻击者也开始通过普通的TLS或SSL流量来试图掩盖他们的恶意命令、远程控制行为以及数据窃取活动。</p>
-<p>想要在普通流量中检测恶意软件的活动本身就是一件非常复杂的事情，而且还涉及到海量数据分析等情况，再加上TLS和SSL等加密协议的出现，使得目前所面临的挑战难上加难。但对于McGrew来说，这正是让他激动不已的地方。</p>
-<p>NetFlow中包含有大量有价值的信息，但它也会受到一定的语境限制。它可以表示网络上的两台设备正在交互，以及通信时长和发送的字节数等等，但这些数据毕竟还是不完整的。McGrew认为，隐私和安全并不应该是必须二选一的，为了解决这个复杂的问题，他不仅需要从头开始，而且还需要涉及到大量代码和密集的数据建模。<br><img src="http://image.3001.net/images/20170627/14984995004202.png" alt="eta2"></p>
-<h1 id="‘好吧，你到底需要什么？’-–-‘数据，很多很多的数据。’"><a href="#‘好吧，你到底需要什么？’-–-‘数据，很多很多的数据。’" class="headerlink" title="‘好吧，你到底需要什么？’ – ‘数据，很多很多的数据。’"></a>‘好吧，你到底需要什么？’ – ‘数据，很多很多的数据。’</h1><p>这个项目需要大量的资源，所以McGrew首先想到了思科的技术投资基金（Tech Fund）。思科的“Tech Fund”项目通常投资的都是那些能够改变现状的新型产品或高新技术，而且这些项目通常都需要好几年的开发时间。</p>
-<p>就算有了资金做保障，但在真正形成项目并开始编码之前，McGrew还需要从思科的网络系统中获取数据分析样本，包括恶意软件样本在内。为了解决这个问题，McGrew在2015年3月份邀请了Blake Anderson加入。Anderson是一名拥有博士学位的数据科学家，他主要研究的是机器学习在网络安全中的应用。当时，他也正在与美国洛斯阿拉莫斯国家实验室一起研究如何将机器学习方法应用到恶意软件的分析过程中。</p>
-<p>当Anderson加入到思科这个团队时，McGrew的团队正在开发相应的分析工具，而且他们已经可以通过NetFlow数据来识别出具体的应用程序了。比如说，他们可以识别出NetFlow数据是来源于Chrome浏览器还是来源于微软的更新服务，不过他们还没有将这项技术应用到针对恶意软件的数据分析活动中。</p>
-<p>为了获取到分析样本，Anderson以及McGrew的团队几乎与思科公司的每一个产品部门都沟通过，包括内部信息安全团队、Talos威胁情报小组和ThreatGRID团队等等。在花费了几个月的时间编写了一万多行代码之后，McGrew和Anderson便开始将他们的数据模型应用到实际的测试中。在获取到了数百万的数据包和已知的恶意软件样本之后，Anderson开始尝试在不进行任何解密的情况下对海量数据进行筛选和归类，并通过“最具描述性的特征”来识别出恶意流量和正常流量。<br><img src="http://image.3001.net/images/20170627/14984995202493.png" alt="eta3"><br>Anderson表示：“我认为收集正确的数据才是最重要的。很多人会在收集到了大量数据之后才去考虑他们能用这些数据去做什么，但我们打算采取相反的做法，我们会列出我们所需要的数据类型，然后再从思科的其他产品团队那里收集这些数据。”</p>
-<h1 id="隐藏的恶意软件与指纹"><a href="#隐藏的恶意软件与指纹" class="headerlink" title="隐藏的恶意软件与指纹"></a>隐藏的恶意软件与指纹</h1><p>如果网站拥有权威CA签发的TLS证书，这意味着用户可以放心地访问这个网站，但这并非绝对。据了解，至少从2009年起，很多攻击者就开始通过使用伪造的、窃取来的、甚至是合法的SSL签名证书来欺骗互联网的信任系统。这样一来，攻击者就可以通过安全证书来诱使用户交出自己的登录凭证或下载恶意Payload。</p>
-<p>在过去的几个月里，滥用合法TLS证书的攻击事件数量呈上升趋势，这很可能是由于类似Let’s Encrypt这样的CA机构开始免费签发TLS证书所导致的。这也就意味着，网络钓鱼攻击者将能够轻而易举地制作出足以以假乱真的PayPal或比特币钱包钓鱼网站。比如说，下图所示的就是一个使用了免费加密证书的钓鱼网站：<br><img src="http://image.3001.net/images/20170627/14984995304854.jpg" alt="eta4"><br>事实证明，降低密钥的获取难度确实是一把双刃剑</p>
-<p>Rich West认为，从某种程度上来说，他们的成功是以牺牲其他安全部门作为代价的。他们一直在敦促IT公司、厂商和App开发者通过加密技术来保证数据的安全，但这样也增加了处理这些加密数据的难度。不过幸运的是，通过对数百万TLS数据流、恶意软件样本和数据包进行了分析之后，Anderson和McGrew发现TLS数据流中未加密的元数据包含攻击者无法隐藏的数据指纹，而且即使数据经过加密也无法隐藏这种指纹。TLS擅长的就是隐藏明文信息，但它所创建出来的还有一系列可观测的复杂参数，而McGrew和Anderson这样的工程师就可以用这些数据来训练他们的模型了。</p>
-<p>比如说，当一段TLS流量开始发送时，首先从一个握手包开始。客户端（比如说Chrome浏览器）会给其尝试通信的服务器发送ClientHello消息。“Hello”消息包含一组参数，例如使用的密码套件、接受的版本以及可选的扩展。但类似“ClientHello”这样的TLS元数据是没有被加密的，因为它们在消息开始加密之前就发送出去了。这也就意味着，Anderson的模型可以在完全不知道消息内部数据的情况下对这些未加密的数据进行分析，而该模型将准确地分辨出该流量来自于恶意软件还是普通活动。<br><img src="http://image.3001.net/images/20170627/14984995445404.png" alt="eta5"></p>
-<h1 id="展望"><a href="#展望" class="headerlink" title="展望"></a>展望</h1><p>Anderson表示，他希望ETA能够通过软件代码更新等形式应用到任何地方，并给网络上的任何设备提供恶意软件识别服务，因为ETA的目标就是让任何需要处理网络数据的设备都变成安全设备。Anderson说到：“我们接下来会想办法将我们的技术应用到路由器和交换机上，这是非常有意义的。在这个过程中，我们依然可以通过云端来训练我们的模型，并将机器学习与网络层联系起来。”</p>
-<p>*译文转载自FreeBuf.COM，英文原文来源：<a href="https://continuum.cisco.com/2017/06/20/security-without-compromise-how-cisco-engineers-used-machine-learning-to-solve-an-impossible-problem/" target="_blank" rel="external">swc</a>，ETA项目开源地址：<a href="https://github.com/cisco/joy" target="_blank" rel="external">cisco</a>。</p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃萝卜<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="https://whiterabbitc.github.io/img/zhifubao.png">
-                      <span class="reward-type">支付宝^_^</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="https://whiterabbitc.github.io/img/weixin.png">
-                      <span class="reward-type">微信0_0</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">流量</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">cobra</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">加密</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">审计</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">规则</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
-      <span id="busuanzi_container_page_pv">
-	  | 阅读量(<span id="busuanzi_value_page_pv"></span>)
-      </span>
-      
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/12/07/eta/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2018/01/03/dataFrame-1/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Pandas库中Dataframe的浅析（1）
-        
-      </div>
-    </a>
   
   
-    <a href="/2017/11/14/python-scapy-ssl_tls/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Scapy库解析数据流SSL/TLS加密</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一个待解决的复杂问题"><span class="toc-number">1.</span> <span class="toc-text">一个待解决的复杂问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#‘好吧，你到底需要什么？’-–-‘数据，很多很多的数据。’"><span class="toc-number">2.</span> <span class="toc-text">‘好吧，你到底需要什么？’ – ‘数据，很多很多的数据。’</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#隐藏的恶意软件与指纹"><span class="toc-number">3.</span> <span class="toc-text">隐藏的恶意软件与指纹</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#展望"><span class="toc-number">4.</span> <span class="toc-text">展望</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-  <div id="SOHUCS" sid="eta" ></div> 
-<script type="text/javascript"> 
-window.YiliaChangyanWrap = function() {
-    var appid = "cytj4oNi1"; 
-    var conf = "956774aadd9557459092650701f47376"; 
-    var width = window.innerWidth || document.documentElement.clientWidth; 
-    if (width < 960) { 
-    window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("//changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); }
-}
-</script>
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -457,9 +244,9 @@ window.YiliaChangyanWrap = function() {
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
