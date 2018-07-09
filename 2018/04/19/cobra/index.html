@@ -8,13 +8,13 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Cobra静态白盒审计工具规则编写基础 | WhiteRabbit的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="眼镜蛇(Cobra)是一款定位于静态代码安全分析的工具，目标是为了找出源代码中存在的安全隐患或者漏洞。由于开发人员的技术水平和安全意识各不相同，导致可能开发出一些存在安全漏洞的代码。 攻击者可以通过渗透测试来找到这些漏洞，从而导致应用被攻击、服务器被入侵、数据被下载、业务受到影响等等问题。 “源代码安全审计”是指通过审计发现源代码中的安全隐患和漏洞，而Cobra可将这个流程自动化。而本文主要讲解如">
+  <meta name="description" content="眼镜蛇(Cobra)是一款定位于静态代码安全分析的工具，目标是为了找出源代码中存在的安全隐患或者漏洞。由于开发人员的技术水平和安全意识各不相同，导致可能开发出一些存在安全漏洞的代码。">
 <meta name="keywords" content="cobra,审计,规则">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Cobra静态白盒审计工具规则编写基础">
 <meta property="og:url" content="http://yoursite.com/2018/04/19/cobra/index.html">
 <meta property="og:site_name" content="WhiteRabbit的博客">
-<meta property="og:description" content="眼镜蛇(Cobra)是一款定位于静态代码安全分析的工具，目标是为了找出源代码中存在的安全隐患或者漏洞。由于开发人员的技术水平和安全意识各不相同，导致可能开发出一些存在安全漏洞的代码。 攻击者可以通过渗透测试来找到这些漏洞，从而导致应用被攻击、服务器被入侵、数据被下载、业务受到影响等等问题。 “源代码安全审计”是指通过审计发现源代码中的安全隐患和漏洞，而Cobra可将这个流程自动化。而本文主要讲解如">
+<meta property="og:description" content="眼镜蛇(Cobra)是一款定位于静态代码安全分析的工具，目标是为了找出源代码中存在的安全隐患或者漏洞。由于开发人员的技术水平和安全意识各不相同，导致可能开发出一些存在安全漏洞的代码。">
 <meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/cobra/cobra-2.png">
 <meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/cobra/cobra-3.png">
 <meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/cobra/cobra-4.png">
@@ -34,10 +34,10 @@
 <meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/cobra/cobra-20.png">
 <meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/cobra/cobra-21.png">
 <meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/cobra/cobra-22.png">
-<meta property="og:updated_time" content="2018-04-19T09:52:15.984Z">
+<meta property="og:updated_time" content="2018-04-19T09:56:13.540Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Cobra静态白盒审计工具规则编写基础">
-<meta name="twitter:description" content="眼镜蛇(Cobra)是一款定位于静态代码安全分析的工具，目标是为了找出源代码中存在的安全隐患或者漏洞。由于开发人员的技术水平和安全意识各不相同，导致可能开发出一些存在安全漏洞的代码。 攻击者可以通过渗透测试来找到这些漏洞，从而导致应用被攻击、服务器被入侵、数据被下载、业务受到影响等等问题。 “源代码安全审计”是指通过审计发现源代码中的安全隐患和漏洞，而Cobra可将这个流程自动化。而本文主要讲解如">
+<meta name="twitter:description" content="眼镜蛇(Cobra)是一款定位于静态代码安全分析的工具，目标是为了找出源代码中存在的安全隐患或者漏洞。由于开发人员的技术水平和安全意识各不相同，导致可能开发出一些存在安全漏洞的代码。">
 <meta name="twitter:image" content="http://oz1sa62oq.bkt.clouddn.com/image/cobra/cobra-2.png">
   
     <link rel="alternative" href="/atom.xml" title="WhiteRabbit的博客" type="application/atom+xml">
@@ -224,8 +224,9 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p>眼镜蛇(Cobra)是一款定位于静态代码安全分析的工具，目标是为了找出源代码中存在的安全隐患或者漏洞。<br>由于开发人员的技术水平和安全意识各不相同，导致可能开发出一些存在安全漏洞的代码。 攻击者可以通过渗透测试来找到这些漏洞，从而导致应用被攻击、服务器被入侵、数据被下载、业务受到影响等等问题。 “源代码安全审计”是指通过审计发现源代码中的安全隐患和漏洞，而Cobra可将这个流程自动化。<br>而本文主要讲解如何进行Cobra的规则库编写，希望对cobra有定制需求的朋友有所帮助。</p>
+        <p>眼镜蛇(Cobra)是一款定位于静态代码安全分析的工具，目标是为了找出源代码中存在的安全隐患或者漏洞。<br>由于开发人员的技术水平和安全意识各不相同，导致可能开发出一些存在安全漏洞的代码。</p>
 <a id="more"></a>
+<p>攻击者可以通过渗透测试来找到这些漏洞，从而导致应用被攻击、服务器被入侵、数据被下载、业务受到影响等等问题。 “源代码安全审计”是指通过审计发现源代码中的安全隐患和漏洞，而Cobra可将这个流程自动化。<br>而本文主要讲解如何进行Cobra的规则库编写，希望对cobra有定制需求的朋友有所帮助。</p>
 <h1 id="十大规则字段"><a href="#十大规则字段" class="headerlink" title="十大规则字段"></a>十大规则字段</h1><p>Cobra的规则文件格式是xml，因此在文件的开头往往需要声明版本和编码，然后以&lt; cobra >标签表明这是个cobra的规则文件：</p>
 <p><img src="http://oz1sa62oq.bkt.clouddn.com/image/cobra/cobra-2.png" alt="cobra-2"></p>
 <p>而规则的具体内容就写在&lt; cobra >标签内，而Cobra提供了十种字段来让开发者描述规则，接下来我将详细讲解这十大规则字段。</p>
@@ -688,6 +689,18 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">渗透</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">WAF</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">博客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">cobra</a>
               </li>
              
@@ -712,7 +725,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">博客</a>
+                <a href="javascript:void(0)" class="js-tag color1">sql注入</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ctf</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -721,6 +738,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">搜索</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -736,31 +757,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">渗透</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">WAF</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">xss</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">RPO</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ctf</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">sql注入</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">搜索</a>
               </li>
             
             <div class="clearfix"></div>
