@@ -26,7 +26,7 @@
 <meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/scrapy/scrapy-9.png">
 <meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/scrapy/scrapy-10.png">
 <meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/scrapy/scrapy-11.png">
-<meta property="og:updated_time" content="2018-07-09T10:05:30.710Z">
+<meta property="og:updated_time" content="2018-07-12T08:32:37.721Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从零开始接触Scrapy爬虫框架到构建一个通用实用型模板">
 <meta name="twitter:description" content="爬虫是网络信息收集最重要的工具之一，而我之前一直都用自己手写的爬虫，感觉挺好用也一直没学爬虫框架。由于研究需要，最近又要接触爬虫，于是索性学了一下爬虫框架Scrapy，看看为什么这么多人支持该框架，他又给我们编写爬虫带来了哪些便捷。">
@@ -318,11 +318,11 @@ def parse(self, response):
 </code></pre><p>虽然可以直接在Spider的parse中直接进行数据存储等操作，但本文建议使用Item Pipeline进行数据操作，这样能够使整个框架分工更加明确与合理。在Item Pipeline中处理数据的代码如下：</p>
 <pre><code>class MalwarePipeline(object):
 def process_item(self, item, spider):
-    filename = &quot;test&quot;
-    with open(filename, &apos;wb&apos;) as f:
-        f.write(item[&apos;url&apos;]+&apos;\n&apos;)
-        f.write(item[&apos;name&apos;]+&apos;\n&apos;)
-        f.write(item[&apos;title&apos;][0])
+        filename = &quot;test&quot;
+        with open(filename, &apos;wb&apos;) as f:
+    f.write(item[&apos;url&apos;]+&apos;\n&apos;)
+    f.write(item[&apos;name&apos;]+&apos;\n&apos;)
+    f.write(item[&apos;title&apos;][0])
     return item
 </code></pre><p>可以看到Pipeline主要运行函数是process_item，其会自动调用，而我们也主要在该函数中实现对数据的操作。上面的代码进行了一个简单的操作，新建一个test文件来存储从Spider传递过来的Item数据，运行的结果如下：</p>
 <p><img src="http://oz1sa62oq.bkt.clouddn.com/image/scrapy/scrapy-5.png" alt="scrapy-5"></p>
@@ -755,14 +755,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安全</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">cobra</a>
               </li>
              
@@ -772,14 +764,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">规则</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">sql注入</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ctf</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -795,11 +779,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">渗透</a>
+                <a href="javascript:void(0)" class="js-tag color3">安全</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">WAF</a>
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -815,11 +799,31 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ctf</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">渗透</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">WAF</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">搜索</a>
+                <a href="javascript:void(0)" class="js-tag color2">scrapy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">sql注入</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -831,11 +835,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">scrapy</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+                <a href="javascript:void(0)" class="js-tag color3">搜索</a>
               </li>
             
             <div class="clearfix"></div>
