@@ -26,7 +26,7 @@
 <meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/scrapy/scrapy-9.png">
 <meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/scrapy/scrapy-10.png">
 <meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/scrapy/scrapy-11.png">
-<meta property="og:updated_time" content="2018-07-18T13:54:17.544Z">
+<meta property="og:updated_time" content="2018-09-01T02:08:52.761Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从零开始接触Scrapy爬虫框架到构建一个通用实用型模板">
 <meta name="twitter:description" content="爬虫是网络信息收集最重要的工具之一，而我之前一直都用自己手写的爬虫，感觉挺好用也一直没学爬虫框架。由于研究需要，最近又要接触爬虫，于是索性学了一下爬虫框架Scrapy，看看为什么这么多人支持该框架，他又给我们编写爬虫带来了哪些便捷。">
@@ -260,10 +260,10 @@ class malwareSpider(scrapy.Spider):
         &apos;http://www.malware-traffic-analysis.net/2018/index.html&apos;
     ]
 
-def parse(self, response):
-    filename = response.url.split(&quot;/&quot;)[-2]
-    with open(filename, &apos;wb&apos;) as f:
-        f.write(response.body)
+    def parse(self, response):
+        filename = response.url.split(&quot;/&quot;)[-2]
+        with open(filename, &apos;wb&apos;) as f:
+            f.write(response.body)
 </code></pre><p>简单解释一下上面的demo，首先定义了一个类去继承Spider类，并在这个类中实现具体的爬虫功能，其中参数解释如下：<br>（1）name：爬虫的名字，在启动爬虫的时候需要用到<br>（2）allowed_domains：爬虫可行域，定义了爬虫允许的爬取域<br>（3）start_urls：定义了初始url的列表，爬虫会依次爬取<br>而对于parse函数，这是Spider类中最重要的一个函数，其是一个回调函数，在每个下载器完成下载后，会将数据内容封装成一个Response，并将其传递给parse函数进行处理。在上面的demo中，parse就进行了一个简单的处理，截取url内容并以此为名保存在本地。我们在爬虫根目录使用下列命令启动爬虫看看效果：</p>
 <pre><code>scrapy crawl malware
 </code></pre><p>主要注意的是，本命令需要在根目录执行，就是存在<strong>scrapy.cfg</strong>文件的目录，且最后一个参数是你爬虫的名字，如我定义的爬虫名字（name）就是malware，爬虫运行过程如下:</p>
@@ -289,11 +289,11 @@ class malwareSpider(scrapy.Spider):
         &apos;http://www.malware-traffic-analysis.net/2018/index.html&apos;
     ]
 
-def parse(self, response):
-    sel = scrapy.Selector(response)
-    url = response.url
-    title = sel.xpath(&apos;//title/text()&apos;).extract() #抓取title内容
-    name = self.allowed_domains[0]
+    def parse(self, response):
+        sel = scrapy.Selector(response)
+        url = response.url
+        title = sel.xpath(&apos;//title/text()&apos;).extract() #抓取title内容
+        name = self.allowed_domains[0]
 </code></pre><h3 id="3-2-使用Item"><a href="#3-2-使用Item" class="headerlink" title="3.2 使用Item"></a>3.2 使用Item</h3><p>在上面的源码中，我们已经实现了数据的提取，现在我们要把它存储到Item类中，实现的具体代码如下：</p>
 <pre><code>import scrapy
 from malware.items import MalwareItem 
@@ -305,25 +305,25 @@ class malwareSpider(scrapy.Spider):
         &apos;http://www.malware-traffic-analysis.net/2018/index.html&apos;
     ]
 
-def parse(self, response):
-    sel = scrapy.Selector(response)
-    items = MalwareItem()
-    item[&apos;url&apos;] = response.url
-    item[&apos;title&apos;] = sel.xpath(&apos;//title/text()&apos;).extract()
-    item[&apos;name&apos;] = self.allowed_domains[0]
-    return item
+    def parse(self, response):
+        sel = scrapy.Selector(response)
+        items = MalwareItem()
+        item[&apos;url&apos;] = response.url
+        item[&apos;title&apos;] = sel.xpath(&apos;//title/text()&apos;).extract()
+        item[&apos;name&apos;] = self.allowed_domains[0]
+        return item
 </code></pre><p>可以看到，我们调用了MalwareItem类，并将提取出的数据都存入了item容器中，最后将其返回。</p>
 <h2 id="4-使用Item-Pipeline"><a href="#4-使用Item-Pipeline" class="headerlink" title="4. 使用Item Pipeline"></a>4. 使用Item Pipeline</h2><p>看到这里有些人会产生疑惑，上面的代码中，item被返回，那究竟返回到了哪呢？答案是Item Pipeline。值得一提的是，虽然Item Pipeline是五大模块之一，却并不是必须实现的模块，你可以直接在Spider的parse中直接进行数据存储等工作，且Spider默认状态下是关闭Item Pipeline的，你想要使用其必须在setting中加入一句代码来激活Item Pipeline：</p>
 <pre><code>ITEM_PIPELINES = {&apos;malware.pipelines.MalwarePipeline&apos;: 1}
 </code></pre><p>虽然可以直接在Spider的parse中直接进行数据存储等操作，但本文建议使用Item Pipeline进行数据操作，这样能够使整个框架分工更加明确与合理。在Item Pipeline中处理数据的代码如下：</p>
 <pre><code>class MalwarePipeline(object):
-def process_item(self, item, spider):
+    def process_item(self, item, spider):
         filename = &quot;test&quot;
         with open(filename, &apos;wb&apos;) as f:
-    f.write(item[&apos;url&apos;]+&apos;\n&apos;)
-    f.write(item[&apos;name&apos;]+&apos;\n&apos;)
-    f.write(item[&apos;title&apos;][0])
-    return item
+            f.write(item[&apos;url&apos;]+&apos;\n&apos;)
+            f.write(item[&apos;name&apos;]+&apos;\n&apos;)
+            f.write(item[&apos;title&apos;][0])
+        return item
 </code></pre><p>可以看到Pipeline主要运行函数是process_item，其会自动调用，而我们也主要在该函数中实现对数据的操作。上面的代码进行了一个简单的操作，新建一个test文件来存储从Spider传递过来的Item数据，运行的结果如下：</p>
 <p><img src="http://oz1sa62oq.bkt.clouddn.com/image/scrapy/scrapy-5.png" alt="scrapy-5"></p>
 <p><img src="http://oz1sa62oq.bkt.clouddn.com/image/scrapy/scrapy-6.png" alt="scrapy-6"></p>
@@ -593,6 +593,15 @@ class malwareSpider(CrawlSpider):
   
 <nav id="article-nav">
   
+    <a href="/2018/08/31/V2Ray/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          新一代科学上网利器：V2Ray扫盲教程
+        
+      </div>
+    </a>
+  
   
     <a href="/2018/06/12/ctf-zh/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">南京邮电大学网络攻防训练平台web综合题专栏</div>
@@ -755,19 +764,23 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">科学上网</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">V2Ray</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">代理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">渗透</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">WAF</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">sql注入</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ctf</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -779,31 +792,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">cobra</a>
+                <a href="javascript:void(0)" class="js-tag color1">sql注入</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">审计</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">规则</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">流量</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">加密</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">搜索</a>
+                <a href="javascript:void(0)" class="js-tag color4">ctf</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -819,15 +812,31 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">cobra</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">审计</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">规则</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">xss</a>
+                <a href="javascript:void(0)" class="js-tag color3">流量</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPO</a>
+                <a href="javascript:void(0)" class="js-tag color3">加密</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -836,6 +845,18 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">搜索</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">xss</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RPO</a>
               </li>
             
             <div class="clearfix"></div>
