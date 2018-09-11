@@ -6,15 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Malware Detection By Analysing Encrypted Network Traffic with Neural Networks | WhiteRabbit的博客</title>
+  <title>基于神经网络的加密网络流量分析恶意软件检测 | WhiteRabbit的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="论文：基于神经网络的加密网络流量分析恶意软件检测作者：Paul Prasse, Lukas Machlica, Tomas Pevny, Jirı Havelka, Tobias Scheffer地区：欧洲，德国时间：2017来源：EI">
+  <meta name="description" content="论文：Malware Detection By Analysing Encrypted Network Traffic with Neural Networks作者：Prasse, Paul; Machlica, Lukáš; Pevný, Tomáš; Havelka, Jiří; Scheffer, Tobias地区：欧洲，德国时间：2017来源：EI">
 <meta name="keywords" content="学术,论文">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Malware Detection By Analysing Encrypted Network Traffic with Neural Networks">
+<meta property="og:title" content="基于神经网络的加密网络流量分析恶意软件检测">
 <meta property="og:url" content="http://yoursite.com/2018/09/05/xueshu/index.html">
 <meta property="og:site_name" content="WhiteRabbit的博客">
-<meta property="og:description" content="论文：基于神经网络的加密网络流量分析恶意软件检测作者：Paul Prasse, Lukas Machlica, Tomas Pevny, Jirı Havelka, Tobias Scheffer地区：欧洲，德国时间：2017来源：EI">
+<meta property="og:description" content="论文：Malware Detection By Analysing Encrypted Network Traffic with Neural Networks作者：Prasse, Paul; Machlica, Lukáš; Pevný, Tomáš; Havelka, Jiří; Scheffer, Tobias地区：欧洲，德国时间：2017来源：EI">
 <meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/xs/xs1.png">
 <meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/xs/xs2.png">
 <meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/xs/xs3.png">
@@ -28,10 +28,10 @@
 <meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/xs/xs11.png">
 <meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/xs/xs12.png">
 <meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/xs/xs13.png">
-<meta property="og:updated_time" content="2018-09-08T03:50:22.334Z">
+<meta property="og:updated_time" content="2018-09-11T13:56:28.432Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Malware Detection By Analysing Encrypted Network Traffic with Neural Networks">
-<meta name="twitter:description" content="论文：基于神经网络的加密网络流量分析恶意软件检测作者：Paul Prasse, Lukas Machlica, Tomas Pevny, Jirı Havelka, Tobias Scheffer地区：欧洲，德国时间：2017来源：EI">
+<meta name="twitter:title" content="基于神经网络的加密网络流量分析恶意软件检测">
+<meta name="twitter:description" content="论文：Malware Detection By Analysing Encrypted Network Traffic with Neural Networks作者：Prasse, Paul; Machlica, Lukáš; Pevný, Tomáš; Havelka, Jiří; Scheffer, Tobias地区：欧洲，德国时间：2017来源：EI">
 <meta name="twitter:image" content="http://oz1sa62oq.bkt.clouddn.com/image/xs/xs1.png">
   
     <link rel="alternative" href="/atom.xml" title="WhiteRabbit的博客" type="application/atom+xml">
@@ -176,7 +176,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Malware Detection By Analysing Encrypted Network Traffic with Neural Networks
+      基于神经网络的加密网络流量分析恶意软件检测
     </h1>
   
 
@@ -197,7 +197,7 @@
 	<div id="toc-article" class="toc-article">
 	    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
 		<strong class="toc-title">文章目录</strong>
-           <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#介绍"><span class="toc-number">1.</span> <span class="toc-text">介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#恶意软件的目的"><span class="toc-number">1.1.</span> <span class="toc-text">恶意软件的目的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网络流量分析的作用"><span class="toc-number">1.2.</span> <span class="toc-text">网络流量分析的作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么要对加密网络流量进行分析"><span class="toc-number">1.3.</span> <span class="toc-text">为什么要对加密网络流量进行分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTPS与网络监控工具"><span class="toc-number">1.4.</span> <span class="toc-text">HTTPS与网络监控工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何提取主机域名特征"><span class="toc-number">1.5.</span> <span class="toc-text">如何提取主机域名特征</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#选用哪些机器学习模型"><span class="toc-number">1.6.</span> <span class="toc-text">选用哪些机器学习模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何处理机器学习中数据标签问题"><span class="toc-number">1.7.</span> <span class="toc-text">如何处理机器学习中数据标签问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#小结"><span class="toc-number">1.8.</span> <span class="toc-text">小结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#相关工作"><span class="toc-number">2.</span> <span class="toc-text">相关工作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP-logs"><span class="toc-number">2.1.</span> <span class="toc-text">HTTP logs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTPS-logs"><span class="toc-number">2.2.</span> <span class="toc-text">HTTPS logs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#神经网络（LSMTS）"><span class="toc-number">2.3.</span> <span class="toc-text">神经网络（LSMTS）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#小结-1"><span class="toc-number">2.4.</span> <span class="toc-text">小结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#操作环境"><span class="toc-number">3.</span> <span class="toc-text">操作环境</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#CWS服务"><span class="toc-number">3.1.</span> <span class="toc-text">CWS服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据采集"><span class="toc-number">3.2.</span> <span class="toc-text">数据采集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据打标签"><span class="toc-number">3.3.</span> <span class="toc-text">数据打标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据集类型"><span class="toc-number">3.4.</span> <span class="toc-text">数据集类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据质量分析"><span class="toc-number">3.5.</span> <span class="toc-text">数据质量分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#小结-2"><span class="toc-number">3.6.</span> <span class="toc-text">小结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#客户端恶意软件检测问题"><span class="toc-number">4.</span> <span class="toc-text">客户端恶意软件检测问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#基础定义"><span class="toc-number">4.1.</span> <span class="toc-text">基础定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#性能评估"><span class="toc-number">4.2.</span> <span class="toc-text">性能评估</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#召回率曲线"><span class="toc-number">4.2.1.</span> <span class="toc-text">召回率曲线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ROC曲线"><span class="toc-number">4.2.2.</span> <span class="toc-text">ROC曲线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Time-To-detection"><span class="toc-number">4.2.3.</span> <span class="toc-text">Time To detection</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#精确度与误报率"><span class="toc-number">4.3.</span> <span class="toc-text">精确度与误报率</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#小结-3"><span class="toc-number">4.4.</span> <span class="toc-text">小结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#流量特征"><span class="toc-number">5.</span> <span class="toc-text">流量特征</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#流量特征-Flow-Features"><span class="toc-number">5.1.</span> <span class="toc-text">流量特征(Flow Features)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#域名特征-Domain-Name-Features"><span class="toc-number">5.2.</span> <span class="toc-text">域名特征(Domain-Name Features)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#工程特征（Engineered-Features）"><span class="toc-number">5.2.1.</span> <span class="toc-text">工程特征（Engineered Features）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符的n-gram特征（Character-n-gram-Features）"><span class="toc-number">5.2.2.</span> <span class="toc-text">字符的n-gram特征（Character n-gram Features）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#神经域名特征（Neural-Domain-Name-Feature）"><span class="toc-number">5.2.3.</span> <span class="toc-text">神经域名特征（Neural Domain-Name Feature）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用户分类器"><span class="toc-number">5.3.</span> <span class="toc-text">用户分类器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#小结-4"><span class="toc-number">5.4.</span> <span class="toc-text">小结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实验"><span class="toc-number">6.</span> <span class="toc-text">实验</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#主机域名特征选择"><span class="toc-number">6.1.</span> <span class="toc-text">主机域名特征选择</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#算法与特征种类选择"><span class="toc-number">6.2.</span> <span class="toc-text">算法与特征种类选择</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#恶意软件进化识别"><span class="toc-number">6.3.</span> <span class="toc-text">恶意软件进化识别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#恶意软件家族识别"><span class="toc-number">6.4.</span> <span class="toc-text">恶意软件家族识别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#平均检测时间"><span class="toc-number">6.5.</span> <span class="toc-text">平均检测时间</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结束"><span class="toc-number">7.</span> <span class="toc-text">结束</span></a></li></ol>
+           <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#介绍"><span class="toc-number">1.</span> <span class="toc-text">介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#恶意软件的目的"><span class="toc-number">1.1.</span> <span class="toc-text">恶意软件的目的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网络流量分析的作用"><span class="toc-number">1.2.</span> <span class="toc-text">网络流量分析的作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么要对加密网络流量进行分析"><span class="toc-number">1.3.</span> <span class="toc-text">为什么要对加密网络流量进行分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTPS与网络监控工具"><span class="toc-number">1.4.</span> <span class="toc-text">HTTPS与网络监控工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何提取主机域名特征"><span class="toc-number">1.5.</span> <span class="toc-text">如何提取主机域名特征</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#选用哪些机器学习模型"><span class="toc-number">1.6.</span> <span class="toc-text">选用哪些机器学习模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何处理机器学习中数据标签问题"><span class="toc-number">1.7.</span> <span class="toc-text">如何处理机器学习中数据标签问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#小结"><span class="toc-number">1.8.</span> <span class="toc-text">小结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#相关工作"><span class="toc-number">2.</span> <span class="toc-text">相关工作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP-logs"><span class="toc-number">2.1.</span> <span class="toc-text">HTTP logs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTPS-logs"><span class="toc-number">2.2.</span> <span class="toc-text">HTTPS logs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#神经网络（LSMTS）"><span class="toc-number">2.3.</span> <span class="toc-text">神经网络（LSMTS）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#小结-1"><span class="toc-number">2.4.</span> <span class="toc-text">小结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#操作环境"><span class="toc-number">3.</span> <span class="toc-text">操作环境</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#CWS服务"><span class="toc-number">3.1.</span> <span class="toc-text">CWS服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据采集"><span class="toc-number">3.2.</span> <span class="toc-text">数据采集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据打标签"><span class="toc-number">3.3.</span> <span class="toc-text">数据打标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据集类型"><span class="toc-number">3.4.</span> <span class="toc-text">数据集类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据质量分析"><span class="toc-number">3.5.</span> <span class="toc-text">数据质量分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#小结-2"><span class="toc-number">3.6.</span> <span class="toc-text">小结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#客户端恶意软件检测问题"><span class="toc-number">4.</span> <span class="toc-text">客户端恶意软件检测问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#基础定义"><span class="toc-number">4.1.</span> <span class="toc-text">基础定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#性能评估"><span class="toc-number">4.2.</span> <span class="toc-text">性能评估</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#召回率曲线"><span class="toc-number">4.2.1.</span> <span class="toc-text">召回率曲线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ROC曲线"><span class="toc-number">4.2.2.</span> <span class="toc-text">ROC曲线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Time-To-detection"><span class="toc-number">4.2.3.</span> <span class="toc-text">Time To detection</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#精确度与误报率"><span class="toc-number">4.3.</span> <span class="toc-text">精确度与误报率</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#小结-3"><span class="toc-number">4.4.</span> <span class="toc-text">小结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#特征"><span class="toc-number">5.</span> <span class="toc-text">特征</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#流量特征-Flow-Features"><span class="toc-number">5.1.</span> <span class="toc-text">流量特征(Flow Features)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#域名特征-Domain-Name-Features"><span class="toc-number">5.2.</span> <span class="toc-text">域名特征(Domain-Name Features)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#工程特征（Engineered-Features）"><span class="toc-number">5.2.1.</span> <span class="toc-text">工程特征（Engineered Features）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符的n-gram特征（Character-n-gram-Features）"><span class="toc-number">5.2.2.</span> <span class="toc-text">字符的n-gram特征（Character n-gram Features）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#神经域名特征（Neural-Domain-Name-Feature）"><span class="toc-number">5.2.3.</span> <span class="toc-text">神经域名特征（Neural Domain-Name Feature）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用户分类器"><span class="toc-number">5.3.</span> <span class="toc-text">用户分类器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#小结-4"><span class="toc-number">5.4.</span> <span class="toc-text">小结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实验"><span class="toc-number">6.</span> <span class="toc-text">实验</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#主机域名特征选择"><span class="toc-number">6.1.</span> <span class="toc-text">主机域名特征选择</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#算法与特征种类选择"><span class="toc-number">6.2.</span> <span class="toc-text">算法与特征种类选择</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#恶意软件进化识别"><span class="toc-number">6.3.</span> <span class="toc-text">恶意软件进化识别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#恶意软件家族识别"><span class="toc-number">6.4.</span> <span class="toc-text">恶意软件家族识别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#平均检测时间"><span class="toc-number">6.5.</span> <span class="toc-text">平均检测时间</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结束"><span class="toc-number">7.</span> <span class="toc-text">结束</span></a></li></ol>
          </div>
    <script type="text/javascript">
 	function showToc(){
@@ -218,7 +218,7 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p>论文：基于神经网络的加密网络流量分析恶意软件检测<br>作者：Paul Prasse, Lukas Machlica, Tomas Pevny, Jirı Havelka, Tobias Scheffer<br>地区：欧洲，德国<br>时间：2017<br>来源：EI</p>
+        <p>论文：Malware Detection By Analysing Encrypted Network Traffic with Neural Networks<br>作者：Prasse, Paul; Machlica, Lukáš; Pevný, Tomáš; Havelka, Jiří; Scheffer, Tobias<br>地区：欧洲，德国<br>时间：2017<br>来源：EI</p>
 <a id="more"></a>
 <hr>
 <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><h2 id="恶意软件的目的"><a href="#恶意软件的目的" class="headerlink" title="恶意软件的目的"></a>恶意软件的目的</h2><ul>
@@ -275,7 +275,7 @@
 <li>能够处理连续输入与解释长期依赖性</li>
 <li>在安全领域中曾被入侵检测使用过</li>
 </ul>
-<h2 id="小结-1"><a href="#小结-1" class="headerlink" title="小结"></a>小结</h2><p>该节作者介绍了为何要对HTTP和HTTPS的logs进行分析，可以看出log文件对于本文来说是一项重要的信息资源，对HTTP与HTTPS的logs分析都有不同的意义。为了解释对log文件的分析确实解决了一些实际问题，作者还引用了不少参考文献来进行印证。本章作文还说明了为何要使用神经网络（LSMTS）算法，列举了原因与优势，并提出要与随机森林算法做比较。</p>
+<h2 id="小结-1"><a href="#小结-1" class="headerlink" title="小结"></a>小结</h2><p>该节作者介绍了为何要对HTTP和HTTPS的logs进行分析，可以看出log文件对于本文来说是一项重要的信息资源，对HTTP与HTTPS的logs分析都有不同的意义。为了解释对log文件的分析确实解决了一些实际问题，作者还引用了不少参考文献来进行印证。本章作者还说明了为何要使用神经网络（LSMTS）算法，列举了原因与优势，并提出要与随机森林算法做比较。</p>
 <hr>
 <h1 id="操作环境"><a href="#操作环境" class="headerlink" title="操作环境"></a>操作环境</h1><p>该章节主要介绍了应用与数据收集的操作环境。在章节2种提到log文件是一项重要信息资源，本章就讲解了logs相关的生成环境等等，而本章节也是对数据收集进行了详细描述。</p>
 <h2 id="CWS服务"><a href="#CWS服务" class="headerlink" title="CWS服务"></a>CWS服务</h2><p>CWS（Cloud Web Security）是一种保证组织内电脑安全的服务软件，其在组织私有网络与因特网之间提供了接口，其特点大致如下：</p>
@@ -344,7 +344,7 @@
 <h2 id="精确度与误报率"><a href="#精确度与误报率" class="headerlink" title="精确度与误报率"></a>精确度与误报率</h2><p>文章在本章最后强调了一下两者的区别以及重要性。实际上，在实际应用中低误报率比高精确度更重要，因为当许多良性流被当做恶意流被阻拦时，很可能会导致正常服务无法运行，阻塞网络，因此如何在保证低误报率的情况下实现高精确度是一直以来研究的重点之一。</p>
 <h2 id="小结-3"><a href="#小结-3" class="headerlink" title="小结"></a>小结</h2><p>这一章主要就是对评估方法进行了讲解，因为实验部分使用到ROC曲线和Precision-recall曲线，以及R@x%P和Time To detection，所以考虑一些读者的阅读能力（没错就是我这种），作者干脆用了一个章节把这些讲明白了。</p>
 <hr>
-<h1 id="流量特征"><a href="#流量特征" class="headerlink" title="流量特征"></a>流量特征</h1><p>特征一直以来都是机器学习文章的核心章节，该文章提出了多种不同类型的流量特征。</p>
+<h1 id="特征"><a href="#特征" class="headerlink" title="特征"></a>特征</h1><p>特征一直以来都是机器学习文章的核心章节，该文章提出了多种不同类型的流量特征。</p>
 <h2 id="流量特征-Flow-Features"><a href="#流量特征-Flow-Features" class="headerlink" title="流量特征(Flow Features)"></a>流量特征(Flow Features)</h2><p>对于每条流来说，可以直接获取的信息为：</p>
 <ul>
 <li>IP + VPN名</li>
@@ -562,7 +562,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#介绍"><span class="toc-number">1.</span> <span class="toc-text">介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#恶意软件的目的"><span class="toc-number">1.1.</span> <span class="toc-text">恶意软件的目的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网络流量分析的作用"><span class="toc-number">1.2.</span> <span class="toc-text">网络流量分析的作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么要对加密网络流量进行分析"><span class="toc-number">1.3.</span> <span class="toc-text">为什么要对加密网络流量进行分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTPS与网络监控工具"><span class="toc-number">1.4.</span> <span class="toc-text">HTTPS与网络监控工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何提取主机域名特征"><span class="toc-number">1.5.</span> <span class="toc-text">如何提取主机域名特征</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#选用哪些机器学习模型"><span class="toc-number">1.6.</span> <span class="toc-text">选用哪些机器学习模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何处理机器学习中数据标签问题"><span class="toc-number">1.7.</span> <span class="toc-text">如何处理机器学习中数据标签问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#小结"><span class="toc-number">1.8.</span> <span class="toc-text">小结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#相关工作"><span class="toc-number">2.</span> <span class="toc-text">相关工作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP-logs"><span class="toc-number">2.1.</span> <span class="toc-text">HTTP logs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTPS-logs"><span class="toc-number">2.2.</span> <span class="toc-text">HTTPS logs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#神经网络（LSMTS）"><span class="toc-number">2.3.</span> <span class="toc-text">神经网络（LSMTS）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#小结-1"><span class="toc-number">2.4.</span> <span class="toc-text">小结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#操作环境"><span class="toc-number">3.</span> <span class="toc-text">操作环境</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#CWS服务"><span class="toc-number">3.1.</span> <span class="toc-text">CWS服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据采集"><span class="toc-number">3.2.</span> <span class="toc-text">数据采集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据打标签"><span class="toc-number">3.3.</span> <span class="toc-text">数据打标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据集类型"><span class="toc-number">3.4.</span> <span class="toc-text">数据集类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据质量分析"><span class="toc-number">3.5.</span> <span class="toc-text">数据质量分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#小结-2"><span class="toc-number">3.6.</span> <span class="toc-text">小结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#客户端恶意软件检测问题"><span class="toc-number">4.</span> <span class="toc-text">客户端恶意软件检测问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#基础定义"><span class="toc-number">4.1.</span> <span class="toc-text">基础定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#性能评估"><span class="toc-number">4.2.</span> <span class="toc-text">性能评估</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#召回率曲线"><span class="toc-number">4.2.1.</span> <span class="toc-text">召回率曲线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ROC曲线"><span class="toc-number">4.2.2.</span> <span class="toc-text">ROC曲线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Time-To-detection"><span class="toc-number">4.2.3.</span> <span class="toc-text">Time To detection</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#精确度与误报率"><span class="toc-number">4.3.</span> <span class="toc-text">精确度与误报率</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#小结-3"><span class="toc-number">4.4.</span> <span class="toc-text">小结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#流量特征"><span class="toc-number">5.</span> <span class="toc-text">流量特征</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#流量特征-Flow-Features"><span class="toc-number">5.1.</span> <span class="toc-text">流量特征(Flow Features)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#域名特征-Domain-Name-Features"><span class="toc-number">5.2.</span> <span class="toc-text">域名特征(Domain-Name Features)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#工程特征（Engineered-Features）"><span class="toc-number">5.2.1.</span> <span class="toc-text">工程特征（Engineered Features）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符的n-gram特征（Character-n-gram-Features）"><span class="toc-number">5.2.2.</span> <span class="toc-text">字符的n-gram特征（Character n-gram Features）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#神经域名特征（Neural-Domain-Name-Feature）"><span class="toc-number">5.2.3.</span> <span class="toc-text">神经域名特征（Neural Domain-Name Feature）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用户分类器"><span class="toc-number">5.3.</span> <span class="toc-text">用户分类器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#小结-4"><span class="toc-number">5.4.</span> <span class="toc-text">小结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实验"><span class="toc-number">6.</span> <span class="toc-text">实验</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#主机域名特征选择"><span class="toc-number">6.1.</span> <span class="toc-text">主机域名特征选择</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#算法与特征种类选择"><span class="toc-number">6.2.</span> <span class="toc-text">算法与特征种类选择</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#恶意软件进化识别"><span class="toc-number">6.3.</span> <span class="toc-text">恶意软件进化识别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#恶意软件家族识别"><span class="toc-number">6.4.</span> <span class="toc-text">恶意软件家族识别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#平均检测时间"><span class="toc-number">6.5.</span> <span class="toc-text">平均检测时间</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结束"><span class="toc-number">7.</span> <span class="toc-text">结束</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#介绍"><span class="toc-number">1.</span> <span class="toc-text">介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#恶意软件的目的"><span class="toc-number">1.1.</span> <span class="toc-text">恶意软件的目的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网络流量分析的作用"><span class="toc-number">1.2.</span> <span class="toc-text">网络流量分析的作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么要对加密网络流量进行分析"><span class="toc-number">1.3.</span> <span class="toc-text">为什么要对加密网络流量进行分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTPS与网络监控工具"><span class="toc-number">1.4.</span> <span class="toc-text">HTTPS与网络监控工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何提取主机域名特征"><span class="toc-number">1.5.</span> <span class="toc-text">如何提取主机域名特征</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#选用哪些机器学习模型"><span class="toc-number">1.6.</span> <span class="toc-text">选用哪些机器学习模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何处理机器学习中数据标签问题"><span class="toc-number">1.7.</span> <span class="toc-text">如何处理机器学习中数据标签问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#小结"><span class="toc-number">1.8.</span> <span class="toc-text">小结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#相关工作"><span class="toc-number">2.</span> <span class="toc-text">相关工作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP-logs"><span class="toc-number">2.1.</span> <span class="toc-text">HTTP logs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTPS-logs"><span class="toc-number">2.2.</span> <span class="toc-text">HTTPS logs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#神经网络（LSMTS）"><span class="toc-number">2.3.</span> <span class="toc-text">神经网络（LSMTS）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#小结-1"><span class="toc-number">2.4.</span> <span class="toc-text">小结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#操作环境"><span class="toc-number">3.</span> <span class="toc-text">操作环境</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#CWS服务"><span class="toc-number">3.1.</span> <span class="toc-text">CWS服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据采集"><span class="toc-number">3.2.</span> <span class="toc-text">数据采集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据打标签"><span class="toc-number">3.3.</span> <span class="toc-text">数据打标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据集类型"><span class="toc-number">3.4.</span> <span class="toc-text">数据集类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据质量分析"><span class="toc-number">3.5.</span> <span class="toc-text">数据质量分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#小结-2"><span class="toc-number">3.6.</span> <span class="toc-text">小结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#客户端恶意软件检测问题"><span class="toc-number">4.</span> <span class="toc-text">客户端恶意软件检测问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#基础定义"><span class="toc-number">4.1.</span> <span class="toc-text">基础定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#性能评估"><span class="toc-number">4.2.</span> <span class="toc-text">性能评估</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#召回率曲线"><span class="toc-number">4.2.1.</span> <span class="toc-text">召回率曲线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ROC曲线"><span class="toc-number">4.2.2.</span> <span class="toc-text">ROC曲线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Time-To-detection"><span class="toc-number">4.2.3.</span> <span class="toc-text">Time To detection</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#精确度与误报率"><span class="toc-number">4.3.</span> <span class="toc-text">精确度与误报率</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#小结-3"><span class="toc-number">4.4.</span> <span class="toc-text">小结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#特征"><span class="toc-number">5.</span> <span class="toc-text">特征</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#流量特征-Flow-Features"><span class="toc-number">5.1.</span> <span class="toc-text">流量特征(Flow Features)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#域名特征-Domain-Name-Features"><span class="toc-number">5.2.</span> <span class="toc-text">域名特征(Domain-Name Features)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#工程特征（Engineered-Features）"><span class="toc-number">5.2.1.</span> <span class="toc-text">工程特征（Engineered Features）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符的n-gram特征（Character-n-gram-Features）"><span class="toc-number">5.2.2.</span> <span class="toc-text">字符的n-gram特征（Character n-gram Features）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#神经域名特征（Neural-Domain-Name-Feature）"><span class="toc-number">5.2.3.</span> <span class="toc-text">神经域名特征（Neural Domain-Name Feature）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用户分类器"><span class="toc-number">5.3.</span> <span class="toc-text">用户分类器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#小结-4"><span class="toc-number">5.4.</span> <span class="toc-text">小结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实验"><span class="toc-number">6.</span> <span class="toc-text">实验</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#主机域名特征选择"><span class="toc-number">6.1.</span> <span class="toc-text">主机域名特征选择</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#算法与特征种类选择"><span class="toc-number">6.2.</span> <span class="toc-text">算法与特征种类选择</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#恶意软件进化识别"><span class="toc-number">6.3.</span> <span class="toc-text">恶意软件进化识别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#恶意软件家族识别"><span class="toc-number">6.4.</span> <span class="toc-text">恶意软件家族识别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#平均检测时间"><span class="toc-number">6.5.</span> <span class="toc-text">平均检测时间</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结束"><span class="toc-number">7.</span> <span class="toc-text">结束</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -695,6 +695,14 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">渗透</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">WAF</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">科学上网</a>
               </li>
              
@@ -704,42 +712,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">代理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">渗透</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">WAF</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安全</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ctf</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">pandas</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Dataframe</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -755,6 +727,34 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">pandas</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Dataframe</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安全</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">博客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ctf</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">流量</a>
               </li>
              
@@ -767,19 +767,15 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">搜索</a>
+                <a href="javascript:void(0)" class="js-tag color2">scrapy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">sql注入</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">xss</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPO</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -791,11 +787,15 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">scrapy</a>
+                <a href="javascript:void(0)" class="js-tag color3">搜索</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+                <a href="javascript:void(0)" class="js-tag color4">xss</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RPO</a>
               </li>
             
             <div class="clearfix"></div>
