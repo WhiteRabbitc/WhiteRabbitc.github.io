@@ -304,11 +304,11 @@
     </summary>
     
     
-      <category term="python" scheme="http://yoursite.com/tags/python/"/>
-    
       <category term="流量" scheme="http://yoursite.com/tags/%E6%B5%81%E9%87%8F/"/>
     
       <category term="加密" scheme="http://yoursite.com/tags/%E5%8A%A0%E5%AF%86/"/>
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
     
   </entry>
   
@@ -328,9 +328,9 @@
     </summary>
     
     
-      <category term="python" scheme="http://yoursite.com/tags/python/"/>
-    
       <category term="流量" scheme="http://yoursite.com/tags/%E6%B5%81%E9%87%8F/"/>
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
     
   </entry>
   
