@@ -22,7 +22,7 @@
 <meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/xueshu2/xueshu2-6.png">
 <meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/xueshu2/xueshu2-7.png">
 <meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/xueshu2/xueshu2-8.png">
-<meta property="og:updated_time" content="2018-11-12T13:45:17.675Z">
+<meta property="og:updated_time" content="2018-11-15T06:55:55.759Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="通过网络流量识别感染用户">
 <meta name="twitter:description" content="论文：Identifying infected users via network traffic作者：Margaret Gratian a , Darshan Bhansali a , Michel Cukier a , Josiah Dykstra b期刊：computers &amp;amp; security时间：2018来源：SCI">
@@ -249,27 +249,16 @@
 <h1 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h1><p>这一节讲解了如何获取数据集，数据的提纯以及处理。</p>
 <h2 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h2><p>数据来源：</p>
 <p><img src="http://oz1sa62oq.bkt.clouddn.com/image/xueshu2/xueshu2-2.png" alt="xueshu-2"></p>
-<ol>
-<li><p>数据由学校信息安全IT部门提供，从2017年10月26日——11月21日中随机抽取样本。</p>
-</li>
-<li><p>question：为什么要使用无线流量作为研究对象？<br>在大学里，65%的流量都是无线流量，基数大。</p>
-</li>
-<li><p>流量由老师，学生，职工，以及闲杂人等产生，每个要使用网络的人都需要认证，认证方法就是使用个人唯一标识ID，这个标识会被系统记录并附加到每一条流量记录上。</p>
-</li>
-<li><p>在使用这个数据集前，作者提了一下用户隐私保护问题，每个ID在给予他们做实验前都转换成了hash，这样就保证了匿名性。数据集一共包括了66,551,686条无线流量记录以及14,621条威胁记录。</p>
-</li>
-</ol>
+<p>1.数据由学校信息安全IT部门提供，从2017年10月26日——11月21日中随机抽取样本。</p>
+<p>2.question：为什么要使用无线流量作为研究对象？<br>在大学里，65%的流量都是无线流量，基数大。</p>
+<p>3.流量由老师，学生，职工，以及闲杂人等产生，每个要使用网络的人都需要认证，认证方法就是使用个人唯一标识ID，这个标识会被系统记录并附加到每一条流量记录上。</p>
+<p>4.在使用这个数据集前，作者提了一下用户隐私保护问题，每个ID在给予他们做实验前都转换成了hash，这样就保证了匿名性。数据集一共包括了66,551,686条无线流量记录以及14,621条威胁记录。</p>
 <p>流量记录：一个完整的对话流才会产生记录，每条流量记录拥有54个字段，包含了源用户ID，会话开始时间，源IP和目的IP，发送和接收的字节数，发送和接收的数据包数会话长度等等。</p>
 <p>威胁记录：被系统检测到无线会话过程中出现的恶意威胁。因此每条威胁记录可以匹配到流量记录中的某几条数据。威胁记录包含了协议、威胁时间、威胁类型，威胁程度等等。数据集中只包含中等威胁及以上的数据。</p>
 <h2 id="数据验证与处理"><a href="#数据验证与处理" class="headerlink" title="数据验证与处理"></a>数据验证与处理</h2><p>作者提到，使用Python的Pandas库和Numpy库来进行这一步。</p>
-<ol>
-<li><p>确定实际人数。在无线流量记录中，一共提取出53,165个用户；在威胁记录中，一共提取出1935个用户。进行一一关联时，作者发现者1935个用户中有12个用户从未出现在无线流量记录中。这12个用户属于异常数据，作者猜测是因为会话在一开始就被定义为威胁，然后被记录，然而还未产生完整的会话流就直接终止，所以并没有任何流量记录。所以最后作者去除这12个用户产生的威胁记录，只保留了1923个威胁用户。</p>
-</li>
-<li><p>关联流量记录和威胁记录。关联方法为先用用户ID来筛选流量记录，再用时间来确定。</p>
-</li>
-<li><p>调整数据集。原数据中一共有1923个感染用户和51,242个非感染用户，由于这个比例差距比较大，所以作者考虑缩小非感染用户样本数量来调节。作者一共设置了6个分组。其中3个分组感染用户和非感染用户的比例为1:1，另外3个分组中感染用户和非感染用户的比例为3:7。</p>
-</li>
-</ol>
+<p>1.确定实际人数。在无线流量记录中，一共提取出53,165个用户；在威胁记录中，一共提取出1935个用户。进行一一关联时，作者发现者1935个用户中有12个用户从未出现在无线流量记录中。这12个用户属于异常数据，作者猜测是因为会话在一开始就被定义为威胁，然后被记录，然而还未产生完整的会话流就直接终止，所以并没有任何流量记录。所以最后作者去除这12个用户产生的威胁记录，只保留了1923个威胁用户。</p>
+<p>2.关联流量记录和威胁记录。关联方法为先用用户ID来筛选流量记录，再用时间来确定。</p>
+<p>3.调整数据集。原数据中一共有1923个感染用户和51,242个非感染用户，由于这个比例差距比较大，所以作者考虑缩小非感染用户样本数量来调节。作者一共设置了6个分组。其中3个分组感染用户和非感染用户的比例为1:1，另外3个分组中感染用户和非感染用户的比例为3:7。</p>
 <hr>
 <h1 id="特征"><a href="#特征" class="headerlink" title="特征"></a>特征</h1><h2 id="筛选字段"><a href="#筛选字段" class="headerlink" title="筛选字段"></a>筛选字段</h2><p>在上面提到，每条流量记录一共有54个字段，这些字段很明显不是每一条都有用的。所以作者经过了筛选，删除条件包括：有缺失值，总是记录相同值，信息量小。最后作者只保留了10个字段：<em>Start Time, Elapsed Time, Source IP, Source Port, Destination IP, Destination Port, Bytes Sent, Bytes Received, Packets Sent, and Packets Received</em>。</p>
 <h2 id="生成特征"><a href="#生成特征" class="headerlink" title="生成特征"></a>生成特征</h2><p>这里作者做了2步工作，第一步将上面筛选出的10个字段数字化，第二步，从这10个字段中提取出36个特征。作者表示这些特征覆盖了多个方面（比如频率，数量，时间）。具体特征为下表：</p>
@@ -278,19 +267,11 @@
 <h1 id="主成分分析"><a href="#主成分分析" class="headerlink" title="主成分分析"></a>主成分分析</h1><p>作者使用主成分分析方法来降维，绘制了Screen plots图来对主成分的数量进行选择，最后将36个特征转换成了13个主成分（数目到达13开始平稳）。对于两类比例分组，方差解释率（评估主成分的原特征的转换成功率）在1:1的3个分组分别达到了90.01%,90.22%,98.09%，在3:7的3个分组分别达到了90.27%,90.39%,97.71%。</p>
 <p>而原始36个特征对方差解释率的贡献如下：</p>
 <p><img src="http://oz1sa62oq.bkt.clouddn.com/image/xueshu2/xueshu2-4.png" alt="xueshu2-4"></p>
-<p>分析：</p>
-<ol>
-<li><p>先分析比例为1:1的数据集分组，平均方差解释率为92.77%，而有5个特征拥有最高的方差贡献：average session length, average number of bytes sent, num- ber of unique destination ports, number of unique source IP addresses, and average time difference between session start times。</p>
-</li>
-<li><p>作者然后用 “相关值（correlation value）” 来评价主成分和原特征之间的关系，并以此来增强对特征解释用户差异的理解。根据描述，当相关值阈值设置为0.4时，有17个特征满足条件；阈值设置为0.5时，有10个特征满足条件；阈值设置为0.6时，只剩6个；为0.7时为2个而0.8为1个。</p>
-</li>
-<li><p>作者主要观察了阈值为0.5时的十个特征，发现最高的5个特征就是那5个方差贡献值最高的5个特征。</p>
-</li>
-<li><p>作者接着分析了3:7的分组，过程和结果基本和1:1相同，这里不做复述。</p>
-</li>
-<li><p>作者在这里对之前提出的问题一做出解答，认为阈值为0.5时这10个特征能够做出解释。</p>
-</li>
-</ol>
+<p>分析：<br>1.先分析比例为1:1的数据集分组，平均方差解释率为92.77%，而有5个特征拥有最高的方差贡献：average session length, average number of bytes sent, num- ber of unique destination ports, number of unique source IP addresses, and average time difference between session start times。</p>
+<p>2.作者然后用 “相关值（correlation value）” 来评价主成分和原特征之间的关系，并以此来增强对特征解释用户差异的理解。根据描述，当相关值阈值设置为0.4时，有17个特征满足条件；阈值设置为0.5时，有10个特征满足条件；阈值设置为0.6时，只剩6个；为0.7时为2个而0.8为1个。</p>
+<p>3.作者主要观察了阈值为0.5时的十个特征，发现最高的5个特征就是那5个方差贡献值最高的5个特征。</p>
+<p>4.作者接着分析了3:7的分组，过程和结果基本和1:1相同，这里不做复述。</p>
+<p>5.作者在这里对之前提出的问题一做出解答，认为阈值为0.5时这10个特征能够做出解释。</p>
 <hr>
 <h1 id="无监督聚类"><a href="#无监督聚类" class="headerlink" title="无监督聚类"></a>无监督聚类</h1><p>在无监督聚类这一步，作者选择的是K-mean方法，且作用对象为全部1:1和3:7的6个样本，特征选用全部36个特征以及13个主成分。经过测试，作者选择了K-mean方法的参数K=4。<br>作者的思想是这样的，由于做的无监督学习，算法是不知道标签的，只会根据数据的相似性来聚类，作者可以根据最终的聚类结果观察感染用户和非感染用户的聚集性。最终的实验结果如下：</p>
 <p><img src="http://oz1sa62oq.bkt.clouddn.com/image/xueshu2/xueshu2-5.png" alt="xueshu-5"></p>
@@ -308,14 +289,9 @@
 <p>作者表示，上图的显示结果是将4种评估方法视为同等重要性而产生的，但在实际环境中并不是这样，可能有些系统的误报率需求远重要于漏报率等等。在实验中并没有找到哪个分类器4个指标都优于其他分类器的情况，所以只能找出单个指标最优的，比如在1:1的分类比例中：79.0% accuracy by Neural Network 2; 86.0% ROC AUC by Gradient Boost; 17.2% FPR by Extra Tree; and 21.2% FNR by Neural Network 2。<br>而对于3:7的比例分类：78.5% accuracy by Gradient Boost; 85.3% ROC AUC by Gradient Boost; 16.8% FPR by Extra Tree; and 21.7% FNR by Gradient Boost。</p>
 <hr>
 <h1 id="缺陷"><a href="#缺陷" class="headerlink" title="缺陷"></a>缺陷</h1><p>作者在文末提到了自己研究的几个缺陷</p>
-<ol>
-<li><p>选择完全相信系统的威胁记录，并不清楚系统的误报率和漏报率。</p>
-</li>
-<li><p>对“感染用户”的定义。作者选择将威胁等级中等以上视作感染用户，在全部的的感染用户中，中等威胁的用户有1858个，高威胁的用户只有41个，而严重威胁的用户优质11个。所以只考虑高威胁和严重威胁的用户为“感染用户”，那么实验结果可能更加合理，但是样本实在太小了。</p>
-</li>
-<li><p>无法保证流量记录的完整性。</p>
-</li>
-</ol>
+<p>1.选择完全相信系统的威胁记录，并不清楚系统的误报率和漏报率。</p>
+<p>2.对“感染用户”的定义。作者选择将威胁等级中等以上视作感染用户，在全部的的感染用户中，中等威胁的用户有1858个，高威胁的用户只有41个，而严重威胁的用户优质11个。所以只考虑高威胁和严重威胁的用户为“感染用户”，那么实验结果可能更加合理，但是样本实在太小了。</p>
+<p>3.无法保证流量记录的完整性。</p>
 <hr>
 <p>WhiteRabbit评论：</p>
 <p>文章做足了实验，但是整个文章读下来感觉到最大的问题在于作者对于自己每一个实验的结果似乎只是在做描述，并没有进行分析或者有层次感地深入。这就导致了我们看到了实验结果，但不知道这个实验结果到底意味着什么，又有什么意义，对我们又有什么启发。</p>
@@ -608,14 +584,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">渗透</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">WAF</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">科学上网</a>
               </li>
              
@@ -628,19 +596,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安全</a>
+                <a href="javascript:void(0)" class="js-tag color3">渗透</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">sql注入</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ctf</a>
+                <a href="javascript:void(0)" class="js-tag color4">WAF</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -653,6 +613,22 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">规则</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ctf</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">sql注入</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安全</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -684,15 +660,15 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">搜索</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">私有云</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">openstack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">搜索</a>
               </li>
              
               <li class="article-tag-list-item">
