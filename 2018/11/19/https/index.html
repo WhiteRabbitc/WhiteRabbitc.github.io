@@ -17,10 +17,10 @@
 <meta property="og:description" content="由于最近在思考搭建一个属于自己的网站，为了安全性，决定仔细研究了一下HTTPS。看了很多资料，对其中的很多细节做了研究，再加上亲手抓包来做参考，终于算是对整个握手过程和保证有了认识，所以尝试用文字性的语句描述下来，以最通俗易懂且详尽的方式来让更多读者理解。所以即使你是完全不懂https的小白，也能通过我的文章对其有一定的学习收获。">
 <meta property="og:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1542276851570&di=e2a7a818ebb0a2bfdda8867c266c0770&imgtype=0&src=http://photo.orsoon.com/180308/180308_23/WQuCXsMyxB_small.jpg">
 <meta property="og:image" content="http://vps.whiterabbitxyj.com/blogPicture/https/https-2.png">
-<meta property="og:image" content="http://st.razeen.me/essay/img/https/ssl_handshake_rsa_shake1.png">
+<meta property="og:image" content="http://vps.whiterabbitxyj.com/blogPicture/https/https-17.png">
 <meta property="og:image" content="http://vps.whiterabbitxyj.com/blogPicture/https/https-9.png">
 <meta property="og:image" content="http://vps.whiterabbitxyj.com/blogPicture/https/https-10.png">
-<meta property="og:image" content="http://st.razeen.me/essay/img/https/ssl-handshake-ciphers.png">
+<meta property="og:image" content="http://vps.whiterabbitxyj.com/blogPicture/https/https-18.png">
 <meta property="og:image" content="http://vps.whiterabbitxyj.com/blogPicture/https/https-6.png">
 <meta property="og:image" content="http://vps.whiterabbitxyj.com/blogPicture/https/https-7.png">
 <meta property="og:image" content="http://vps.whiterabbitxyj.com/blogPicture/https/https-8.png">
@@ -32,7 +32,7 @@
 <meta property="og:image" content="http://vps.whiterabbitxyj.com/blogPicture/https/https-15.png">
 <meta property="og:image" content="http://vps.whiterabbitxyj.com/blogPicture/https/https-12.png">
 <meta property="og:image" content="http://vps.whiterabbitxyj.com/blogPicture/https/https-13.png">
-<meta property="og:updated_time" content="2018-11-19T03:33:47.553Z">
+<meta property="og:updated_time" content="2018-11-24T02:34:39.473Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从流量的角度详解HTTPS协议握手过程">
 <meta name="twitter:description" content="由于最近在思考搭建一个属于自己的网站，为了安全性，决定仔细研究了一下HTTPS。看了很多资料，对其中的很多细节做了研究，再加上亲手抓包来做参考，终于算是对整个握手过程和保证有了认识，所以尝试用文字性的语句描述下来，以最通俗易懂且详尽的方式来让更多读者理解。所以即使你是完全不懂https的小白，也能通过我的文章对其有一定的学习收获。">
@@ -243,7 +243,7 @@
 </ul>
 <p>更详细内容可能需要小白们自己搜资料学习了，我们所需要知道的，HTTPS同时使用了这两种加密方式来完成通信，是因为直接使用非对称加密来加密信息的计算代价太大了，而对称加密却很快，所以HTTPS使用非对称加密的方法来传递对称加密的密钥（实际上只是生成密钥的信息），再使用对称加密来实现信息加密。</p>
 <h1 id="在流量角度来看整个握手过程"><a href="#在流量角度来看整个握手过程" class="headerlink" title="在流量角度来看整个握手过程"></a>在流量角度来看整个握手过程</h1><p>为了展示整个握手过程的流量交互，我使用wireshark抓取了数据，但所捕捉的数据不够典型，所以我借用<a href="https://razeen.me/post/ssl-handshake-detail.html" target="_blank" rel="external">RAZEEN博客</a>中的截图来进行讲解说明。</p>
-<p><img src="http://st.razeen.me/essay/img/https/ssl_handshake_rsa_shake1.png" alt="https-3"></p>
+<p><img src="http://vps.whiterabbitxyj.com/blogPicture/https/https-17.png" alt="https-3"></p>
 <p>下面我会解释每一个数据包与其对应的过程。</p>
 <h2 id="Client-Hello"><a href="#Client-Hello" class="headerlink" title="Client Hello"></a>Client Hello</h2><p>客户端开始向服务器发起访问请求，在这个过程中，客户端会生成一个随机数p，然后把随机数和一些信息一起打包发送给服务器。这里的信息包括：我支持的协议版本，可以使用的加密算法等等，您看看我们用哪个好？</p>
 <p>我们可以从流量的第一个Client Hello数据包看到这些携带的信息：</p>
@@ -252,7 +252,7 @@
 <p>我们可以从第二个数据包Server Hello看到这些信息：</p>
 <p><img src="http://vps.whiterabbitxyj.com/blogPicture/https/https-10.png" alt="https-5"></p>
 <p>我们可以看到这个Cipher Suite的格式，其包含了一套加密算法，包括非对称的加密算法以及对称加密算法等等，可以参考一下下面的图:</p>
-<p><img src="http://st.razeen.me/essay/img/https/ssl-handshake-ciphers.png" alt="https-5.5"></p>
+<p><img src="http://vps.whiterabbitxyj.com/blogPicture/https/https-18.png" alt="https-5.5"></p>
 <p>之后，服务器端还会把自己的电子证书（Certificate）传递给客户端，用以让客户端验证自己的身份，证书中还包含了服务器的公钥，用以等会传递第三个随机数。完成这一步后，服务器会回复一个 “Server Hello Done” 来表明已经将所有预计的握手消息发送完毕。</p>
 <p><img src="http://vps.whiterabbitxyj.com/blogPicture/https/https-6.png" alt="https-6"></p>
 <h2 id="Client-Key-Exchange"><a href="#Client-Key-Exchange" class="headerlink" title="Client Key Exchange"></a>Client Key Exchange</h2><p>客户端接收到了服务器端的证书，验证证书的有效性和签名，确定无误后，开始准备传递第三个随机数。<br>这是很关键的一步，上面传递的2个随机数都是明文传递，是可以被攻击者获取的，接下来要传递的第三个随机数是绝密的。客户端使用服务器证书中的公钥加密这个随机数，并将其传递给服务器，由只有服务器拥有私钥，所以只有服务器可以拿到这个随机数。</p>
@@ -581,30 +581,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">科学上网</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">V2Ray</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">代理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">cobra</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">审计</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">规则</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">渗透</a>
               </li>
              
@@ -621,7 +597,15 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">sql注入</a>
+                <a href="javascript:void(0)" class="js-tag color5">科学上网</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">V2Ray</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">代理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -629,11 +613,19 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">博客</a>
+                <a href="javascript:void(0)" class="js-tag color1">sql注入</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">搜索</a>
+                <a href="javascript:void(0)" class="js-tag color1">cobra</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">审计</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">规则</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -649,11 +641,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">私有云</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">openstack</a>
+                <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -665,15 +653,27 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">xss</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPO</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">搜索</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">https</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">私有云</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">openstack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">xss</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -681,7 +681,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">https</a>
+                <a href="javascript:void(0)" class="js-tag color4">RPO</a>
               </li>
              
               <li class="article-tag-list-item">
