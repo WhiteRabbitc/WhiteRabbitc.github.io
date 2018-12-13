@@ -6,19 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Google高级搜索hacker技巧 | WhiteRabbit的博客</title>
+  <title>七牛云临时域名过期后图片找回 | WhiteRabbit的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="用好google的搜索引擎是每个小黑客的必备技能，下面我来总结一下高级搜索的入门常用关键字。">
-<meta name="keywords" content="安全,搜索">
+  <meta name="description" content="算算时间有一段时间没有更新博客了，一来是年底了事比较多，另一方面主要是我的博客出现了一点问题：博客上的图片无法显示了。后来排查了一下原因，发现原来是七牛网的临时域名过期了！这篇博文写给遇到同样问题的朋友们，提供一下找回图片的方法。">
+<meta name="keywords" content="域名,云服务">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Google高级搜索hacker技巧">
-<meta property="og:url" content="http://yoursite.com/2017/10/16/googlesearchskill/index.html">
+<meta property="og:title" content="七牛云临时域名过期后图片找回">
+<meta property="og:url" content="http://yoursite.com/2018/12/13/qiniu/index.html">
 <meta property="og:site_name" content="WhiteRabbit的博客">
-<meta property="og:description" content="用好google的搜索引擎是每个小黑客的必备技能，下面我来总结一下高级搜索的入门常用关键字。">
-<meta property="og:updated_time" content="2017-11-08T03:19:36.048Z">
+<meta property="og:description" content="算算时间有一段时间没有更新博客了，一来是年底了事比较多，另一方面主要是我的博客出现了一点问题：博客上的图片无法显示了。后来排查了一下原因，发现原来是七牛网的临时域名过期了！这篇博文写给遇到同样问题的朋友们，提供一下找回图片的方法。">
+<meta property="og:image" content="http://picture.whiterabbitxyj.com/blogPicture/qiniu/qiniu-1.png">
+<meta property="og:image" content="http://picture.whiterabbitxyj.com/blogPicture/qiniu/qiniu-2.png">
+<meta property="og:image" content="http://picture.whiterabbitxyj.com/blogPicture/qiniu/qiniu-3.png">
+<meta property="og:image" content="http://picture.whiterabbitxyj.com/blogPicture/qiniu/qiniu-4.png">
+<meta property="og:updated_time" content="2018-12-13T14:01:11.011Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Google高级搜索hacker技巧">
-<meta name="twitter:description" content="用好google的搜索引擎是每个小黑客的必备技能，下面我来总结一下高级搜索的入门常用关键字。">
+<meta name="twitter:title" content="七牛云临时域名过期后图片找回">
+<meta name="twitter:description" content="算算时间有一段时间没有更新博客了，一来是年底了事比较多，另一方面主要是我的博客出现了一点问题：博客上的图片无法显示了。后来排查了一下原因，发现原来是七牛网的临时域名过期了！这篇博文写给遇到同样问题的朋友们，提供一下找回图片的方法。">
+<meta name="twitter:image" content="http://picture.whiterabbitxyj.com/blogPicture/qiniu/qiniu-1.png">
   
     <link rel="alternative" href="/atom.xml" title="WhiteRabbit的博客" type="application/atom+xml">
   
@@ -155,20 +160,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-googlesearchskill" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-qiniu" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Google高级搜索hacker技巧
+      七牛云临时域名过期后图片找回
     </h1>
   
 
         
-        <a href="/2017/10/16/googlesearchskill/" class="archive-article-date">
-  	<time datetime="2017-10-16T07:08:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-16</time>
+        <a href="/2018/12/13/qiniu/" class="archive-article-date">
+  	<time datetime="2018-12-13T03:39:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-13</time>
 </a>
         
       </header>
@@ -176,44 +181,81 @@
 
 <!-- 目录内容 -->
     
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+	<div id="toc-article" class="toc-article">
+	    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+		<strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#七牛网临时域名"><span class="toc-number">1.</span> <span class="toc-text">七牛网临时域名</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#图片找回"><span class="toc-number">2.</span> <span class="toc-text">图片找回</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#qshell"><span class="toc-number">2.1.</span> <span class="toc-text">qshell</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用流程"><span class="toc-number">2.2.</span> <span class="toc-text">使用流程</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#小彩蛋：配置不可访问列目录"><span class="toc-number">3.</span> <span class="toc-text">小彩蛋：配置不可访问列目录</span></a></li></ol>
+         </div>
+   <script type="text/javascript">
+	function showToc(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:block");
+		show_toc_btn.setAttribute("style","display:none");
+		};
+	function showBtn(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:none");
+		show_toc_btn.setAttribute("style","display:block");
+		};
+   </script>
+      
 <!-- 目录内容结束 -->
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p>用好google的搜索引擎是每个小黑客的必备技能，下面我来总结一下高级搜索的入门常用关键字。</p>
+        <p>算算时间有一段时间没有更新博客了，一来是年底了事比较多，另一方面主要是我的博客出现了一点问题：博客上的图片无法显示了。后来排查了一下原因，发现原来是七牛网的临时域名过期了！这篇博文写给遇到同样问题的朋友们，提供一下找回图片的方法。</p>
 <a id="more"></a>
-<h2 id="Google高级搜索关键字"><a href="#Google高级搜索关键字" class="headerlink" title="Google高级搜索关键字"></a>Google高级搜索关键字</h2><ul>
-<li>高级搜索 <strong>inurl：xxx</strong></li>
-</ul>
-<p>可以查询url中有xxx的网页，可以用来找后台登录页面如：</p>
-<pre><code>inurl:login_admin.asp
-</code></pre><p>可以用来找上传页面如：</p>
-<pre><code>inurl:upload_soft.asp
-</code></pre><ul>
-<li>高级搜索 <strong>intext：xxx</strong></li>
-</ul>
-<p>搜索网页中的制定字符,可以用来查看网站目录如：</p>
-<pre><code>intext：to paremt directory
-</code></pre><ul>
-<li>高级搜索 <strong>Filetype：xxx</strong></li>
-</ul>
-<p>搜索指定文件，可以用来查数据库如：</p>
-<pre><code>Filetype：mdb
-</code></pre><ul>
-<li><p>高级搜索 <strong>site：xxx</strong></p>
-<p>查看网页相关页面</p>
-</li>
-</ul>
-<hr>
-<h2 id="组合使用法（示例）："><a href="#组合使用法（示例）：" class="headerlink" title="组合使用法（示例）："></a>组合使用法（示例）：</h2><ol>
-<li><p>搜索相关页面（或数据库文件）<br>Site:xxx Filetype:mdb<br>Site:xxx intext: to parent directory<br>Site:xxx intext: to parent directory Filetype:mdb</p>
-</li>
-<li><p>下载到数据库后，登陆后台管理<br>Site:xxx intitle:管理<br>Site:xxx inurl:login.asp</p>
-</li>
-<li><p>直接找上传点<br>Site:xxx inurl:upload.asp</p>
-</li>
-</ol>
-<p><em>注意：robot.txt是针对搜索引擎机器人的存文本文件，可以说明不对robot访问的部分</em></p>
+<h1 id="七牛网临时域名"><a href="#七牛网临时域名" class="headerlink" title="七牛网临时域名"></a>七牛网临时域名</h1><p>七牛网是我一位师姐在我刚开始做博客时推荐给我的，当时觉得挺方便就使用了，一直用了大半年都没有问题。直到七牛网分配给我的域名过期了，图片无法上传到七牛网后，我才知道这原来是个临时域名。虽然过期了，但之前上传的图片还是可以显示了，所以我一直也没有处理。直到最近，临时域名直接被回收了，我之前上传的图片也访问不了了，我才意识到不处理不行了。</p>
+<p>我进入控制台的存储界面，直接给我报错：</p>
+<pre><code>[5402] 获取 bucket 域名失败
+</code></pre><p>这是因为临时域名被回收，所以存储的图片找不到路径，所以报错了。我在控制台前前后后找了半天没有找到任何下载我之前上传图片的功能，由于域名被回收，我也无法直接去访问下载。</p>
+<p>一种解决方法是去绑定域名，但是绑定的域名需要备案，麻烦无比，所以我查了七牛网官方的API后，终于找回了我之前上传的图片。</p>
+<h1 id="图片找回"><a href="#图片找回" class="headerlink" title="图片找回"></a>图片找回</h1><h2 id="qshell"><a href="#qshell" class="headerlink" title="qshell"></a>qshell</h2><p>qshell是利用七牛文档上公开的API实现的一个方便开发者测试和使用七牛API服务的命令行工具。该工具设计和开发的主要目的就是帮助开发者快速解决问题。我们需要了解的是，我们之前上传的图片并没有丢失，它们一直存在bucket空间中，只是我们无法直接访问。而qshell这个工具能让我们直接访问bucket空间，从而获取我们之前上传的图片。这里贴一下工具的下载链接：<a href="http://devtools.qiniu.com/qshell-v2.3.4.zip" target="_blank" rel="external">qshell</a>。</p>
+<h2 id="使用流程"><a href="#使用流程" class="headerlink" title="使用流程"></a>使用流程</h2><p>(1). 首先，在工具上绑定用户，输入命令行：</p>
+<pre><code>qshell account ak sk name
+</code></pre><p>其中，ak和sk是你个人的AccessKey和SecretKey，在你的个人中心中可以查看，而name可以随便写，只是做标记：</p>
+<p><img src="http://picture.whiterabbitxyj.com/blogPicture/qiniu/qiniu-1.png" alt="qiniu-1"></p>
+<p>(2). 然后，导出你的图片列表：</p>
+<pre><code>qshell listbucket 原bucket名 -o list.txt
+</code></pre><p>原bucket名是指你原来存储图片空间的名字，可以在存储空间中查看：</p>
+<p><img src="http://picture.whiterabbitxyj.com/blogPicture/qiniu/qiniu-2.png" alt="qiniu-2"></p>
+<p>(3). 使用Awk获取list结果的第一列：</p>
+<pre><code>cat list.txt | awk &apos;{print $1}&apos; &gt;list_final.txt 
+//如果windiws无法执行这条命令，安装一个cmder就可以执行了，或直接编辑txt
+</code></pre><p>并在七牛网中新建一个空间做准备：</p>
+<p><img src="http://picture.whiterabbitxyj.com/blogPicture/qiniu/qiniu-3.png" alt="qiniu-3"></p>
+<p>(4). 然后，将原空间中图片做一个迁移：</p>
+<pre><code>qshell batchcopy 原bucket名 新bucket名 -i list_final.txt
+</code></pre><p>这样原来空间的图片都迁移到新空间了，由于新空间有临时域名，所以图片可以被访问了。</p>
+<p>(5). 直接用qshell工具下载所有图片到本地。</p>
+<pre><code>qshell qdownload newfilelist.txt
+</code></pre><p>newfilelist.txt中是配置文件，可以参考一下我的配置信息进行修改：</p>
+<pre><code>{
+    &quot;dest_dir&quot;   :   &quot;D:/xxx/xxx/xxx/blogPicture/&quot;,
+    &quot;bucket&quot;     :   &quot;blog&quot;,
+    &quot;cdn_domain&quot; :   &quot;pjo4oyz5p.bkt.clouddn.com&quot;,
+    &quot;referer&quot;    :   &quot;http://www.example.com&quot;
+}
+</code></pre><h1 id="小彩蛋：配置不可访问列目录"><a href="#小彩蛋：配置不可访问列目录" class="headerlink" title="小彩蛋：配置不可访问列目录"></a>小彩蛋：配置不可访问列目录</h1><p>按照上面的方法，你的图片就可以全部找回了。但是思来想去，我还是得找一个地方去存储我的图片，于是乎咬了咬牙买了一台云服务器。</p>
+<p>在配置云服务器时出了一点问题，我想要配置不可访问列目录，然而我找不到httpd.conf。在网上查了一下，原来云服务器的操作系统是ubuntu，而部署的web服务器是apache，所以没有httpd.conf，只有apache2.conf。</p>
+<pre><code>find / -name apache2.conf //查找apache2.conf位置
+</code></pre><p>在其中添加配置：</p>
+<pre><code>&lt;Directory &quot;/var/www/html/&quot;&gt;
+    Options  FollowSymLinks
+    AllowOverride None
+    Order allow,deny
+    Allow from all
+&lt;/Directory&gt;
+</code></pre><p>保存后重启apache服务器：</p>
+<pre><code>/etc/init.d/apache2 restart
+</code></pre><p>然后就配置完成啦：</p>
+<p><img src="http://picture.whiterabbitxyj.com/blogPicture/qiniu/qiniu-4.png" alt="qiniu-4"></p>
 
       
 
@@ -258,11 +300,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">安全</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">域名</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">搜索</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">云服务</a>
         		</li>
       		
 		</ul>
@@ -323,7 +365,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/10/16/googlesearchskill/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/12/13/qiniu/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -337,18 +379,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/10/21/Yara/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Yara：恶意软件检测神器
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/10/10/first_blog/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">第一篇博客</div>
+    <a href="/2018/11/19/https/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">从流量的角度详解HTTPS协议握手过程</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -368,6 +401,19 @@
         </div>
         
         
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#七牛网临时域名"><span class="toc-number">1.</span> <span class="toc-text">七牛网临时域名</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#图片找回"><span class="toc-number">2.</span> <span class="toc-text">图片找回</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#qshell"><span class="toc-number">2.1.</span> <span class="toc-text">qshell</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用流程"><span class="toc-number">2.2.</span> <span class="toc-text">使用流程</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#小彩蛋：配置不可访问列目录"><span class="toc-number">3.</span> <span class="toc-text">小彩蛋：配置不可访问列目录</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
     </div>
 </aside>
 
@@ -378,7 +424,7 @@
   
 
   
-  <div id="SOHUCS" sid="googlesearchskill" ></div> 
+  <div id="SOHUCS" sid="qiniu" ></div> 
 <script type="text/javascript"> 
 window.YiliaChangyanWrap = function() {
     var appid = "cytj4oNi1"; 
