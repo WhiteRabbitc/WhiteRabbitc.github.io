@@ -16,9 +16,9 @@
 <meta property="og:site_name" content="WhiteRabbit的博客">
 <meta property="og:description" content="之前一段时间一直在研究V2Ray，由于自己配置的VPS快要过期，租用国外服务器的大量开销无时无刻不在刺痛我的钱包，我从使用小飞机（shadowsocks）转向了使用V2Ray。本来想写一篇V2Ray的使用教程，但是在google上一搜发现有很多写得不错的文章，于是我想了想就偷个懒写个扫盲文吧(不小心说了实话)…..当然我会在文章末附上我感觉不错的使用教程链接。">
 <meta property="og:image" content="https://www.v2ray.com/resources/direct.svg">
-<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/V2Ray/V2Ray1.png">
+<meta property="og:image" content="http://picture.whiterabbitxyj.com/blogPicture/V2Ray/V2Ray1.png">
 <meta property="og:image" content="https://i.loli.net/2018/02/10/5a7ef4f422311.png">
-<meta property="og:updated_time" content="2018-09-01T02:06:36.920Z">
+<meta property="og:updated_time" content="2018-12-13T12:40:26.184Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="新一代科学上网利器：V2Ray扫盲教程">
 <meta name="twitter:description" content="之前一段时间一直在研究V2Ray，由于自己配置的VPS快要过期，租用国外服务器的大量开销无时无刻不在刺痛我的钱包，我从使用小飞机（shadowsocks）转向了使用V2Ray。本来想写一篇V2Ray的使用教程，但是在google上一搜发现有很多写得不错的文章，于是我想了想就偷个懒写个扫盲文吧(不小心说了实话)…..当然我会在文章末附上我感觉不错的使用教程链接。">
@@ -224,7 +224,7 @@
 </ul>
 <p>每个人选择一个事物都有不同原因，对我来说，免费和开发性就是我选择V2Ray的原因，当然Shadowsocks的用户基数和成熟度都不是V2Ray能比的，因此没有人可以说V2Ray比Shadowsocks优秀。但是作为发展中的科学上网利器，我愿意相信它的未来。</p>
 <h1 id="VMess"><a href="#VMess" class="headerlink" title="VMess"></a>VMess</h1><p>VMess 协议是由 V2Ray 原创并使用于 V2Ray 的加密传输协议，如同 Shadowsocks 一样为了对抗墙的深度包检测而研发的。在 V2Ray 上客户端与服务器的通信主要是通过 VMess 协议通信。<br>对于我们使用者来说，不用太过地去纠结一个协议的原理和运转机制，我们只要会用就行了，需要注意的是，VMess协议是需要配置的，如果你在网上看到类似下图：</p>
-<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/V2Ray/V2Ray1.png" alt="V2Ray2"></p>
+<p><img src="http://picture.whiterabbitxyj.com/blogPicture/V2Ray/V2Ray1.png" alt="V2Ray2"></p>
 <p>没错，这就是VMess协议的配置(vmess://开头+一段base64编码的字符串)，你可以直接拿来用实现科学上网。<br>值得一提的是，虽然VMess是V2Ray的主体协议，但V2Ray 集成有 Shadowsocks 模块，用 V2Ray 配置成 Shadowsocks 服务器或者 Shadowsocks 客户端都是可以的，兼容 Shadowsocks-libev。</p>
 <h1 id="免费提供VMess配置的网站"><a href="#免费提供VMess配置的网站" class="headerlink" title="免费提供VMess配置的网站"></a>免费提供VMess配置的网站</h1><p>免费提供Vmess配置的网站有很多，这里列出2个：</p>
 <ul>
@@ -543,14 +543,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">渗透</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">WAF</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">安全</a>
               </li>
              
@@ -571,11 +563,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ctf</a>
+                <a href="javascript:void(0)" class="js-tag color3">渗透</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">sql注入</a>
+                <a href="javascript:void(0)" class="js-tag color4">WAF</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -591,6 +583,14 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">sql注入</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ctf</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">pandas</a>
               </li>
              
@@ -600,10 +600,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -619,14 +615,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">搜索</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">https</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">私有云</a>
               </li>
              
@@ -635,11 +623,27 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">xss</a>
+                <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">csrf</a>
+                <a href="javascript:void(0)" class="js-tag color3">搜索</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">https</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">scrapy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">xss</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -655,11 +659,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">scrapy</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+                <a href="javascript:void(0)" class="js-tag color5">csrf</a>
               </li>
             
             <div class="clearfix"></div>

@@ -15,18 +15,18 @@
 <meta property="og:url" content="http://yoursite.com/2018/11/12/xueshu-2/index.html">
 <meta property="og:site_name" content="WhiteRabbit的博客">
 <meta property="og:description" content="论文：Identifying infected users via network traffic作者：Margaret Gratian a , Darshan Bhansali a , Michel Cukier a , Josiah Dykstra b期刊：computers &amp;amp; security时间：2018来源：SCI">
-<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/xueshu2/xueshu2-2.png">
-<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/xueshu2/xueshu2-3.png">
-<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/xueshu2/xueshu2-4.png">
-<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/xueshu2/xueshu2-5.png">
-<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/xueshu2/xueshu2-6.png">
-<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/xueshu2/xueshu2-7.png">
-<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/xueshu2/xueshu2-8.png">
-<meta property="og:updated_time" content="2018-11-15T06:55:55.759Z">
+<meta property="og:image" content="http://picture.whiterabbitxyj.com/blogPicture/xueshu2/xueshu2-2.png">
+<meta property="og:image" content="http://picture.whiterabbitxyj.com/blogPicture/xueshu2/xueshu2-3.png">
+<meta property="og:image" content="http://picture.whiterabbitxyj.com/blogPicture/xueshu2/xueshu2-4.png">
+<meta property="og:image" content="http://picture.whiterabbitxyj.com/blogPicture/xueshu2/xueshu2-5.png">
+<meta property="og:image" content="http://picture.whiterabbitxyj.com/blogPicture/xueshu2/xueshu2-6.png">
+<meta property="og:image" content="http://picture.whiterabbitxyj.com/blogPicture/xueshu2/xueshu2-7.png">
+<meta property="og:image" content="http://picture.whiterabbitxyj.com/blogPicture/xueshu2/xueshu2-8.png">
+<meta property="og:updated_time" content="2018-12-13T12:40:17.163Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="通过网络流量识别感染用户">
 <meta name="twitter:description" content="论文：Identifying infected users via network traffic作者：Margaret Gratian a , Darshan Bhansali a , Michel Cukier a , Josiah Dykstra b期刊：computers &amp;amp; security时间：2018来源：SCI">
-<meta name="twitter:image" content="http://oz1sa62oq.bkt.clouddn.com/image/xueshu2/xueshu2-2.png">
+<meta name="twitter:image" content="http://picture.whiterabbitxyj.com/blogPicture/xueshu2/xueshu2-2.png">
   
     <link rel="alternative" href="/atom.xml" title="WhiteRabbit的博客" type="application/atom+xml">
   
@@ -248,7 +248,7 @@
 <hr>
 <h1 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h1><p>这一节讲解了如何获取数据集，数据的提纯以及处理。</p>
 <h2 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h2><p>数据来源：</p>
-<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/xueshu2/xueshu2-2.png" alt="xueshu-2"></p>
+<p><img src="http://picture.whiterabbitxyj.com/blogPicture/xueshu2/xueshu2-2.png" alt="xueshu-2"></p>
 <p>1.数据由学校信息安全IT部门提供，从2017年10月26日——11月21日中随机抽取样本。</p>
 <p>2.question：为什么要使用无线流量作为研究对象？<br>在大学里，65%的流量都是无线流量，基数大。</p>
 <p>3.流量由老师，学生，职工，以及闲杂人等产生，每个要使用网络的人都需要认证，认证方法就是使用个人唯一标识ID，这个标识会被系统记录并附加到每一条流量记录上。</p>
@@ -262,11 +262,11 @@
 <hr>
 <h1 id="特征"><a href="#特征" class="headerlink" title="特征"></a>特征</h1><h2 id="筛选字段"><a href="#筛选字段" class="headerlink" title="筛选字段"></a>筛选字段</h2><p>在上面提到，每条流量记录一共有54个字段，这些字段很明显不是每一条都有用的。所以作者经过了筛选，删除条件包括：有缺失值，总是记录相同值，信息量小。最后作者只保留了10个字段：<em>Start Time, Elapsed Time, Source IP, Source Port, Destination IP, Destination Port, Bytes Sent, Bytes Received, Packets Sent, and Packets Received</em>。</p>
 <h2 id="生成特征"><a href="#生成特征" class="headerlink" title="生成特征"></a>生成特征</h2><p>这里作者做了2步工作，第一步将上面筛选出的10个字段数字化，第二步，从这10个字段中提取出36个特征。作者表示这些特征覆盖了多个方面（比如频率，数量，时间）。具体特征为下表：</p>
-<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/xueshu2/xueshu2-3.png" alt="shuxue2-3"></p>
+<p><img src="http://picture.whiterabbitxyj.com/blogPicture/xueshu2/xueshu2-3.png" alt="shuxue2-3"></p>
 <hr>
 <h1 id="主成分分析"><a href="#主成分分析" class="headerlink" title="主成分分析"></a>主成分分析</h1><p>作者使用主成分分析方法来降维，绘制了Screen plots图来对主成分的数量进行选择，最后将36个特征转换成了13个主成分（数目到达13开始平稳）。对于两类比例分组，方差解释率（评估主成分的原特征的转换成功率）在1:1的3个分组分别达到了90.01%,90.22%,98.09%，在3:7的3个分组分别达到了90.27%,90.39%,97.71%。</p>
 <p>而原始36个特征对方差解释率的贡献如下：</p>
-<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/xueshu2/xueshu2-4.png" alt="xueshu2-4"></p>
+<p><img src="http://picture.whiterabbitxyj.com/blogPicture/xueshu2/xueshu2-4.png" alt="xueshu2-4"></p>
 <p>分析：<br>1.先分析比例为1:1的数据集分组，平均方差解释率为92.77%，而有5个特征拥有最高的方差贡献：average session length, average number of bytes sent, num- ber of unique destination ports, number of unique source IP addresses, and average time difference between session start times。</p>
 <p>2.作者然后用 “相关值（correlation value）” 来评价主成分和原特征之间的关系，并以此来增强对特征解释用户差异的理解。根据描述，当相关值阈值设置为0.4时，有17个特征满足条件；阈值设置为0.5时，有10个特征满足条件；阈值设置为0.6时，只剩6个；为0.7时为2个而0.8为1个。</p>
 <p>3.作者主要观察了阈值为0.5时的十个特征，发现最高的5个特征就是那5个方差贡献值最高的5个特征。</p>
@@ -274,17 +274,17 @@
 <p>5.作者在这里对之前提出的问题一做出解答，认为阈值为0.5时这10个特征能够做出解释。</p>
 <hr>
 <h1 id="无监督聚类"><a href="#无监督聚类" class="headerlink" title="无监督聚类"></a>无监督聚类</h1><p>在无监督聚类这一步，作者选择的是K-mean方法，且作用对象为全部1:1和3:7的6个样本，特征选用全部36个特征以及13个主成分。经过测试，作者选择了K-mean方法的参数K=4。<br>作者的思想是这样的，由于做的无监督学习，算法是不知道标签的，只会根据数据的相似性来聚类，作者可以根据最终的聚类结果观察感染用户和非感染用户的聚集性。最终的实验结果如下：</p>
-<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/xueshu2/xueshu2-5.png" alt="xueshu-5"></p>
+<p><img src="http://picture.whiterabbitxyj.com/blogPicture/xueshu2/xueshu2-5.png" alt="xueshu-5"></p>
 <p>分析一下上面的结果，对于36个特征以及比例1:1的聚类，一共出现了3个独自成群的情况，作者将其视为潜在的离群值。不管这些值，群的纯度范围从70.51%到89.09%。而对于36个特征以及比例3:7的聚类，依旧出现了3个离群实例，而群的纯度也显得更高。但是3:7的聚类出现了平分群的情况，即纯度接近50%。</p>
-<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/xueshu2/xueshu2-6.png" alt="xueshu-6"></p>
+<p><img src="http://picture.whiterabbitxyj.com/blogPicture/xueshu2/xueshu2-6.png" alt="xueshu-6"></p>
 <p>分析一下上面的结果，对于13个主成分以及比例1:1的聚类，一共出现了3离群实例以及1个平分群的情况。除去这些，群的纯度范围从64.93%到94.12%。而对于13个主成分以及比例3:7的聚类，出现了2个离群实例和一个平分群情况，而群的纯度范围为60.07%到100%。</p>
 <p>作者表示，虽然不知道算法究竟是怎么运转和做决定的，但其关注点在于不清楚具体标签的情况下，只根据特征和数据关联来聚类，最后的结果能否显示网络流量中存在用户感染状态的“信号”。作者认为无论是36个特征还是13个主成分都表现出了这种“信号”，因此有做长期研究的必要。但是由于也存在了平分群的情况，所以也要研究出现的原因。</p>
 <hr>
 <h1 id="有监督的学习"><a href="#有监督的学习" class="headerlink" title="有监督的学习"></a>有监督的学习</h1><p>和无监督聚类一样，在有监督学习这一块作者对2种比例的6个样本，36个原特征以及13种主成分都进行了实验，并将测试集和训练集以2:8和3:7的比例进行划分。</p>
 <p>根据作者描述，其一共使用了8种机器学习算法来进行实验比较：K-Nearest Neighbors (scikit-learn developers 2017 b), Logistic Regression (scikit-learn develop- ers 2017 c), Random Forest (scikit-learn developers 2017 d), Ad- aBoost (scikit-learn developers 2017 e), Gradient Boost (scikit- learn developers 2017 f), Extra Tree (scikit-learn developers 2017 g), Bagging scikit-learn developers 2017 h), Voting (Ma- jority Rule) (scikit-learn developers 2017 i).<br>作者使用调整参数和十折交叉验证的方式来把每个算法调整至最佳，并防止其出现过拟合。除了上诉这8种算法，作者还使用了神经网络算法进行实验，双层的记为Neural Network 1，四层的记为Neural Net- work 2。作者使用4个指标来综合评估模型的好坏：Accuracy（精确度）, ROC AUC, false positive rate（误报率）, false negative rate（漏报率）。具体结果如下图：</p>
-<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/xueshu2/xueshu2-7.png" alt="xueshu-7"></p>
+<p><img src="http://picture.whiterabbitxyj.com/blogPicture/xueshu2/xueshu2-7.png" alt="xueshu-7"></p>
 <p>由于空间问题，作者只在每一项展示了最优秀的几个分类器，可以看到上图1:1比例中Accuracy的范围在71.0%——79.0%，ROC AUCs的范围在81.0%——86.0%，false positive rate的范围在17.2%——21.5%，而false negative rate的范围在21.2%——41.3%。</p>
-<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/xueshu2/xueshu2-8.png" alt="xueshu-8"></p>
+<p><img src="http://picture.whiterabbitxyj.com/blogPicture/xueshu2/xueshu2-8.png" alt="xueshu-8"></p>
 <p>上图3:7的样本分类比例中，Accuracy的范围在77.0%——78.5%，ROC AUCs的范围在80.9%——85.3%，false positive rate的范围在16.8%——22.0%，而false negative rate的范围在21.7%——36.0%。</p>
 <p>作者表示，上图的显示结果是将4种评估方法视为同等重要性而产生的，但在实际环境中并不是这样，可能有些系统的误报率需求远重要于漏报率等等。在实验中并没有找到哪个分类器4个指标都优于其他分类器的情况，所以只能找出单个指标最优的，比如在1:1的分类比例中：79.0% accuracy by Neural Network 2; 86.0% ROC AUC by Gradient Boost; 17.2% FPR by Extra Tree; and 21.2% FNR by Neural Network 2。<br>而对于3:7的比例分类：78.5% accuracy by Gradient Boost; 85.3% ROC AUC by Gradient Boost; 16.8% FPR by Extra Tree; and 21.7% FNR by Gradient Boost。</p>
 <hr>
@@ -593,14 +593,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">渗透</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">WAF</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">安全</a>
               </li>
              
@@ -621,11 +613,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ctf</a>
+                <a href="javascript:void(0)" class="js-tag color3">渗透</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">sql注入</a>
+                <a href="javascript:void(0)" class="js-tag color4">WAF</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -641,6 +633,14 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">sql注入</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ctf</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">pandas</a>
               </li>
              
@@ -650,10 +650,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -669,14 +665,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">搜索</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">https</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">私有云</a>
               </li>
              
@@ -685,11 +673,27 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">xss</a>
+                <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">csrf</a>
+                <a href="javascript:void(0)" class="js-tag color3">搜索</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">https</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">scrapy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">xss</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -705,11 +709,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">scrapy</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+                <a href="javascript:void(0)" class="js-tag color5">csrf</a>
               </li>
             
             <div class="clearfix"></div>

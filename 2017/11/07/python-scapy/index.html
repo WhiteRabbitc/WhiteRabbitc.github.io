@@ -15,25 +15,25 @@
 <meta property="og:url" content="http://yoursite.com/2017/11/07/python-scapy/index.html">
 <meta property="og:site_name" content="WhiteRabbit的博客">
 <meta property="og:description" content="Scapy 是一个强大的交互式数据包处理程序（使用python编写）。它能够伪造或者解码大量的网络协议数据包，还能够发送、捕捉、匹配请求和回复包等等。关于网络数据包的解析，其实wireshark这款经典的工具已经能满足大部分工作人员的需求，但是涉及到一些复杂的、自定义型的数据包解析，仅用wireshark就有点不够看了。这次我使用的是一个Python的库Scapy,对于解析pcap文件它算是一个冷">
-<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/scapy/scapy-1.png">
-<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/scapy/scapy-2.png">
-<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/scapy/scapy-3.png">
-<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/scapy/scapy-4.png">
-<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/scapy/scapy-5.png">
-<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/scapy/scapy-6.png">
-<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/scapy/scapy-7.png">
-<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/scapy/scapy-8.png">
-<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/scapy/scapy-9.png">
-<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/scapy/scapy-10.png">
-<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/scapy/scapy-11.png">
-<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/scapy/scapy-12.png">
-<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/scapy/scapy-13.png">
-<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/scapy/scapy-14.png">
-<meta property="og:updated_time" content="2017-11-08T03:38:49.962Z">
+<meta property="og:image" content="http://picture.whiterabbitxyj.com/blogPicture/scapy/scapy-1.png">
+<meta property="og:image" content="http://picture.whiterabbitxyj.com/blogPicture/scapy/scapy-2.png">
+<meta property="og:image" content="http://picture.whiterabbitxyj.com/blogPicture/scapy/scapy-3.png">
+<meta property="og:image" content="http://picture.whiterabbitxyj.com/blogPicture/scapy/scapy-4.png">
+<meta property="og:image" content="http://picture.whiterabbitxyj.com/blogPicture/scapy/scapy-5.png">
+<meta property="og:image" content="http://picture.whiterabbitxyj.com/blogPicture/scapy/scapy-6.png">
+<meta property="og:image" content="http://picture.whiterabbitxyj.com/blogPicture/scapy/scapy-7.png">
+<meta property="og:image" content="http://picture.whiterabbitxyj.com/blogPicture/scapy/scapy-8.png">
+<meta property="og:image" content="http://picture.whiterabbitxyj.com/blogPicture/scapy/scapy-9.png">
+<meta property="og:image" content="http://picture.whiterabbitxyj.com/blogPicture/scapy/scapy-10.png">
+<meta property="og:image" content="http://picture.whiterabbitxyj.com/blogPicture/scapy/scapy-11.png">
+<meta property="og:image" content="http://picture.whiterabbitxyj.com/blogPicture/scapy/scapy-12.png">
+<meta property="og:image" content="http://picture.whiterabbitxyj.com/blogPicture/scapy/scapy-13.png">
+<meta property="og:image" content="http://picture.whiterabbitxyj.com/blogPicture/scapy/scapy-14.png">
+<meta property="og:updated_time" content="2018-12-13T12:40:31.892Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Python的Scapy库解析Paca文件">
 <meta name="twitter:description" content="Scapy 是一个强大的交互式数据包处理程序（使用python编写）。它能够伪造或者解码大量的网络协议数据包，还能够发送、捕捉、匹配请求和回复包等等。关于网络数据包的解析，其实wireshark这款经典的工具已经能满足大部分工作人员的需求，但是涉及到一些复杂的、自定义型的数据包解析，仅用wireshark就有点不够看了。这次我使用的是一个Python的库Scapy,对于解析pcap文件它算是一个冷">
-<meta name="twitter:image" content="http://oz1sa62oq.bkt.clouddn.com/image/scapy/scapy-1.png">
+<meta name="twitter:image" content="http://picture.whiterabbitxyj.com/blogPicture/scapy/scapy-1.png">
   
     <link rel="alternative" href="/atom.xml" title="WhiteRabbit的博客" type="application/atom+xml">
   
@@ -232,45 +232,45 @@ ln -s /opt/python/bin/scapy /usr/bin/scapy
 <h1 id="解析pcap文件"><a href="#解析pcap文件" class="headerlink" title="解析pcap文件"></a>解析pcap文件</h1><h2 id="读取pcap文件"><a href="#读取pcap文件" class="headerlink" title="读取pcap文件"></a>读取pcap文件</h2><p>通过阅读使用手册，我找到了读取pcap文件使用的语句：</p>
 <pre><code>rdpcap(&quot;xxx.pcap&quot;)
 </code></pre><p>这个语句可以读取一个pcap文件，并返回一个数据类型，我们来实验一下：</p>
-<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/scapy/scapy-1.png" alt="scapy1"></p>
+<p><img src="http://picture.whiterabbitxyj.com/blogPicture/scapy/scapy-1.png" alt="scapy1"></p>
 <p>可以看到，当我们直接打印这个变量（pcaps），可以直接得到数据包的总概况，图中我传入的pcap文件中只有7个TCP数据包。通过查阅资料，我知道了这个类型的用法类似于List，我们可以直接调用每个数据包：</p>
-<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/scapy/scapy-2.png" alt="scapy2"></p>
+<p><img src="http://picture.whiterabbitxyj.com/blogPicture/scapy/scapy-2.png" alt="scapy2"></p>
 <p>我一开始选择直接打印第一个数据包，结果出现了一堆乱七八糟的十六进制数据，看的我一脸懵逼，这样肯定是不行的，于是我查了一下这个变量的数据类型：</p>
-<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/scapy/scapy-3.png" alt="scapy3"></p>
+<p><img src="http://picture.whiterabbitxyj.com/blogPicture/scapy/scapy-3.png" alt="scapy3"></p>
 <p>结果查出一个没见过的数据类型，于是我决定去help中查一下这个类型。我先在命令行中直接输入<code>Scapy</code>进入交互命令环境，最后输入</p>
 <pre><code>help(scapy.layers.l2.Ether)
 </code></pre><p>显示的界面如下：</p>
-<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/scapy/scapy-4.png" alt="scapy4"></p>
+<p><img src="http://picture.whiterabbitxyj.com/blogPicture/scapy/scapy-4.png" alt="scapy4"></p>
 <p>一阅读help，我就看到了上图中的三个函数中的mysummary，这个函数的效果是返回一个字符串标明来源和目的地，但是我抱着试一试的态度直接打印了这个指针，结果返回值：</p>
-<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/scapy/scapy-5.png" alt="scapy5"></p>
+<p><img src="http://picture.whiterabbitxyj.com/blogPicture/scapy/scapy-5.png" alt="scapy5"></p>
 <p>直接返回了我们看得懂的，可以操作的值！只要str（）字符串化一下，我们可以提取出包里所有的特征了，接下来就是字符串的处理了。</p>
 <h2 id="提取数据包特征"><a href="#提取数据包特征" class="headerlink" title="提取数据包特征"></a>提取数据包特征</h2><p>当然，只到上一步肯定是有朋友不满意的，处理字符串太麻烦了，难道没有直接提取包中的特征的办法？为了解决这个问题，我继续了研究，然后我就在help中发现了<code>show()</code>这个函数：</p>
-<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/scapy/scapy-6.png" alt="scapy6"></p>
+<p><img src="http://picture.whiterabbitxyj.com/blogPicture/scapy/scapy-6.png" alt="scapy6"></p>
 <p>可以看到数据包的层次、字段被排列的很清晰，为了方便大家查看，我把wireshark的图也附上：</p>
-<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/scapy/scapy-7.png" alt="scapy7"></p>
+<p><img src="http://picture.whiterabbitxyj.com/blogPicture/scapy/scapy-7.png" alt="scapy7"></p>
 <p>OK！可以确定只要wireshark能解析出来的，scapy也都能解析出来，下面就是单独提取字段的问题了。看着show显示的排列结果，我突然有了一个大胆的想法，排列出的字段名缩写会不会就是属性？于是我试了一试：</p>
-<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/scapy/scapy-8.png" alt="scapy8"></p>
+<p><img src="http://picture.whiterabbitxyj.com/blogPicture/scapy/scapy-8.png" alt="scapy8"></p>
 <p>果然，我的猜想是正确的！这样每一个特征就可以单独提取出来了，搞定，写完收工。</p>
 <h2 id="新的问题和解决"><a href="#新的问题和解决" class="headerlink" title="新的问题和解决"></a>新的问题和解决</h2><p>咳咳，收工只是个玩笑话，因为很快就会有朋友发现问题，IP和TCP都有’chksum’、’options’和’flags’这3个字段，packet的这三个属性到底属于谁？实验了一下：</p>
-<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/scapy/scapy-9.png" alt="scapy9"></p>
+<p><img src="http://picture.whiterabbitxyj.com/blogPicture/scapy/scapy-9.png" alt="scapy9"></p>
 <p>可以发现，着三个属性都属于IP的字段，那TCP的这三个字段怎么提取？在一番尝试失败后，我只能不太情愿地捡起了源码看。经过了很长一段时间的研究后，我终于找到了一个函数： <code>haslayer(self, cls)</code>，这是一个判断某一层结构存不存在的函数，实验一下：</p>
-<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/scapy/scapy-10.png" alt="scapy10"></p>
+<p><img src="http://picture.whiterabbitxyj.com/blogPicture/scapy/scapy-10.png" alt="scapy10"></p>
 <p>可以看到，存在的层返回的值是1（也就是true），而不存在的层返回就是0（也就是false）。于是我顺藤摸瓜，又找到了一个函数 <code>getlayer(self, cls, nb=1, _track=None)</code>，尝试一下：</p>
-<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/scapy/scapy-11.png" alt="scapy11"></p>
+<p><img src="http://picture.whiterabbitxyj.com/blogPicture/scapy/scapy-11.png" alt="scapy11"></p>
 <p>存在的层可以显示出自己的字段数据，而不存在的层直接报错，这下问题终于解决了！<br>（注：函数中参数可以是’TCP’也可以是TCP）</p>
 <h2 id="后续的一些问题"><a href="#后续的一些问题" class="headerlink" title="后续的一些问题"></a>后续的一些问题</h2><ul>
 <li><p>另外的一种分层表达法<br>其实在后来，我在一位大佬的博客（现在找不到了）上看到了一种更方便的表达方法来实现分层字段显示：</p>
-<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/scapy/scapy-12.png" alt="scapy12"></p>
+<p><img src="http://picture.whiterabbitxyj.com/blogPicture/scapy/scapy-12.png" alt="scapy12"></p>
 <p>可以看到这种方式和我之前实验的方式结果差不多，不过表达更加简洁。</p>
 </li>
 <li><p>关于其他的一些字段<br>如果要统计流的一些属性，流的时间和包的总大小是必备的，属性如下：</p>
-<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/scapy/scapy-13.png" alt="scapy13"></p>
+<p><img src="http://picture.whiterabbitxyj.com/blogPicture/scapy/scapy-13.png" alt="scapy13"></p>
 <p> 因为是第一个包，所以时间值就是一个基准值，其他的包可以通过这个值计算出自己到达的相对时间，wireshark中关于这些值都已经给你统计好了，不过我们也可以通过一些简单的计算得到这些值。包的长度用<code>len()</code>这个函数统计，值得注意的是，packet.len这个值是属于IP包长度的值，在上图已经标出，切勿混淆。</p>
 </li>
 <li><p>关于应用数据（报文）的获取<br>关于报文的获取是用RAW这个层，具体看下图：</p>
 </li>
 </ul>
-<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/scapy/scapy-14.png" alt="scapy14"></p>
+<p><img src="http://picture.whiterabbitxyj.com/blogPicture/scapy/scapy-14.png" alt="scapy14"></p>
 <p>可以看出，根据这个信息可以判断一个包的数据是否加密（如果不存在应用层数据（三次握手等），使用RAW就会直接报错）。</p>
 <hr>
 <h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><p>很抱歉，之前由于域名的问题博客无法访问，我也一直没有机会发博客，现在小白兔的博客已经恢复正常了，而且进行了美化，开放了RSS订阅和评论，支持我请把鼠标下移到“赏”，谢谢大家！</p>
@@ -568,14 +568,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">渗透</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">WAF</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">安全</a>
               </li>
              
@@ -596,11 +588,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ctf</a>
+                <a href="javascript:void(0)" class="js-tag color3">渗透</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">sql注入</a>
+                <a href="javascript:void(0)" class="js-tag color4">WAF</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -616,6 +608,14 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">sql注入</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ctf</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">pandas</a>
               </li>
              
@@ -625,10 +625,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -644,14 +640,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">搜索</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">https</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">私有云</a>
               </li>
              
@@ -660,11 +648,27 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">xss</a>
+                <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">csrf</a>
+                <a href="javascript:void(0)" class="js-tag color3">搜索</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">https</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">scrapy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">xss</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -680,11 +684,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">scrapy</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+                <a href="javascript:void(0)" class="js-tag color5">csrf</a>
               </li>
             
             <div class="clearfix"></div>

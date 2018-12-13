@@ -15,22 +15,22 @@
 <meta property="og:url" content="http://yoursite.com/2018/07/09/scrapy/index.html">
 <meta property="og:site_name" content="WhiteRabbit的博客">
 <meta property="og:description" content="爬虫是网络信息收集最重要的工具之一，而我之前一直都用自己手写的爬虫，感觉挺好用也一直没学爬虫框架。由于研究需要，最近又要接触爬虫，于是索性学了一下爬虫框架Scrapy，看看为什么这么多人支持该框架，他又给我们编写爬虫带来了哪些便捷。">
-<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/scrapy/scrapy-1.jpg">
-<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/scrapy/scrapy-2.png">
-<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/scrapy/scrapy-3.png">
-<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/scrapy/scrapy-4.png">
-<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/scrapy/scrapy-5.png">
-<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/scrapy/scrapy-6.png">
-<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/scrapy/scrapy-7.png">
-<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/scrapy/scrapy-8.png">
-<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/scrapy/scrapy-9.png">
-<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/scrapy/scrapy-10.png">
-<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/scrapy/scrapy-11.png">
-<meta property="og:updated_time" content="2018-09-01T02:08:52.761Z">
+<meta property="og:image" content="http://picture.whiterabbitxyj.com/blogPicture/scrapy/scrapy-1.jpg">
+<meta property="og:image" content="http://picture.whiterabbitxyj.com/blogPicture/scrapy/scrapy-2.png">
+<meta property="og:image" content="http://picture.whiterabbitxyj.com/blogPicture/scrapy/scrapy-3.png">
+<meta property="og:image" content="http://picture.whiterabbitxyj.com/blogPicture/scrapy/scrapy-4.png">
+<meta property="og:image" content="http://picture.whiterabbitxyj.com/blogPicture/scrapy/scrapy-5.png">
+<meta property="og:image" content="http://picture.whiterabbitxyj.com/blogPicture/scrapy/scrapy-6.png">
+<meta property="og:image" content="http://picture.whiterabbitxyj.com/blogPicture/scrapy/scrapy-7.png">
+<meta property="og:image" content="http://picture.whiterabbitxyj.com/blogPicture/scrapy/scrapy-8.png">
+<meta property="og:image" content="http://picture.whiterabbitxyj.com/blogPicture/scrapy/scrapy-9.png">
+<meta property="og:image" content="http://picture.whiterabbitxyj.com/blogPicture/scrapy/scrapy-10.png">
+<meta property="og:image" content="http://picture.whiterabbitxyj.com/blogPicture/scrapy/scrapy-11.png">
+<meta property="og:updated_time" content="2018-12-13T12:40:29.574Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从零开始接触Scrapy爬虫框架到构建一个通用实用型模板">
 <meta name="twitter:description" content="爬虫是网络信息收集最重要的工具之一，而我之前一直都用自己手写的爬虫，感觉挺好用也一直没学爬虫框架。由于研究需要，最近又要接触爬虫，于是索性学了一下爬虫框架Scrapy，看看为什么这么多人支持该框架，他又给我们编写爬虫带来了哪些便捷。">
-<meta name="twitter:image" content="http://oz1sa62oq.bkt.clouddn.com/image/scrapy/scrapy-1.jpg">
+<meta name="twitter:image" content="http://picture.whiterabbitxyj.com/blogPicture/scrapy/scrapy-1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="WhiteRabbit的博客" type="application/atom+xml">
   
@@ -224,7 +224,7 @@
 virtualenv ENV  #创建一个虚拟环境目录
 source ./ENV/bin/active  #激活虚拟环境
 pip install Scrapy
-</code></pre><h2 id="Scrapy整体架构"><a href="#Scrapy整体架构" class="headerlink" title="Scrapy整体架构"></a>Scrapy整体架构</h2><p><img src="http://oz1sa62oq.bkt.clouddn.com/image/scrapy/scrapy-1.jpg" alt="scrapy-1"></p>
+</code></pre><h2 id="Scrapy整体架构"><a href="#Scrapy整体架构" class="headerlink" title="Scrapy整体架构"></a>Scrapy整体架构</h2><p><img src="http://picture.whiterabbitxyj.com/blogPicture/scrapy/scrapy-1.jpg" alt="scrapy-1"></p>
 <p>Scrapy由5个部分构成，分别是：<br>（1）Scrapy Engine，引擎，相当于整个爬虫框架的大脑，其连接着其他四个模块，控制着整个框架的数据流动、指令触发事件等等。<br>（2）Spiders，爬虫，这是由用户自己实现的部分，需要注意的是，在一个爬虫框架中可以存在很多爬虫，而每个爬虫都负责处理某个或某几个特定网站。<br>（3）Scheduler，调度器，负责管理由spider发起的request请求，将其入队，当引擎请求时将其传递。<br>（4）Downloader，下载器，负责获取页面数据并提供给引擎，而后提供给spider。<br>（5）Item Pipeline，管道，当页面被爬虫解析所需的数据存入Item后，将被发送到项目管道，并经过几个特定的次序处理数据，最后存入本地文件或存入数据库。</p>
 <p>而一个完整的流程大概是这样的：Spider从自己的url列表中取出要爬取的url，将request请求传递给Scheduler，调度器经过调度将请求传递给Downlader，下载器会将整个页面的数据下载下来，并封装成应答包(Response)，再回传给Spiders，爬虫将下载的数据整理为Item数据类型，最后交给Pipeline保存。整个过程中，引擎处理着每个模块之间的交互和数据流动，而调度器一般在多个爬虫同时传递request请求时才显现出其重要性。</p>
 <p>其实在框架图中可以看到，还存在两个中间件：Downloader middlewares（下载中间件）和Spider middlewares（爬虫中间件），这两个中间件并不影响整个框架的运行，其为用户自定义的模块，可以不实现，而其存在的意义在于扩展Scrapy功能，比如IP代理池等等。</p>
@@ -267,11 +267,11 @@ class malwareSpider(scrapy.Spider):
 </code></pre><p>简单解释一下上面的demo，首先定义了一个类去继承Spider类，并在这个类中实现具体的爬虫功能，其中参数解释如下：<br>（1）name：爬虫的名字，在启动爬虫的时候需要用到<br>（2）allowed_domains：爬虫可行域，定义了爬虫允许的爬取域<br>（3）start_urls：定义了初始url的列表，爬虫会依次爬取<br>而对于parse函数，这是Spider类中最重要的一个函数，其是一个回调函数，在每个下载器完成下载后，会将数据内容封装成一个Response，并将其传递给parse函数进行处理。在上面的demo中，parse就进行了一个简单的处理，截取url内容并以此为名保存在本地。我们在爬虫根目录使用下列命令启动爬虫看看效果：</p>
 <pre><code>scrapy crawl malware
 </code></pre><p>主要注意的是，本命令需要在根目录执行，就是存在<strong>scrapy.cfg</strong>文件的目录，且最后一个参数是你爬虫的名字，如我定义的爬虫名字（name）就是malware，爬虫运行过程如下:</p>
-<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/scrapy/scrapy-2.png" alt="scrapy-2"></p>
-<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/scrapy/scrapy-3.png" alt="scrapy-3"></p>
+<p><img src="http://picture.whiterabbitxyj.com/blogPicture/scrapy/scrapy-2.png" alt="scrapy-2"></p>
+<p><img src="http://picture.whiterabbitxyj.com/blogPicture/scrapy/scrapy-3.png" alt="scrapy-3"></p>
 <h2 id="3-在Spider中使用Item"><a href="#3-在Spider中使用Item" class="headerlink" title="3. 在Spider中使用Item"></a>3. 在Spider中使用Item</h2><p>在上面的例子中我们成功定义了Spider并让其爬取数据并保存，但是这种方式显得很直接粗漏，因此我们使用之前定义Item类来作为存储数据的容器。</p>
 <h3 id="3-1-提取数据"><a href="#3-1-提取数据" class="headerlink" title="3.1 提取数据"></a>3.1 提取数据</h3><p>在将提出的数据存入Item之前，我们需要知道如何从下载的内容中提取出我们需要的数据。首先，我们能够得到初始的数据内容为页面源码，大概长相如下：</p>
-<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/scrapy/scrapy-4.png" alt="scrapy-4"></p>
+<p><img src="http://picture.whiterabbitxyj.com/blogPicture/scrapy/scrapy-4.png" alt="scrapy-4"></p>
 <p>为了更方便地从页面源码中提取数据，Scrapy提供一个Selector类来辅助数据提取。Selector类主要使用<strong>XPath</strong>和<strong>CSS表达式</strong>来进行数据提取，其可用的方法如下：</p>
 <ul>
 <li>xpath(): 返回selectors列表, 每一个selector表示一个xpath参数表达式选择的节点.</li>
@@ -325,10 +325,10 @@ class malwareSpider(scrapy.Spider):
             f.write(item[&apos;title&apos;][0])
         return item
 </code></pre><p>可以看到Pipeline主要运行函数是process_item，其会自动调用，而我们也主要在该函数中实现对数据的操作。上面的代码进行了一个简单的操作，新建一个test文件来存储从Spider传递过来的Item数据，运行的结果如下：</p>
-<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/scrapy/scrapy-5.png" alt="scrapy-5"></p>
-<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/scrapy/scrapy-6.png" alt="scrapy-6"></p>
+<p><img src="http://picture.whiterabbitxyj.com/blogPicture/scrapy/scrapy-5.png" alt="scrapy-5"></p>
+<p><img src="http://picture.whiterabbitxyj.com/blogPicture/scrapy/scrapy-6.png" alt="scrapy-6"></p>
 <p>到这里，我们已经实现了一个完整的demo，从运行爬虫，抓取数据，提取数据最后处理数据。</p>
-<h1 id="进阶——实现一个通用实用型爬虫模板"><a href="#进阶——实现一个通用实用型爬虫模板" class="headerlink" title="进阶——实现一个通用实用型爬虫模板"></a>进阶——实现一个通用实用型爬虫模板</h1><p>上面的教程我们已经实现了一个最初级的爬虫，并成功运行，但是也遗留下了许多问题。首先，上面的爬虫只实现了一个网页的爬取以及数据提取，对于我们来说，我们肯定无法满足对单一网页的爬取，身为爬虫必须有跟踪链接与管理url的能力。<br>大部分网上的实现代码都是使用迭代的思想来实现跟踪链接（参考<a href="https://www.cnblogs.com/lgh344902118/p/8565757.htmloz1sa62oq.bkt.clouddn.com/image/scrapy/scrapy-6.png" target="_blank" rel="external">Here</a>），url的管理也要单独实现，由于下载器不会自动调用，我们需要使用request方法来触发并实现回调。这无疑是十分麻烦的，我们使用爬虫框架的目的就是为了简化代码，少写多能。<br>为了实现一个通用实用型爬虫模板，本文并不准备采用迭代来实现，而是使用CrawlSpider类来实现，由于其实现了自动管理url与跟踪，无疑简化了我们代码的实现。</p>
+<h1 id="进阶——实现一个通用实用型爬虫模板"><a href="#进阶——实现一个通用实用型爬虫模板" class="headerlink" title="进阶——实现一个通用实用型爬虫模板"></a>进阶——实现一个通用实用型爬虫模板</h1><p>上面的教程我们已经实现了一个最初级的爬虫，并成功运行，但是也遗留下了许多问题。首先，上面的爬虫只实现了一个网页的爬取以及数据提取，对于我们来说，我们肯定无法满足对单一网页的爬取，身为爬虫必须有跟踪链接与管理url的能力。<br>大部分网上的实现代码都是使用迭代的思想来实现跟踪链接（参考<a href="https://www.cnblogs.com/lgh344902118/p/8565757.htmlpicture.whiterabbitxyj.com/blogPicture/scrapy/scrapy-6.png" target="_blank" rel="external">Here</a>），url的管理也要单独实现，由于下载器不会自动调用，我们需要使用request方法来触发并实现回调。这无疑是十分麻烦的，我们使用爬虫框架的目的就是为了简化代码，少写多能。<br>为了实现一个通用实用型爬虫模板，本文并不准备采用迭代来实现，而是使用CrawlSpider类来实现，由于其实现了自动管理url与跟踪，无疑简化了我们代码的实现。</p>
 <h2 id="1-Item实现"><a href="#1-Item实现" class="headerlink" title="1. Item实现"></a>1. Item实现</h2><p>首先明确一下需要提取的数据，从malware-traffic-analysis.net站点的目录开始，跟踪每个页面，从页面中提取可以下载的pcap文件链接。因此，Item的定义如下：</p>
 <pre><code>from scrapy.item import Item, Field
 
@@ -350,7 +350,7 @@ class MalwareItem(Item):
         self.file.write(&quot;\n&quot;)
         return item
 </code></pre><h2 id="3-CrawlSpider实现"><a href="#3-CrawlSpider实现" class="headerlink" title="3. CrawlSpider实现"></a>3. CrawlSpider实现</h2><p>在编写CrawlSipder前，我们先了解一下CrawlSpider是怎么进行url管理和跟踪的。CrawlSpider使用rules来定义抓取url的规则，其可以包含多个Rule对象，每个Rule对象对应一条规则。简单来说，CrawlSpider中定义了一个名为rules的属性，其中包含了许多规则，只要页面中有url命中了其中一条规则，就会被添加入待爬取的url列表，而CrawlSpider对于url的管理和去重等操作都是自动化的。<br>看一下目录中要跟踪url的结构：</p>
-<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/scrapy/scrapy-7.png" alt="scrapy-7"></p>
+<p><img src="http://picture.whiterabbitxyj.com/blogPicture/scrapy/scrapy-7.png" alt="scrapy-7"></p>
 <p>大概是”日期+index.html”或”日期+index+数字.html”,所以写出规则：</p>
 <pre><code>rules = [
     Rule(LinkExtractor(allow=(&apos;\d{2}\/\d{2}\/index(\d)?\.html&apos;)),
@@ -365,7 +365,7 @@ class MalwareItem(Item):
          follow=True)
 ]
 </code></pre><p>接下来查看一下需要爬取的文件路径源码：</p>
-<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/scrapy/scrapy-8.png" alt="scrapy-8"></p>
+<p><img src="http://picture.whiterabbitxyj.com/blogPicture/scrapy/scrapy-8.png" alt="scrapy-8"></p>
 <p>因此，我们根据特征写出xpath语句：</p>
 <pre><code>xpath(&apos;//ul/li/a[@class=&quot;menu_link&quot;]/@href&apos;)
 </code></pre><p>编写了url抓取规则和xpath的语句，我们接着编写CrawlSpider的总体代码，值得注意的是，CrawlSpider不能使用parse，不然rules规则会被覆盖，因此需要在rules中添加一个回调参数callback来替代parse，具体的实现代码如下：</p>
@@ -402,7 +402,7 @@ class malwareSpider(CrawlSpider):
         except:
             pass
 </code></pre><p>在根目录下启动爬虫，爬虫能够成功运行并进行数据抓取：</p>
-<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/scrapy/scrapy-9.png" alt="scrapy-9"></p>
+<p><img src="http://picture.whiterabbitxyj.com/blogPicture/scrapy/scrapy-9.png" alt="scrapy-9"></p>
 <h2 id="4-爬虫的优化与调整"><a href="#4-爬虫的优化与调整" class="headerlink" title="4. 爬虫的优化与调整"></a>4. 爬虫的优化与调整</h2><p>在完成上述代码后，依旧存在一些需要解决的问题，首先，源网站待爬取的数据一共有169条，却一共进行了174次爬取，查看记录文件后发现爬虫爬到其他域去了，因此在爬虫加上作用域的限制：</p>
 <pre><code>allowed_domains = [&apos;malware-traffic-analysis.net&apos;]
 </code></pre><p>查看一下爬到其他域的原因，发现是规则不严谨造成的，于是优化规则内容，避免类似情况发生，Rule的allow是采用正则匹配，我们添加xpath来使规则更加完善，修改后的规则如下：</p>
@@ -413,7 +413,7 @@ class malwareSpider(CrawlSpider):
          follow=True)
 ]
 </code></pre><p>即必须在ul/li/a的href属性中的链接才会被提取跟踪，修改后爬取结果如下：</p>
-<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/scrapy/scrapy-10.png" alt="scrapy-10"></p>
+<p><img src="http://picture.whiterabbitxyj.com/blogPicture/scrapy/scrapy-10.png" alt="scrapy-10"></p>
 <p>虽然爬取规则正确了，但是查看存储的内容时发现，与预期出现了很大的偏差，主要是在downloadurl这一项上，预期认为总是列表的第二项，实际上许多地方出现了偏差，出现在了列表的第一项或第三项，于是我们需要优化数据筛选规则，使用单一的xpath并无法满足我们，于是我们调用re()方法来添加正则匹配：</p>
 <pre><code>sel.xpath(&apos;//ul/li/a[@class=&quot;menu_link&quot;]/@href&apos;).re(&apos;(.)+\.pcap\.zip&apos;).extract()
 </code></pre><p>上面的代码在实际运行时报错，这里有一个坑，当我调用re()方法时，我下意识地认为这是一个添加正则规则的函数，后来我才re和extract不能同时调用，因为re已经相当于正则+extract。因为第一次接触Spider的人很容易犯这个错误，所以我在这里写出来。实际上，在xpath语法中结合正则表达是一个更好的选择，写法如下：</p>
@@ -467,7 +467,7 @@ class malwareSpider(CrawlSpider):
         except:
             pass
 </code></pre><p>爬取成功的数据存储图：</p>
-<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/scrapy/scrapy-11.png" alt="scrapy-11"></p>
+<p><img src="http://picture.whiterabbitxyj.com/blogPicture/scrapy/scrapy-11.png" alt="scrapy-11"></p>
 <p>到此为止，一个完整的爬虫模板已经完成，在今后需要重新编写爬虫时，我们的修改流程大致如下：<br>（1）修改Item，决定数据存储的容器结构<br>（2）修改Pipeline，对数据进行操作或存储<br>（3）修改爬虫可行域、初始url<br>（4）修改rules，决定url抓取规则<br>（5）修改xpath，决定数据提取规则</p>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>源码地址：<a href="https://download.csdn.net/download/qq_31601147/10531017" target="_blank" rel="external">Here</a>。</p>
 
@@ -764,14 +764,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">渗透</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">WAF</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">安全</a>
               </li>
              
@@ -792,11 +784,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ctf</a>
+                <a href="javascript:void(0)" class="js-tag color3">渗透</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">sql注入</a>
+                <a href="javascript:void(0)" class="js-tag color4">WAF</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -812,6 +804,14 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">sql注入</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ctf</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">pandas</a>
               </li>
              
@@ -821,10 +821,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -840,14 +836,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">搜索</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">https</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">私有云</a>
               </li>
              
@@ -856,11 +844,27 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">xss</a>
+                <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">csrf</a>
+                <a href="javascript:void(0)" class="js-tag color3">搜索</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">https</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">scrapy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">xss</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -876,11 +880,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">scrapy</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+                <a href="javascript:void(0)" class="js-tag color5">csrf</a>
               </li>
             
             <div class="clearfix"></div>

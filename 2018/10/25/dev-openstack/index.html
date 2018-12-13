@@ -15,13 +15,13 @@
 <meta property="og:url" content="http://yoursite.com/2018/10/25/dev-openstack/index.html">
 <meta property="og:site_name" content="WhiteRabbit的博客">
 <meta property="og:description" content="最近在学习openstack，因为人懒不想跟着官方文档一步步敲命令行部署，我最终是使用devstack来部署openstack的，由于脸黑，我用了2天时间才成功在虚拟机中部署成功。所以在这里分享一下怎么使用devstack来完成all-in-one的openstack部署。">
-<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/openstack/openstack1.png">
-<meta property="og:image" content="http://oz1sa62oq.bkt.clouddn.com/image/openstack/openstack2.png">
-<meta property="og:updated_time" content="2018-10-26T03:01:52.153Z">
+<meta property="og:image" content="http://picture.whiterabbitxyj.com/blogPicture/openstack/openstack1.png">
+<meta property="og:image" content="http://picture.whiterabbitxyj.com/blogPicture/openstack/openstack2.png">
+<meta property="og:updated_time" content="2018-12-13T12:40:35.580Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Openstack部署all-in-one初体验">
 <meta name="twitter:description" content="最近在学习openstack，因为人懒不想跟着官方文档一步步敲命令行部署，我最终是使用devstack来部署openstack的，由于脸黑，我用了2天时间才成功在虚拟机中部署成功。所以在这里分享一下怎么使用devstack来完成all-in-one的openstack部署。">
-<meta name="twitter:image" content="http://oz1sa62oq.bkt.clouddn.com/image/openstack/openstack1.png">
+<meta name="twitter:image" content="http://picture.whiterabbitxyj.com/blogPicture/openstack/openstack1.png">
   
     <link rel="alternative" href="/atom.xml" title="WhiteRabbit的博客" type="application/atom+xml">
   
@@ -210,7 +210,7 @@
         <p>最近在学习openstack，因为人懒不想跟着官方文档一步步敲命令行部署，我最终是使用devstack来部署openstack的，由于脸黑，我用了2天时间才成功在虚拟机中部署成功。所以在这里分享一下怎么使用devstack来完成<strong>all-in-one</strong>的openstack部署。</p>
 <a id="more"></a>
 <hr>
-<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/openstack/openstack1.png" alt="openstack"></p>
+<p><img src="http://picture.whiterabbitxyj.com/blogPicture/openstack/openstack1.png" alt="openstack"></p>
 <h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><h2 id="虚拟机"><a href="#虚拟机" class="headerlink" title="虚拟机"></a>虚拟机</h2><p>因为采用的<strong>all-in-one</strong>的部署方式，所以需要准备一台虚拟机作为openstack部署的主体，将所有的openstack服务都安装在一台虚拟机中。<br>我使用的虚拟机软件是VMware，操作系统版本为Ubuntu 16.04。这里需要提一下，由于版本更新，devstack目前只支持Ubuntu 16，且openstack的pike、queens中很多默认库的版本与Ubuntu 14.04不匹配，在安装时会产生极大的麻烦（虽然16.04也很麻烦）。所以建议使用Ubuntu 16.04作为操作系统来安装虚拟机。</p>
 <p>这里提供一下Ubuntu 16.04的ISO下载链接：<a href="http://blog.whiterabbitxyj.com/download/ubuntu-16.04.5-desktop-amd64.iso.torrent" target="_blank" rel="external">link</a>。</p>
 <p>至于虚拟机的配置，这里建议8G内存+50G磁，实在不行也要保证4G以上的内存。</p>
@@ -362,7 +362,7 @@ NOVNC_REPO=http://git.trystack.cn/kanaka/noVNC.git
 SPICE_REPO=http://git.trystack.cn/git/spice/spice-html5.git
 disable_service tempest heat cinder
 </code></pre><h1 id="保存虚拟机快照"><a href="#保存虚拟机快照" class="headerlink" title="保存虚拟机快照"></a>保存虚拟机快照</h1><p>这一步十分十分十分十分关键！！完成了上面所有步骤，接下来我们就要开始直接安装了，我们可能会失败好几次，所以保存现在我们做好的环境十分重要。不然devstack部署openstack彻底失败后，你也不想彻底失败后从头再来配置一遍环境吧？</p>
-<p><img src="http://oz1sa62oq.bkt.clouddn.com/image/openstack/openstack2.png" alt="openstack2"></p>
+<p><img src="http://picture.whiterabbitxyj.com/blogPicture/openstack/openstack2.png" alt="openstack2"></p>
 <h1 id="开始安装"><a href="#开始安装" class="headerlink" title="开始安装"></a>开始安装</h1><p>完成了上面所有的步骤，那就开始安装吧，朋友们，万里长征开始了。（建议下载一部电影，因为部署过程很漫长，大概要40多分钟，而且中途任何一个过程都可能失败而退出安装）</p>
 <p>执行：</p>
 <pre><code>./stack.sh
@@ -685,14 +685,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">渗透</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">WAF</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">安全</a>
               </li>
              
@@ -713,11 +705,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ctf</a>
+                <a href="javascript:void(0)" class="js-tag color3">渗透</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">sql注入</a>
+                <a href="javascript:void(0)" class="js-tag color4">WAF</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -733,6 +725,14 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">sql注入</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ctf</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">pandas</a>
               </li>
              
@@ -742,10 +742,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -761,14 +757,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">搜索</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">https</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">私有云</a>
               </li>
              
@@ -777,11 +765,27 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">xss</a>
+                <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">csrf</a>
+                <a href="javascript:void(0)" class="js-tag color3">搜索</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">https</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">scrapy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">xss</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -797,11 +801,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">scrapy</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+                <a href="javascript:void(0)" class="js-tag color5">csrf</a>
               </li>
             
             <div class="clearfix"></div>
