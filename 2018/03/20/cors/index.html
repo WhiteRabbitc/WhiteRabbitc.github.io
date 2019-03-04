@@ -12,7 +12,7 @@
 <meta name="keywords" content="CORS,漏洞">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CORS跨域资源共享原理与漏洞">
-<meta property="og:url" content="http://yoursite.com/2019/03/20/cors/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/03/20/cors/index.html">
 <meta property="og:site_name" content="WhiteRabbit的博客">
 <meta property="og:description" content="过完年回来，我闲来无事逛了逛技术论坛，碰巧看到了对CORS漏洞的描述，顿时感兴趣起来。查了一些资料，也动手做了一些实践测试，解决了一些疑惑，这里整理成一篇博客供大家学习浏览。">
 <meta property="og:image" content="http://picture.whiterabbitxyj.com/blogPicture/cors/cors-1.png">
@@ -28,7 +28,8 @@
 <meta property="og:image" content="http://picture.whiterabbitxyj.com/blogPicture/cors/cors-12.png">
 <meta property="og:image" content="http://picture.whiterabbitxyj.com/blogPicture/cors/cors-13.png">
 <meta property="og:image" content="http://picture.whiterabbitxyj.com/blogPicture/cors/cors-14.png">
-<meta property="og:updated_time" content="2019-03-02T01:50:57.844Z">
+<meta property="og:image" content="http://picture.whiterabbitxyj.com/blogPicture/cors/cors-15.png">
+<meta property="og:updated_time" content="2019-03-04T03:55:55.500Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CORS跨域资源共享原理与漏洞">
 <meta name="twitter:description" content="过完年回来，我闲来无事逛了逛技术论坛，碰巧看到了对CORS漏洞的描述，顿时感兴趣起来。查了一些资料，也动手做了一些实践测试，解决了一些疑惑，这里整理成一篇博客供大家学习浏览。">
@@ -181,8 +182,8 @@
   
 
         
-        <a href="/2019/03/20/cors/" class="archive-article-date">
-  	<time datetime="2019-03-20T03:39:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-20</time>
+        <a href="/2018/03/20/cors/" class="archive-article-date">
+  	<time datetime="2018-03-20T03:39:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-20</time>
 </a>
         
       </header>
@@ -197,7 +198,7 @@
 	<div id="toc-article" class="toc-article">
 	    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
 		<strong class="toc-title">文章目录</strong>
-           <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一切从同源策略说起"><span class="toc-number">1.</span> <span class="toc-text">一切从同源策略说起</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#同源策略"><span class="toc-number">1.1.</span> <span class="toc-text">同源策略</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#跨域"><span class="toc-number">1.2.</span> <span class="toc-text">跨域</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CORS-跨域资源共享"><span class="toc-number">2.</span> <span class="toc-text">CORS(跨域资源共享)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#简介"><span class="toc-number">2.1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实验测试"><span class="toc-number">2.2.</span> <span class="toc-text">实验测试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#不带Cookie的跨域访问"><span class="toc-number">2.2.1.</span> <span class="toc-text">不带Cookie的跨域访问</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#带Cookie的跨域访问"><span class="toc-number">2.2.2.</span> <span class="toc-text">带Cookie的跨域访问</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#无差别拦截"><span class="toc-number">2.2.3.</span> <span class="toc-text">无差别拦截</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#漏洞"><span class="toc-number">2.3.</span> <span class="toc-text">漏洞</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#漏洞挖掘"><span class="toc-number">2.3.1.</span> <span class="toc-text">漏洞挖掘</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CSRF和CORS"><span class="toc-number">3.</span> <span class="toc-text">CSRF和CORS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li></ol>
+           <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一切从同源策略说起"><span class="toc-number">1.</span> <span class="toc-text">一切从同源策略说起</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#同源策略"><span class="toc-number">1.1.</span> <span class="toc-text">同源策略</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#跨域"><span class="toc-number">1.2.</span> <span class="toc-text">跨域</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CORS-跨域资源共享"><span class="toc-number">2.</span> <span class="toc-text">CORS(跨域资源共享)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#简介"><span class="toc-number">2.1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实验测试"><span class="toc-number">2.2.</span> <span class="toc-text">实验测试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#不带Cookie的跨域访问"><span class="toc-number">2.2.1.</span> <span class="toc-text">不带Cookie的跨域访问</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#带Cookie的跨域访问"><span class="toc-number">2.2.2.</span> <span class="toc-text">带Cookie的跨域访问</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#无差别拦截"><span class="toc-number">2.2.3.</span> <span class="toc-text">无差别拦截</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#漏洞"><span class="toc-number">2.3.</span> <span class="toc-text">漏洞</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#漏洞挖掘"><span class="toc-number">2.3.1.</span> <span class="toc-text">漏洞挖掘</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CSRF和CORS"><span class="toc-number">3.</span> <span class="toc-text">CSRF和CORS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#XSS和CORS"><span class="toc-number">4.</span> <span class="toc-text">XSS和CORS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a></li></ol>
          </div>
    <script type="text/javascript">
 	function showToc(){
@@ -358,6 +359,10 @@ header(&quot;Access-Control-Allow-Credentials&quot;);
 <p><img src="http://picture.whiterabbitxyj.com/blogPicture/cors/cors-13.png" alt="cors-12"></p>
 <p>所以我们发起CSRF攻击时，比如给后台添加管理员，Post数据提交后，服务器会处理请求(给后台添加管理员)，但不会返回结果给你，而实际上后台已经完成了添加管理员操作。流程可以参考：</p>
 <p><img src="http://picture.whiterabbitxyj.com/blogPicture/cors/cors-14.png" alt="cors-13"></p>
+<h1 id="XSS和CORS"><a href="#XSS和CORS" class="headerlink" title="XSS和CORS"></a>XSS和CORS</h1><p>值得一提的是，虽然同源策略禁止了跨域，但是DOM中的很多标签都可以绕过这个限制，比如<code>&lt;script&gt;</code>,<code>&lt;img&gt;</code>,<code>&lt;a&gt;</code>等等。</p>
+<p><strong>只要包含了 “src” 或 “href” 属性的标签都可以完成跨域操作</strong>。</p>
+<p>我们知道，XSS是利用<code>&lt;script&gt;</code>,<code>&lt;img&gt;</code>等标签执行注入的，实际上也是利用了这些标签完成了跨域传递敏感信息，其流程如下所示：</p>
+<p><img src="http://picture.whiterabbitxyj.com/blogPicture/cors/cors-15.png" alt="cors-14"></p>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>COSR漏洞其实是一个很早就出现的漏洞，只是国内比较少见，但国外其实曾经造成过很多恶劣影响，比如facebook信息泄露。如果我们在开发网站时遇到跨域的情况，一定要谨慎处理，不可留下CORS漏洞。</p>
 
       
@@ -468,7 +473,7 @@ header(&quot;Access-Control-Allow-Credentials&quot;);
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2019/03/20/cors/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/03/20/cors/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -482,9 +487,18 @@ header(&quot;Access-Control-Allow-Credentials&quot;);
   
 <nav id="article-nav">
   
+    <a href="/2018/04/02/rpo/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          RPO攻击初体验
+        
+      </div>
+    </a>
   
-    <a href="/2018/12/18/xueshu-3/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">基于流量关联的移动app端加密流量识别</div>
+  
+    <a href="/2018/03/19/ctf-sql/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">南京邮电大学网络攻防训练平台sql注入题目专栏</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -511,7 +525,7 @@ header(&quot;Access-Control-Allow-Credentials&quot;);
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一切从同源策略说起"><span class="toc-number">1.</span> <span class="toc-text">一切从同源策略说起</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#同源策略"><span class="toc-number">1.1.</span> <span class="toc-text">同源策略</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#跨域"><span class="toc-number">1.2.</span> <span class="toc-text">跨域</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CORS-跨域资源共享"><span class="toc-number">2.</span> <span class="toc-text">CORS(跨域资源共享)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#简介"><span class="toc-number">2.1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实验测试"><span class="toc-number">2.2.</span> <span class="toc-text">实验测试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#不带Cookie的跨域访问"><span class="toc-number">2.2.1.</span> <span class="toc-text">不带Cookie的跨域访问</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#带Cookie的跨域访问"><span class="toc-number">2.2.2.</span> <span class="toc-text">带Cookie的跨域访问</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#无差别拦截"><span class="toc-number">2.2.3.</span> <span class="toc-text">无差别拦截</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#漏洞"><span class="toc-number">2.3.</span> <span class="toc-text">漏洞</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#漏洞挖掘"><span class="toc-number">2.3.1.</span> <span class="toc-text">漏洞挖掘</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CSRF和CORS"><span class="toc-number">3.</span> <span class="toc-text">CSRF和CORS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一切从同源策略说起"><span class="toc-number">1.</span> <span class="toc-text">一切从同源策略说起</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#同源策略"><span class="toc-number">1.1.</span> <span class="toc-text">同源策略</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#跨域"><span class="toc-number">1.2.</span> <span class="toc-text">跨域</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CORS-跨域资源共享"><span class="toc-number">2.</span> <span class="toc-text">CORS(跨域资源共享)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#简介"><span class="toc-number">2.1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实验测试"><span class="toc-number">2.2.</span> <span class="toc-text">实验测试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#不带Cookie的跨域访问"><span class="toc-number">2.2.1.</span> <span class="toc-text">不带Cookie的跨域访问</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#带Cookie的跨域访问"><span class="toc-number">2.2.2.</span> <span class="toc-text">带Cookie的跨域访问</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#无差别拦截"><span class="toc-number">2.2.3.</span> <span class="toc-text">无差别拦截</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#漏洞"><span class="toc-number">2.3.</span> <span class="toc-text">漏洞</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#漏洞挖掘"><span class="toc-number">2.3.1.</span> <span class="toc-text">漏洞挖掘</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CSRF和CORS"><span class="toc-number">3.</span> <span class="toc-text">CSRF和CORS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#XSS和CORS"><span class="toc-number">4.</span> <span class="toc-text">XSS和CORS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -644,6 +658,14 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安全</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">科学上网</a>
               </li>
              
@@ -668,11 +690,27 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安全</a>
+                <a href="javascript:void(0)" class="js-tag color2">pandas</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
+                <a href="javascript:void(0)" class="js-tag color5">Dataframe</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">渗透</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">WAF</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">sql注入</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -688,35 +726,15 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">渗透</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">WAF</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">pandas</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Dataframe</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">sql注入</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">https</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">流量</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">加密</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -732,11 +750,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">加密</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+                <a href="javascript:void(0)" class="js-tag color1">https</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -745,18 +759,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">RPO</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">搜索</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">学术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">论文</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -769,6 +771,18 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">搜索</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">学术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">论文</a>
               </li>
              
               <li class="article-tag-list-item">
