@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-03-04T04:00:07.541Z</updated>
+  <updated>2019-11-06T13:55:07.249Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>国家专利申请从入门到放弃</title>
+    <link href="http://yoursite.com/2019/11/06/zhuanli/"/>
+    <id>http://yoursite.com/2019/11/06/zhuanli/</id>
+    <published>2019-11-06T03:39:32.000Z</published>
+    <updated>2019-11-06T13:55:07.249Z</updated>
+    
+    <content type="html"><![CDATA[<p>今年的第二篇博客姗姗来迟，一个是实在太忙了，另一个是我实在太懒了，不过前端时间小白兔收到了一个好消息，去年5月我申请的专利终于通过了，历经了1年半，终于修成了正果。然而随着部门申请的专利陆陆续续的返回，通过率简直惨不忍睹。这篇博客记录了我从申请专利到拿到证书的全过程，分享一些经验与教训，希望对将来要申请专利的朋友提供一些帮助。</p><a id="more"></a><hr><h1 id="最初的准备"><a href="#最初的准备" class="headerlink" title="最初的准备"></a>最初的准备</h1><h2 id="虚拟机（建议）"><a href="#虚拟机（建议）" class="headerlink" title="虚拟机（建议）"></a>虚拟机（建议）</h2><p>专利需要在指定的软件CPC中进行编写，导入和导出，包括后续的专利通知书查阅，回复，补正等等。令人头疼的是，CPC软件并不支持Window 10，只支持Windows XP，Win7，Win8操作系统。所以无论是Linux系统还是Mac系统都必须安装虚拟机才行。而实际上，经我亲身测试，Win7的兼容性其实也不太好，Window XP目前是最舒服的（推荐）。</p><h2 id="CPC客户端软件"><a href="#CPC客户端软件" class="headerlink" title="CPC客户端软件"></a>CPC客户端软件</h2><p>上面说了，CPC客户端软件是专门用以编辑国家专利的软件程序，包括后续专利的一系列操作。贴一下CPC客户端下载链接：<a href="http://cponline.sipo.gov.cn/tooldown/865.jhtml" target="_blank" rel="external">CPC客户端</a>。安装的过程并没有什么难度，按顺序执行即可。</p><p><img src="http://picture.whiterabbitxyj.com/blogPicture/zhuanli/zhuanli-1.png" alt="zhuanli-1"></p><h2 id="CPC离线升级包"><a href="#CPC离线升级包" class="headerlink" title="CPC离线升级包"></a>CPC离线升级包</h2><p>CPC的客户端安装软件从2012年2月发布起就再也没有更新过了，一直都是使用离线升级包的方式来维护。这是非常重要的，因为原始CPC很多配置都已经无法跟上需求，所以必须使用离线升级过后才能正常使用。贴一下最新的升级包下载链接：<a href="http://cponline.sipo.gov.cn/tooldown/4936.jhtml" target="_blank" rel="external">CPC客户端离线升级包</a>。</p><p><img src="http://picture.whiterabbitxyj.com/blogPicture/zhuanli/zhuanli-2.png" alt="zhuanli-2"></p><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ul><li>Microsoft Office 2003/2007/2010。</li><li>IE 7.0/8.0</li><li>不能安装Office2007/2010的兼容包以及WPS</li></ul><h1 id="编写专利"><a href="#编写专利" class="headerlink" title="编写专利"></a>编写专利</h1><p>##发明专利请求书</p><p>这个文件用以提交本次发明的所有相关信息，包括：</p><ul><li>发明名称</li><li>申请人</li><li>发明人（第一发明人，第二发明人， …. ）</li><li>联系人</li><li>英文信息</li><li>其他</li></ul><h2 id="说明书摘要"><a href="#说明书摘要" class="headerlink" title="说明书摘要"></a>说明书摘要</h2><p>有点像论文的摘要，需要高度概括自己的发明专利的具体内容。大致写作思路可参考如下：</p><pre><code>本发明是____，其____, 可用于____领域和____领域。本发明的技术核心是____。该技术的工作流程为____。本发发明主要针对____问题，做出了____贡献。</code></pre><h2 id="说明书"><a href="#说明书" class="headerlink" title="说明书"></a>说明书</h2><p>说明书中包含了对专利具体内容的表述，必须清晰且详细，且主要包含以下内容：</p><ol><li><p>技术领域<br>说明发明说设计的技术领域和技术核心思路。</p></li><li><p>技术背景<br>解释说明本发明是在什么样的背景下提出的，是为了解决哪些问题。</p></li><li><p>附图说明<br>简要说明每个附图的内容。</p></li><li><p>具体实施方式<br>详细得说明专利的具体内容，如何部署，实施，实现（结合附图）。</p></li></ol><p>5.写作须知<br>专利审查是十分严格的，基本不能有错别字，标点符号的错误。因此在写作结束后，一定要仔细检查语句的通顺，错别字，标点符号以及分段。如果说明书中需要插入公式，可以在外部的office中编辑好再复制进来，或直接保存成图片插入。</p><h2 id="说明书附图"><a href="#说明书附图" class="headerlink" title="说明书附图"></a>说明书附图</h2><p>说明书中所需要的附图都保存在这里，采用的是导入的方式。如果遇到导入图片失败，请检查图片大小必须小于165mm*245mm。如果仍然报错，再次离线升级客户端尝试导入。如果还报错，可以尝试大招：在Window下用画图工具打开图片，然后另存为新图片就可以导入了，或者保存为pdf，再转回图片。</p><p><img src="http://picture.whiterabbitxyj.com/blogPicture/zhuanli/zhuanli-3.png" alt="zhuanli-3"></p><h2 id="权利要求书"><a href="#权利要求书" class="headerlink" title="权利要求书"></a>权利要求书</h2><p>权利要求书是整个专利最重要的一块，也是审查员重点审核的文件，里面记载整份专利需要受保护的权利。因此权利要求书的内容必须清楚，详细，不能出现模糊，模棱两可的表达。通常而言，权利要求书的权利1高度概括需要保护的权利，然后在后面的权利要求中扩展描述：</p><pre><code>1. 一种基于机器学习的XXXXXX方法A、XXXXB、XXXXC、XXXX2. 根据权利要求1中步骤A所述的XXXXX，其特征在于：A1、XXXXA2、XXXXA3、XXXX</code></pre><h1 id="受理阶段"><a href="#受理阶段" class="headerlink" title="受理阶段"></a>受理阶段</h1><p>在完成整份专利的编写后，通过CPC软件导出压缩包，然后提交自己的专利。在完成提交后，会收到一份来自国家知识产权局的 “受理通知书”，这意味的你的专利已经成功提交，并进入受理阶段。如果受理阶段没有问题，那么专利就会被送至实审，进入实审流程。</p><p><img src="http://picture.whiterabbitxyj.com/blogPicture/zhuanli/zhuanli-5.png" alt="zhuanli-4"></p><p>受理阶段审查的是专利的格式和标准，一般不涉及专利的具体内容。如果你的专利在受理阶段收到“补正通知书”，这说明你的提交的专利格式或标准出现问题，需要修改并提交补正文件。我曾接收到的问题如下：</p><ul><li>说明书中附图说明不完整，需要逐一说明</li><li>说明书摘要文字部分超过300个字</li><li>权利要求书编号重复</li><li>说明书和权利要求书公式下标不清晰</li><li>说明书标题和专利名不一致</li><li>说明书中大小写不一致<br>…</li></ul><p><img src="http://picture.whiterabbitxyj.com/blogPicture/zhuanli/zhuanli-4.png" alt="zhuanli-5"></p><p>在补正时，需要把通知书导入CPC客户端，在“通知书”里选中然后点击补正。补正材料包括补正书和修改后替代页。完成补正后，在中间文件选中然后导出，然后把补正答复提交给专利局。如果还是存在问题，则会收到第二次、第三次补正通知，这样本来就漫长的专利周期就会被拉得更长，所以在第一次补正通知时就认真修改吧。</p><h1 id="实审阶段"><a href="#实审阶段" class="headerlink" title="实审阶段"></a>实审阶段</h1><p>专利通过受理审查后，就会送至实审，这时你会收到一份“实审通知书”，当然你也可以在<a href="http://www.soopat.com" target="_blank" rel="external">soopat</a>上查询自己的专利是否处于实审状态。</p><p><img src="http://picture.whiterabbitxyj.com/blogPicture/zhuanli/zhuanli-6.png" alt="zhuanli-6"></p><p>实审阶段十分漫长，往往需要1-2年才会返回结果。在实审状态中，如果收到了“第一次审查意见通知书”，说明专利内容存在问题，需要修改。目前绝大部分专利都卡死在这里，第一次审查意见会有两种情况：</p><ol><li>目前<strong>文本</strong>暂时不能被授予专利权</li><li>不具备创新性，新颖性，没有被授予专利的实质内容，不具备授予专利的前景</li></ol><p>如果返回的是第一种，说明很有希望通过！只要按照审查意见的内容，进行修改和提交，就很有希望拿到专利权。回复审查意见的操作和补正相似，把第一次审查意见通知书导入CPC软件，在通知书中选中进行答复，需要的材料包括：修改对照页，替换页，意见陈述书。完成修改后，在中间文件选中并导出，然后提交给专利局。<br>如果返回的通知书中包含第二种字眼，那么基本上就凉了，但你也可以修改，或者直接怼审查员，万一成功了，对吧？</p><p><img src="http://picture.whiterabbitxyj.com/blogPicture/zhuanli/zhuanli-7.png" alt="zhuanli-7"></p><p>目前我整理的关于专利实审通知的理由如下：</p><ul><li>发明内容已经发表成论文（无论中、英）</li><li>发明内容和其他论文高度相似（在实审返回的文件中可以查看）</li><li>权利要求书内容和说明书内容矛盾</li><li>权利要求书中表述含糊，模糊，使保护范围不明确</li><li>标题不当，不能使用“技术，模型”，要用“方法，系统”<br>……</li></ul><h1 id="授权阶段"><a href="#授权阶段" class="headerlink" title="授权阶段"></a>授权阶段</h1><p>如果你的专利最终通过实审，那么就会收到来自专利局的两份通知书：授权通知书，缴费通知书。这说明的专利已经进入授权阶段，只要按时（3个月内）缴费，专利就能完成授权，寄发专利证书。</p><p><img src="http://picture.whiterabbitxyj.com/blogPicture/zhuanli/zhuanli-8.png" alt="zhuanli-8"></p><p>缴费可以直接网上缴费，也可以去当地代办点缴费。如果是第二种，你首先需要上网填写和打印“专利缴费信息网上补充”，然后去代办点缴费。</p><p><img src="http://picture.whiterabbitxyj.com/blogPicture/zhuanli/zhuanli-9.png" alt="zhuanli-9"></p><p>缴费成功后，你就可以安心等着专利证书寄过来啦（然而我至今还没等到）。</p><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>血的教训，一定要先申请专利，再发论文，不然死亡率接近百分百。专利对于一个人的荣誉加成是很高的，希望大家都能申请成功，奥利给！</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;今年的第二篇博客姗姗来迟，一个是实在太忙了，另一个是我实在太懒了，不过前端时间小白兔收到了一个好消息，去年5月我申请的专利终于通过了，历经了1年半，终于修成了正果。然而随着部门申请的专利陆陆续续的返回，通过率简直惨不忍睹。这篇博客记录了我从申请专利到拿到证书的全过程，分享一些经验与教训，希望对将来要申请专利的朋友提供一些帮助。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="专利" scheme="http://yoursite.com/tags/%E4%B8%93%E5%88%A9/"/>
+    
+      <category term="CPC" scheme="http://yoursite.com/tags/CPC/"/>
+    
+  </entry>
   
   <entry>
     <title>CORS跨域资源共享原理与漏洞</title>
@@ -98,9 +120,9 @@
     </summary>
     
     
-      <category term="https" scheme="http://yoursite.com/tags/https/"/>
-    
       <category term="流量" scheme="http://yoursite.com/tags/%E6%B5%81%E9%87%8F/"/>
+    
+      <category term="https" scheme="http://yoursite.com/tags/https/"/>
     
   </entry>
   
@@ -324,9 +346,9 @@
     </summary>
     
     
-      <category term="ctf" scheme="http://yoursite.com/tags/ctf/"/>
-    
       <category term="sql注入" scheme="http://yoursite.com/tags/sql%E6%B3%A8%E5%85%A5/"/>
+    
+      <category term="ctf" scheme="http://yoursite.com/tags/ctf/"/>
     
   </entry>
   
@@ -441,30 +463,6 @@
       <category term="加密" scheme="http://yoursite.com/tags/%E5%8A%A0%E5%AF%86/"/>
     
       <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Scapy库解析数据流SSL/TLS加密</title>
-    <link href="http://yoursite.com/2017/11/14/python-scapy-ssl_tls/"/>
-    <id>http://yoursite.com/2017/11/14/python-scapy-ssl_tls/</id>
-    <published>2017-11-14T03:39:32.000Z</published>
-    <updated>2018-12-13T12:40:33.092Z</updated>
-    
-    <content type="html"><![CDATA[<p>上一篇博客我详细地介绍了关于Python的Scapy使用，而常规的scapy库只能解析到传输层，传输层再往上的协议都无法解析，且剩余所有的原始16进制数据都存在Raw中。而在实际的工作中，我们往往是需要解析出流是否存在SSL/TLS加密的，wireshark就能很好解析出这些，那么scapy也能实现吗？自己写源码解析是个巨大的工程，我们这些单体开发人员望而却步，所以python提供了一个附加库scapy-ssl_tls来补充解析ssl/tls加密的功能。</p><a id="more"></a><h1 id="安装scapy-ssl-tls库"><a href="#安装scapy-ssl-tls库" class="headerlink" title="安装scapy-ssl_tls库"></a>安装scapy-ssl_tls库</h1><p>关于scapy-ssl_tls的安装很简单，直接使用pip安装：</p><pre><code>pip install scapy-ssl_tls</code></pre><p>就可以完成安装了，需要注意的是，这个python的附加库只支持python2.7及以下的版本。在linux中下载安装这个库时，它会自动检测系统中是否安装了scapy，若无，则自动安装scapy以及相关的库，十分方便，在一定程度解决了许多问题。<br>当然，我也知道有朋友看了我上篇博客，已经入了python3的深坑，那我也得负责，于是我找到了一位大牛写的支持python3的SSL/TLS解析库，附上链接：<a href="https://github.com/hackers-terabit/scapy-ssl_tls-python3" target="_blank" rel="external">here。</a></p><h1 id="导入scapy-ssl-tls库"><a href="#导入scapy-ssl-tls库" class="headerlink" title="导入scapy-ssl_tls库"></a>导入scapy-ssl_tls库</h1><p>在使用scapy-ssl_tls库时，需要输入语句：</p><pre><code>from scapy_ssl_tls.ssl_tls import *</code></pre><p>就可以使用了，值得注意的是，导入这个库的同时，scapy中的方法也已经被却全部导入，所以不需要再导入一遍scapy库。</p><h1 id="使用scapy-ssl-tls库"><a href="#使用scapy-ssl-tls库" class="headerlink" title="使用scapy-ssl_tls库"></a>使用scapy-ssl_tls库</h1><p>关于scapy-ssl_tls库的使用也没什么特别的，函数方法和scapy差不多，只不过在scapy的基础上，会自动解析ssl/tls加密，具体效果如下：</p><p><img src="http://picture.whiterabbitxyj.com/blogPicture/scapy/scapy-ssl_tls-1.png" alt="scapy-ssl/tls-1"></p><p>使用<code>show()</code>函数可以打印出具体的加密信息：</p><p><img src="http://picture.whiterabbitxyj.com/blogPicture/scapy/scapy-ssl_tls-2.png" alt="scapy-ssl/tls-2"></p><h1 id="感谢支持"><a href="#感谢支持" class="headerlink" title="感谢支持"></a>感谢支持</h1><p>感谢阅读，喜欢的话可以订购，订购rss：<a href="https://blog.whiterabbitxyj.com/atom" target="_blank" rel="external">here</a> ,支持我请将鼠标下滑到赏，欢迎评论！</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;上一篇博客我详细地介绍了关于Python的Scapy使用，而常规的scapy库只能解析到传输层，传输层再往上的协议都无法解析，且剩余所有的原始16进制数据都存在Raw中。而在实际的工作中，我们往往是需要解析出流是否存在SSL/TLS加密的，wireshark就能很好解析出这些，那么scapy也能实现吗？自己写源码解析是个巨大的工程，我们这些单体开发人员望而却步，所以python提供了一个附加库scapy-ssl_tls来补充解析ssl/tls加密的功能。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="python" scheme="http://yoursite.com/tags/python/"/>
-    
-      <category term="流量" scheme="http://yoursite.com/tags/%E6%B5%81%E9%87%8F/"/>
-    
-      <category term="加密" scheme="http://yoursite.com/tags/%E5%8A%A0%E5%AF%86/"/>
     
   </entry>
   
