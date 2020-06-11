@@ -217,30 +217,6 @@
   </entry>
   
   <entry>
-    <title>新一代科学上网利器：V2Ray扫盲教程</title>
-    <link href="http://yoursite.com/2018/08/31/V2Ray/"/>
-    <id>http://yoursite.com/2018/08/31/V2Ray/</id>
-    <published>2018-08-31T03:39:32.000Z</published>
-    <updated>2018-12-13T12:40:26.184Z</updated>
-    
-    <content type="html"><![CDATA[<p>之前一段时间一直在研究V2Ray，由于自己配置的VPS快要过期，租用国外服务器的大量开销无时无刻不在刺痛我的钱包，我从使用小飞机（shadowsocks）转向了使用V2Ray。本来想写一篇V2Ray的使用教程，但是在google上一搜发现有很多写得不错的文章，于是我想了想就偷个懒写个扫盲文吧(不小心说了实话)…..当然我会在文章末附上我感觉不错的使用教程链接。</p><a id="more"></a><h1 id="什么是-V2Ray"><a href="#什么是-V2Ray" class="headerlink" title="什么是 V2Ray"></a>什么是 V2Ray</h1><p>V2Ray 是 Project V 下的一个工具。Project V 是一个包含一系列构建特定网络环境工具的项目，而 V2Ray 属于最核心的一个。从时间上来说，先有 V2Ray 才有 Project V。如果再通俗易懂一点，V2Ray 是一个与 Shadowsocks 类似的代理软件，可以用来科学上网（翻墙）学习国外先进科学技术。<br>V2Ray的工作原理可参考下图：<br><img src="https://www.v2ray.com/resources/direct.svg" alt="V2Ray1"></p><h1 id="V2Ray-跟-Shadowsocks-有什么区别"><a href="#V2Ray-跟-Shadowsocks-有什么区别" class="headerlink" title="V2Ray 跟 Shadowsocks 有什么区别"></a>V2Ray 跟 Shadowsocks 有什么区别</h1><p>在介绍V2Ray中提到：V2Ray 是一个与 Shadowsocks 类似的代理软件，那么两者之间有什么区别呢？简单来概括的话：</p><ul><li>Shadowsocks 功能单一，V2Ray 功能强大</li><li>Shadowsocks 简单好上手，V2Ray 复杂配置多</li></ul><p>看到这可能有人打退堂鼓了，虽然Shadowsocks 功能单一，但是已经能满足我们需要，而且简单好上手，为什么我们还要去用V2Ray？看待一个事物我们必须用辩证的思维去分析他，V2Ray有两个劣势：配置复杂，产业链不完整。<br>由于产业链不完整，大部分的V2Ray服务器和配置都是免费提供的，基本上连上就能用，没什么约束，当然可能服务也是说停就停，根本不跟你解释。不过对我们大部分人来说，免费就已经知足了。<br>虽然V2Ray的配置复杂，但其复杂带来的是更加卓越的功能：</p><ul><li>更完善的协议（安全度高，防检测）</li><li>更强大的性能（网速快）</li><li>更丰富的功能（满足开发党需求）</li></ul><p>每个人选择一个事物都有不同原因，对我来说，免费和开发性就是我选择V2Ray的原因，当然Shadowsocks的用户基数和成熟度都不是V2Ray能比的，因此没有人可以说V2Ray比Shadowsocks优秀。但是作为发展中的科学上网利器，我愿意相信它的未来。</p><h1 id="VMess"><a href="#VMess" class="headerlink" title="VMess"></a>VMess</h1><p>VMess 协议是由 V2Ray 原创并使用于 V2Ray 的加密传输协议，如同 Shadowsocks 一样为了对抗墙的深度包检测而研发的。在 V2Ray 上客户端与服务器的通信主要是通过 VMess 协议通信。<br>对于我们使用者来说，不用太过地去纠结一个协议的原理和运转机制，我们只要会用就行了，需要注意的是，VMess协议是需要配置的，如果你在网上看到类似下图：</p><p><img src="http://picture.whiterabbitxyj.com/blogPicture/V2Ray/V2Ray1.png" alt="V2Ray2"></p><p>没错，这就是VMess协议的配置(vmess://开头+一段base64编码的字符串)，你可以直接拿来用实现科学上网。<br>值得一提的是，虽然VMess是V2Ray的主体协议，但V2Ray 集成有 Shadowsocks 模块，用 V2Ray 配置成 Shadowsocks 服务器或者 Shadowsocks 客户端都是可以的，兼容 Shadowsocks-libev。</p><h1 id="免费提供VMess配置的网站"><a href="#免费提供VMess配置的网站" class="headerlink" title="免费提供VMess配置的网站"></a>免费提供VMess配置的网站</h1><p>免费提供Vmess配置的网站有很多，这里列出2个：</p><ul><li><a href="https://plus.google.com/communities/111481001872828692486" target="_blank" rel="external">https://plus.google.com/communities/111481001872828692486</a></li><li><a href="https://twitter.com/fanqiangdangommunities/111481001872828692486" target="_blank" rel="external">https://twitter.com/fanqiangdang</a></li></ul><h1 id="V2Ray可视化工具：V2RayN"><a href="#V2Ray可视化工具：V2RayN" class="headerlink" title="V2Ray可视化工具：V2RayN"></a>V2Ray可视化工具：V2RayN</h1><p>V2Ray的连接是采用命令行的方式，这对很多新手十分不友好，因此推荐一个对新手比较友好的PC端V2Ray的GUI软件：V2RayN。<br>这款软件是我用过最舒服的管理V2Ray的软件了，不但可以管理多个服务器配置，自由切换，最让我感觉方便的是它可以将加密的VMess配置(如上图)直接从粘贴板中读取进行解析然后自动配置：</p><p><img src="https://i.loli.net/2018/02/10/5a7ef4f422311.png" alt="V2Ray3"></p><p>详细的V2RayN使用教程可以参考：<a href="https://233blog.com/post/24/" target="_blank" rel="external">233Bolg</a>。</p><h1 id="V2Ray科学上网教程"><a href="#V2Ray科学上网教程" class="headerlink" title="V2Ray科学上网教程"></a>V2Ray科学上网教程</h1><p>附上几个写得比较好的V2Ray科学上网教程：</p><ul><li><a href="https://yuan.ga/v2ray-complete-tutorialng" target="_blank" rel="external">V2Ray完全使用教程- yearliny</a></li><li><a href="https://233blog.com/post/20/" target="_blank" rel="external">V2Ray各平台客户端使用教程- 233Blog</a></li><li><a href="https://lala.im/1588.html" target="_blank" rel="external">V2Ray简易配置使用教程- 荒岛</a></li><li><a href="https://www.i5seo.com/tutorial-on-ultra-simple-use-under-v2ray-window.html" target="_blank" rel="external">V2Ray window下超简单使用教程- 长沙SEO霜天</a></li><li><a href="https://www.i5seo.com/v2rayn-usage-tutorial.html" target="_blank" rel="external">V2Ray window下使用教程，V2RayN使用教程- 长沙SEO霜天</a></li><li><a href="https://www.rultr.com/tutorials/proxy/2268.html" target="_blank" rel="external">开启v2ray代理服务器详细使用教程</a></li><li><a href="https://www.v2ray.com/" target="_blank" rel="external">V2Ray官网手册</a></li><li><a href="https://toutyrater.github.io/" target="_blank" rel="external">V2Ray白话文教程</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;之前一段时间一直在研究V2Ray，由于自己配置的VPS快要过期，租用国外服务器的大量开销无时无刻不在刺痛我的钱包，我从使用小飞机（shadowsocks）转向了使用V2Ray。本来想写一篇V2Ray的使用教程，但是在google上一搜发现有很多写得不错的文章，于是我想了想就偷个懒写个扫盲文吧(不小心说了实话)…..当然我会在文章末附上我感觉不错的使用教程链接。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="科学上网" scheme="http://yoursite.com/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/"/>
-    
-      <category term="V2Ray" scheme="http://yoursite.com/tags/V2Ray/"/>
-    
-      <category term="代理" scheme="http://yoursite.com/tags/%E4%BB%A3%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
     <title>从零开始接触Scrapy爬虫框架到构建一个通用实用型模板</title>
     <link href="http://yoursite.com/2018/07/09/scrapy/"/>
     <id>http://yoursite.com/2018/07/09/scrapy/</id>
@@ -463,6 +439,30 @@
       <category term="加密" scheme="http://yoursite.com/tags/%E5%8A%A0%E5%AF%86/"/>
     
       <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Scapy库解析数据流SSL/TLS加密</title>
+    <link href="http://yoursite.com/2017/11/14/python-scapy-ssl_tls/"/>
+    <id>http://yoursite.com/2017/11/14/python-scapy-ssl_tls/</id>
+    <published>2017-11-14T03:39:32.000Z</published>
+    <updated>2018-12-13T12:40:33.092Z</updated>
+    
+    <content type="html"><![CDATA[<p>上一篇博客我详细地介绍了关于Python的Scapy使用，而常规的scapy库只能解析到传输层，传输层再往上的协议都无法解析，且剩余所有的原始16进制数据都存在Raw中。而在实际的工作中，我们往往是需要解析出流是否存在SSL/TLS加密的，wireshark就能很好解析出这些，那么scapy也能实现吗？自己写源码解析是个巨大的工程，我们这些单体开发人员望而却步，所以python提供了一个附加库scapy-ssl_tls来补充解析ssl/tls加密的功能。</p><a id="more"></a><h1 id="安装scapy-ssl-tls库"><a href="#安装scapy-ssl-tls库" class="headerlink" title="安装scapy-ssl_tls库"></a>安装scapy-ssl_tls库</h1><p>关于scapy-ssl_tls的安装很简单，直接使用pip安装：</p><pre><code>pip install scapy-ssl_tls</code></pre><p>就可以完成安装了，需要注意的是，这个python的附加库只支持python2.7及以下的版本。在linux中下载安装这个库时，它会自动检测系统中是否安装了scapy，若无，则自动安装scapy以及相关的库，十分方便，在一定程度解决了许多问题。<br>当然，我也知道有朋友看了我上篇博客，已经入了python3的深坑，那我也得负责，于是我找到了一位大牛写的支持python3的SSL/TLS解析库，附上链接：<a href="https://github.com/hackers-terabit/scapy-ssl_tls-python3" target="_blank" rel="external">here。</a></p><h1 id="导入scapy-ssl-tls库"><a href="#导入scapy-ssl-tls库" class="headerlink" title="导入scapy-ssl_tls库"></a>导入scapy-ssl_tls库</h1><p>在使用scapy-ssl_tls库时，需要输入语句：</p><pre><code>from scapy_ssl_tls.ssl_tls import *</code></pre><p>就可以使用了，值得注意的是，导入这个库的同时，scapy中的方法也已经被却全部导入，所以不需要再导入一遍scapy库。</p><h1 id="使用scapy-ssl-tls库"><a href="#使用scapy-ssl-tls库" class="headerlink" title="使用scapy-ssl_tls库"></a>使用scapy-ssl_tls库</h1><p>关于scapy-ssl_tls库的使用也没什么特别的，函数方法和scapy差不多，只不过在scapy的基础上，会自动解析ssl/tls加密，具体效果如下：</p><p><img src="http://picture.whiterabbitxyj.com/blogPicture/scapy/scapy-ssl_tls-1.png" alt="scapy-ssl/tls-1"></p><p>使用<code>show()</code>函数可以打印出具体的加密信息：</p><p><img src="http://picture.whiterabbitxyj.com/blogPicture/scapy/scapy-ssl_tls-2.png" alt="scapy-ssl/tls-2"></p><h1 id="感谢支持"><a href="#感谢支持" class="headerlink" title="感谢支持"></a>感谢支持</h1><p>感谢阅读，喜欢的话可以订购，订购rss：<a href="https://blog.whiterabbitxyj.com/atom" target="_blank" rel="external">here</a> ,支持我请将鼠标下滑到赏，欢迎评论！</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;上一篇博客我详细地介绍了关于Python的Scapy使用，而常规的scapy库只能解析到传输层，传输层再往上的协议都无法解析，且剩余所有的原始16进制数据都存在Raw中。而在实际的工作中，我们往往是需要解析出流是否存在SSL/TLS加密的，wireshark就能很好解析出这些，那么scapy也能实现吗？自己写源码解析是个巨大的工程，我们这些单体开发人员望而却步，所以python提供了一个附加库scapy-ssl_tls来补充解析ssl/tls加密的功能。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+      <category term="流量" scheme="http://yoursite.com/tags/%E6%B5%81%E9%87%8F/"/>
+    
+      <category term="加密" scheme="http://yoursite.com/tags/%E5%8A%A0%E5%AF%86/"/>
     
   </entry>
   
