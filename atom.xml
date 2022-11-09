@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2022-10-27T08:30:59.412Z</updated>
+  <updated>2022-11-09T10:14:38.479Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2022/11/09/sciresworkflow/"/>
+    <id>http://yoursite.com/2022/11/09/sciresworkflow/</id>
+    <published>2022-11-09T10:48:31.846Z</published>
+    <updated>2022-11-09T10:14:38.479Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="科研工作流"><a href="#科研工作流" class="headerlink" title="科研工作流"></a>科研工作流</h1><p>老白兔今天总结一下自己论文查找、阅读、记录的工作流。主要包含三部分内容：</p><ul><li><strong>文献管理</strong>：使用Zotero管理文献</li><li><strong>文献阅读</strong>：在Windows平台上实现Zotero与笔记应用Obsidian跨应用联动</li><li><strong>数据跨平台同步</strong>：文献PDF文件与Obsidian笔记在Windows, iOS, Android全平台同步</li></ul><h2 id="1-使用Zotero管理文献"><a href="#1-使用Zotero管理文献" class="headerlink" title="1. 使用Zotero管理文献"></a>1. 使用Zotero管理文献</h2><p>Zotero是一个免费开源的文献管理工具，可以轻松地收集、管理、阅读和引用文献。</p><p>Zotero的功能可以参考：<a href="https://zhuanlan.zhihu.com/p/98428625" target="_blank" rel="external">Zotero的操作指南</a></p><h3 id="1-1-Zotero文献收集"><a href="#1-1-Zotero文献收集" class="headerlink" title="1.1 Zotero文献收集"></a>1.1 Zotero文献收集</h3><p>Zotero有三种文献收集方式：</p><ul><li>导入已下载在本地的PDF文件</li><li>输入文献DOI自动获取文献PDF文件</li><li>使用浏览器插件Zotero Connector自动导入当前网页中的文献</li></ul><p>Zotero自动导入文献后，会自动解析PDF元数据，提取标题、作者、摘要等信息。</p><h3 id="1-2-Zotero文献管理"><a href="#1-2-Zotero文献管理" class="headerlink" title="1.2 Zotero文献管理"></a>1.2 Zotero文献管理</h3><p>随着论文愈看愈多，为了解决大量PDF文件的管理问题，Zotero提供了Collection功能。实际上就类似于在文件管理系统中创建文件夹，将一个个文献归入相关文件夹中。Zotero的优势就是支持引用，允许一个文献归入多个不同Collection中。</p><p>如果只是Collection功能完全不够，还需要辅以ZotFile插件，在配置后可以自动根据配置重命名、移动文件，使用WebDav实现跨平台同步。</p><p>使用ZotFile自动组织PDF文件可以参考：<a href="https://www.cnblogs.com/jianghaonan0818/p/15376754.html" target="_blank" rel="external">zotero文献管理器插件：ZotFile的安装和使用</a></p><p>两个小建议：</p><ul><li>文件组织：使用Collection层级关系作为PDF文件的相对路径</li><li>重命名：使用年份+文章标题为PDF文件重命名</li></ul><blockquote><p>看官可能不禁产生疑问，为什么要使用ZotFile对文献重新组织、重命名呢？不做这一步操作依旧可以正常使用Zotero原生的Collection功能进行文献管理与阅读。</p><p>如果只在一台电脑上工作，没有多主机、跨平台同步，确实Collection就够了。但如果需要台式机、笔记本多主机同步文件，手机、平板以至于Web端跨平台阅读，Zotero默认的杂乱无章的文件组织方式就满足不了需求了。</p><p>借助ZotFile，自动使用文件夹对PDF文件的组织方式进行重组，方便在不同应用中查找、阅读。</p></blockquote><h3 id="1-3-PDF文件的跨平台同步"><a href="#1-3-PDF文件的跨平台同步" class="headerlink" title="1.3 PDF文件的跨平台同步"></a>1.3 PDF文件的跨平台同步</h3><p>辛辛苦苦在ZotFile上配置文件组织、重命名规则，就是为了这一步<strong>文件跨平台同步</strong>。</p><p>其主要原理就是<strong>支持WebDav协议的客户端</strong>和<strong>支持WebDav协议的云存储服务商</strong>之间，通过WebDav协议进行通信，实现文件的存储和下载。在Zotero中，由ZotFile插件实现对WebDav协议的支持。</p><p>使用坚果云作为<strong>云存储服务商</strong>的解决方案可以参考：<a href="https://www.jianshu.com/p/5a9ceee33fac" target="_blank" rel="external">Zotero+坚果云WebDAV实现跨平台同步</a></p><p>以上，成功将本地文献同步至支持WebDav协议的云盘中。接下来就是使用另一个平台上的<strong>支持WebDav协议的客户端</strong>，将云盘中的文献同步到本地使用。</p><ul><li>可以是另一台Windows主机上的坚果云客户端，实现不同主机上的无缝同步。</li><li>可以是iPad上的PDF Expert（<a href="https://help.jianguoyun.com/?p=3482" target="_blank" rel="external">PDF Expert打开坚果云里的文件</a>），在iPad上阅读文献。</li><li>可以是Android上的WPS（<a href="https://help.jianguoyun.com/?p=2622" target="_blank" rel="external">WPS打开坚果云里的文件</a>），在手机上阅读文献。</li></ul><p>三个小建议：</p><ul><li>坚果云免费空间太小，可以使用Koofr的云存储服务，免费空间充足。</li><li>Android端只是偶尔进行文献阅读，没有PDF标注数据同步的需求，可以使用Koofr自身所提供的Android客户端，下载之后使用相应阅读器打开。</li><li>iPad上会对PDF进行标注，使用PDF Expert通过WebDav协议连接Koofr，实现标注信息的实时同步。</li></ul><h2 id="2-Zotero与Obsidian的梦幻联动"><a href="#2-Zotero与Obsidian的梦幻联动" class="headerlink" title="2. Zotero与Obsidian的梦幻联动"></a>2. Zotero与Obsidian的梦幻联动</h2><p>上一节实现了使用Zotero随时随地，使用任何设备阅读文献。但阅读过程中不可避免的会想要对文献进行标注、关联，输出笔记、思维导图。随着阅读文献数量的增加，想要将具有某一相同主题的不同文献关联在一起，构建文献的<strong>知识图谱</strong>。作为MarginNote的重度用户，对于其点击引用直接跳转回原文的功能爱得深沉。</p><p>那么，有没有一款应用能支持一键导出Zotero中的笔记，支持构建知识图谱，支持点击引用跳转回Zotero中原文？答案是<strong>Obsidian</strong>。</p><p>用一句话描述Obsidian：支持双链的Markdown文件编辑、管理平台。其功能可以参考：<a href="https://sspai.com/post/67399" target="_blank" rel="external">Obsidian是什么以及它能用来做什么</a>。</p><p>如果只看其原生功能，也就双链功能可以解决我构建知识图谱的痛点。但是，同Zotero一样，其强大之处在于其让人眼花缭乱的插件支持。</p><p>如何使Obsidian与Zotero联动起来，像MarginNote般丝滑，参考：<a href="https://zhuanlan.zhihu.com/p/480911605" target="_blank" rel="external">Zotero和Obsidian联动最优解决方案</a>以及<a href="https://zhuanlan.zhihu.com/p/489141325" target="_blank" rel="external">最优解决方案的配置指南</a>。</p><h2 id="3-Obsidian笔记跨平台同步"><a href="#3-Obsidian笔记跨平台同步" class="headerlink" title="3. Obsidian笔记跨平台同步"></a>3. Obsidian笔记跨平台同步</h2><p>上一节实现Obsidian与Zotero的联动，但一想到文献的跨平台阅读，我们不禁又想拥有笔记的跨平台阅读。好在Obsidian拥有全平台客户端，现在的问题只是如何在不同平台上同步Markdown文件。</p><p>Markdown本身作为纯文本文件，使用Git进行版本控制、跨平台同步，pull到本地之后用Obsidian客户端打开即可。</p><ol><li>Github 创建私有仓库</li><li>Windows 上将Obsidian的Vault文件夹push到本地仓库中</li><li>Android 上使用spck editor作为git客户端拉取文件，使用Obsidian打开仓库</li><li>iOS设备上使用iSH作为git客户端，使用mount指令实现多应用间共享文件夹，参考<a href="https://zhuanlan.zhihu.com/p/565028534" target="_blank" rel="external">iOS上使用iSH的git同步obsidian</a></li></ol><h2 id="4-总结"><a href="#4-总结" class="headerlink" title="4. 总结"></a>4. 总结</h2><p>各平台工作流支撑软件汇总：</p><ul><li>Windows: Zotero, Obsidian, Koofr, Git</li><li>Android: Koofr, Spck Editor, Obsidian</li><li>iOS: PDF Expert, iSH, Obsidian</li><li>Cloud: Github, Koofr</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;科研工作流&quot;&gt;&lt;a href=&quot;#科研工作流&quot; class=&quot;headerlink&quot; title=&quot;科研工作流&quot;&gt;&lt;/a&gt;科研工作流&lt;/h1&gt;&lt;p&gt;老白兔今天总结一下自己论文查找、阅读、记录的工作流。主要包含三部分内容：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>信息收集</title>
@@ -437,30 +460,6 @@
       <category term="Dataframe" scheme="http://yoursite.com/tags/Dataframe/"/>
     
       <category term="python" scheme="http://yoursite.com/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>对战加密的恶意流量：将机器学习应用到恶意软件识别中去</title>
-    <link href="http://yoursite.com/2017/12/07/eta/"/>
-    <id>http://yoursite.com/2017/12/07/eta/</id>
-    <published>2017-12-07T03:39:32.000Z</published>
-    <updated>2017-07-02T01:28:52.587Z</updated>
-    
-    <content type="html"><![CDATA[<p>从2015年开始，思科信息安全团队中一位名叫Rich West的系统架构师就一直在与思科高级安全研究小组的一名工程师尝试去解决一个非常新颖的问题：思科信息安全团队希望能够找到一种方法来更好地保护思科员工的信息安全，并防止恶意软件通过加密流量窃取员工的个人隐私数据。但当时似乎只有一种可行的方法，即通过设置代理并解密通信数据来检查所有的SSL和TLS流量。</p><a id="more"></a><p>如果是在恶意活动中，那么上述这种“可行方法”就是我们常说的中间人（MitM）攻击。但即便是出于安全防御端的角度来看，这种方法仍然会被视为一种侵犯用户隐私的行为，因为当用户需要向银行或加密邮件服务发送加密通讯信息时，上面的这种方法就会破坏加密信任链，从而导致用户隐私受到侵害。除此之外，这种方法的计算量也非常高，而且高到足以造成网络性能的大幅下降，更不用说管理额外的SSL证书（流量被检查之后需要重新签名）所带来的性能负担了。</p><p>Rich West和他的团队最终认为，这种以牺牲隐私权和网络性能为代价来换取安全性的方法是不值当的。因此，他们需要一种新的方法，他们需要一种不涉及到向检查节点发送内部流量的方法。为了解决这个问题，West与思科工程师David McGrew取得了联系。</p><h1 id="一个待解决的复杂问题"><a href="#一个待解决的复杂问题" class="headerlink" title="一个待解决的复杂问题"></a>一个待解决的复杂问题</h1><p>McGrew是思科高级安全研究小组的一员，他和他的团队一直都在研究如何使用NetFlows配合新的算法来检测恶意软件。当West将他的需求（设计一种新的方法在加密数据中识别恶意攻击）告知了McGrew的团队之后，这个耗时长达两年的项目便诞生了，而且该项目现在已接近完工。这个项目集合了多款新型网络产品和软件，旨在从根本上改变现代网络的底层架构和驱动模型，而思科在本周已经正式对外公布了该项目。<br><img src="http://image.3001.net/images/20170627/14984994806220.jpg" alt="working"><br>McGrew和他的团队所开发来的这种模型名叫Encrypted Traffic Analytics（ETA），即加密流量分析模型。思科公司手中掌握有庞大的网络资源和数据资源，思科也一直希望将手中的这些资源结合自动化技术以及机器学习来实现无处不在的安全保护，而ETA模型的出现让思科离这个目标近了一大步。</p><p>数据加密通常都会被认为是一件好事，因为加密不仅能够保证网络交易和聊天的私密性，而且也可以防止攻击者（中间人攻击）窥探或篡改用户的网络通信数据。</p><p>随着越来越多的企业环境开始使用云服务，这也让Google和Mozilla这样的公司开始强制网站去使用TLS等安全传输协议了。各大浏览器厂商首先要求所有的加密流量必须由受信任的证书机构（CA）所颁发的证书来进行签名，而相关机构也在努力试图通过简化证书申请以及流量加密等过程来推广TLS的使用。但正是因为加密所需的成本降低了，而且几乎毫无成本，所以很多网络攻击者也开始通过普通的TLS或SSL流量来试图掩盖他们的恶意命令、远程控制行为以及数据窃取活动。</p><p>想要在普通流量中检测恶意软件的活动本身就是一件非常复杂的事情，而且还涉及到海量数据分析等情况，再加上TLS和SSL等加密协议的出现，使得目前所面临的挑战难上加难。但对于McGrew来说，这正是让他激动不已的地方。</p><p>NetFlow中包含有大量有价值的信息，但它也会受到一定的语境限制。它可以表示网络上的两台设备正在交互，以及通信时长和发送的字节数等等，但这些数据毕竟还是不完整的。McGrew认为，隐私和安全并不应该是必须二选一的，为了解决这个复杂的问题，他不仅需要从头开始，而且还需要涉及到大量代码和密集的数据建模。<br><img src="http://image.3001.net/images/20170627/14984995004202.png" alt="eta2"></p><h1 id="‘好吧，你到底需要什么？’-–-‘数据，很多很多的数据。’"><a href="#‘好吧，你到底需要什么？’-–-‘数据，很多很多的数据。’" class="headerlink" title="‘好吧，你到底需要什么？’ – ‘数据，很多很多的数据。’"></a>‘好吧，你到底需要什么？’ – ‘数据，很多很多的数据。’</h1><p>这个项目需要大量的资源，所以McGrew首先想到了思科的技术投资基金（Tech Fund）。思科的“Tech Fund”项目通常投资的都是那些能够改变现状的新型产品或高新技术，而且这些项目通常都需要好几年的开发时间。</p><p>就算有了资金做保障，但在真正形成项目并开始编码之前，McGrew还需要从思科的网络系统中获取数据分析样本，包括恶意软件样本在内。为了解决这个问题，McGrew在2015年3月份邀请了Blake Anderson加入。Anderson是一名拥有博士学位的数据科学家，他主要研究的是机器学习在网络安全中的应用。当时，他也正在与美国洛斯阿拉莫斯国家实验室一起研究如何将机器学习方法应用到恶意软件的分析过程中。</p><p>当Anderson加入到思科这个团队时，McGrew的团队正在开发相应的分析工具，而且他们已经可以通过NetFlow数据来识别出具体的应用程序了。比如说，他们可以识别出NetFlow数据是来源于Chrome浏览器还是来源于微软的更新服务，不过他们还没有将这项技术应用到针对恶意软件的数据分析活动中。</p><p>为了获取到分析样本，Anderson以及McGrew的团队几乎与思科公司的每一个产品部门都沟通过，包括内部信息安全团队、Talos威胁情报小组和ThreatGRID团队等等。在花费了几个月的时间编写了一万多行代码之后，McGrew和Anderson便开始将他们的数据模型应用到实际的测试中。在获取到了数百万的数据包和已知的恶意软件样本之后，Anderson开始尝试在不进行任何解密的情况下对海量数据进行筛选和归类，并通过“最具描述性的特征”来识别出恶意流量和正常流量。<br><img src="http://image.3001.net/images/20170627/14984995202493.png" alt="eta3"><br>Anderson表示：“我认为收集正确的数据才是最重要的。很多人会在收集到了大量数据之后才去考虑他们能用这些数据去做什么，但我们打算采取相反的做法，我们会列出我们所需要的数据类型，然后再从思科的其他产品团队那里收集这些数据。”</p><h1 id="隐藏的恶意软件与指纹"><a href="#隐藏的恶意软件与指纹" class="headerlink" title="隐藏的恶意软件与指纹"></a>隐藏的恶意软件与指纹</h1><p>如果网站拥有权威CA签发的TLS证书，这意味着用户可以放心地访问这个网站，但这并非绝对。据了解，至少从2009年起，很多攻击者就开始通过使用伪造的、窃取来的、甚至是合法的SSL签名证书来欺骗互联网的信任系统。这样一来，攻击者就可以通过安全证书来诱使用户交出自己的登录凭证或下载恶意Payload。</p><p>在过去的几个月里，滥用合法TLS证书的攻击事件数量呈上升趋势，这很可能是由于类似Let’s Encrypt这样的CA机构开始免费签发TLS证书所导致的。这也就意味着，网络钓鱼攻击者将能够轻而易举地制作出足以以假乱真的PayPal或比特币钱包钓鱼网站。比如说，下图所示的就是一个使用了免费加密证书的钓鱼网站：<br><img src="http://image.3001.net/images/20170627/14984995304854.jpg" alt="eta4"><br>事实证明，降低密钥的获取难度确实是一把双刃剑</p><p>Rich West认为，从某种程度上来说，他们的成功是以牺牲其他安全部门作为代价的。他们一直在敦促IT公司、厂商和App开发者通过加密技术来保证数据的安全，但这样也增加了处理这些加密数据的难度。不过幸运的是，通过对数百万TLS数据流、恶意软件样本和数据包进行了分析之后，Anderson和McGrew发现TLS数据流中未加密的元数据包含攻击者无法隐藏的数据指纹，而且即使数据经过加密也无法隐藏这种指纹。TLS擅长的就是隐藏明文信息，但它所创建出来的还有一系列可观测的复杂参数，而McGrew和Anderson这样的工程师就可以用这些数据来训练他们的模型了。</p><p>比如说，当一段TLS流量开始发送时，首先从一个握手包开始。客户端（比如说Chrome浏览器）会给其尝试通信的服务器发送ClientHello消息。“Hello”消息包含一组参数，例如使用的密码套件、接受的版本以及可选的扩展。但类似“ClientHello”这样的TLS元数据是没有被加密的，因为它们在消息开始加密之前就发送出去了。这也就意味着，Anderson的模型可以在完全不知道消息内部数据的情况下对这些未加密的数据进行分析，而该模型将准确地分辨出该流量来自于恶意软件还是普通活动。<br><img src="http://image.3001.net/images/20170627/14984995445404.png" alt="eta5"></p><h1 id="展望"><a href="#展望" class="headerlink" title="展望"></a>展望</h1><p>Anderson表示，他希望ETA能够通过软件代码更新等形式应用到任何地方，并给网络上的任何设备提供恶意软件识别服务，因为ETA的目标就是让任何需要处理网络数据的设备都变成安全设备。Anderson说到：“我们接下来会想办法将我们的技术应用到路由器和交换机上，这是非常有意义的。在这个过程中，我们依然可以通过云端来训练我们的模型，并将机器学习与网络层联系起来。”</p><p>*译文转载自FreeBuf.COM，英文原文来源：<a href="https://continuum.cisco.com/2017/06/20/security-without-compromise-how-cisco-engineers-used-machine-learning-to-solve-an-impossible-problem/" target="_blank" rel="external">swc</a>，ETA项目开源地址：<a href="https://github.com/cisco/joy" target="_blank" rel="external">cisco</a>。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;从2015年开始，思科信息安全团队中一位名叫Rich West的系统架构师就一直在与思科高级安全研究小组的一名工程师尝试去解决一个非常新颖的问题：思科信息安全团队希望能够找到一种方法来更好地保护思科员工的信息安全，并防止恶意软件通过加密流量窃取员工的个人隐私数据。但当时似乎只有一种可行的方法，即通过设置代理并解密通信数据来检查所有的SSL和TLS流量。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="流量" scheme="http://yoursite.com/tags/%E6%B5%81%E9%87%8F/"/>
-    
-      <category term="加密" scheme="http://yoursite.com/tags/%E5%8A%A0%E5%AF%86/"/>
-    
-      <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   

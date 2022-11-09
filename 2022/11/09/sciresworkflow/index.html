@@ -8,12 +8,16 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>WhiteRabbit的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="科研工作流老白兔今天总结一下自己论文查找、阅读、记录的工作流。主要包含三部分内容：  文献管理：使用Zotero管理文献 文献阅读：在Windows平台上实现Zotero与笔记应用Obsidian跨应用联动 数据跨平台同步：文献PDF文件与Obsidian笔记在Windows, iOS, Android全平台同步  1. 使用Zotero管理文献Zotero是一个免费开源的文献管理工具，可以轻松地">
+<meta property="og:type" content="article">
 <meta property="og:title" content="WhiteRabbit的博客">
-<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+<meta property="og:url" content="http://yoursite.com/2022/11/09/sciresworkflow/index.html">
 <meta property="og:site_name" content="WhiteRabbit的博客">
+<meta property="og:description" content="科研工作流老白兔今天总结一下自己论文查找、阅读、记录的工作流。主要包含三部分内容：  文献管理：使用Zotero管理文献 文献阅读：在Windows平台上实现Zotero与笔记应用Obsidian跨应用联动 数据跨平台同步：文献PDF文件与Obsidian笔记在Windows, iOS, Android全平台同步  1. 使用Zotero管理文献Zotero是一个免费开源的文献管理工具，可以轻松地">
+<meta property="og:updated_time" content="2022-11-09T10:14:38.479Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="WhiteRabbit的博客">
+<meta name="twitter:description" content="科研工作流老白兔今天总结一下自己论文查找、阅读、记录的工作流。主要包含三部分内容：  文献管理：使用Zotero管理文献 文献阅读：在Windows平台上实现Zotero与笔记应用Obsidian跨应用联动 数据跨平台同步：文献PDF文件与Obsidian笔记在Windows, iOS, Android全平台同步  1. 使用Zotero管理文献Zotero是一个免费开源的文献管理工具，可以轻松地">
   
     <link rel="alternative" href="/atom.xml" title="WhiteRabbit的博客" type="application/atom+xml">
   
@@ -150,25 +154,8 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-qiniu" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-sciresworkflow" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/13/qiniu/">七牛云临时域名过期后图片找回</a>
-    </h1>
-  
-
-        
-        <a href="/2018/12/13/qiniu/" class="archive-article-date">
-  	<time datetime="2018-12-13T03:39:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-13</time>
-</a>
-        
-      </header>
     
 
 <!-- 目录内容 -->
@@ -177,44 +164,185 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p>算算时间有一段时间没有更新博客了，一来是年底了事比较多，另一方面主要是我的博客出现了一点问题：博客上的图片无法显示了。后来排查了一下原因，发现原来是七牛网的临时域名过期了！这篇博文写给遇到同样问题的朋友们，提供一下找回图片的方法。</p>
-        
+        <h1 id="科研工作流"><a href="#科研工作流" class="headerlink" title="科研工作流"></a>科研工作流</h1><p>老白兔今天总结一下自己论文查找、阅读、记录的工作流。主要包含三部分内容：</p>
+<ul>
+<li><strong>文献管理</strong>：使用Zotero管理文献</li>
+<li><strong>文献阅读</strong>：在Windows平台上实现Zotero与笔记应用Obsidian跨应用联动</li>
+<li><strong>数据跨平台同步</strong>：文献PDF文件与Obsidian笔记在Windows, iOS, Android全平台同步</li>
+</ul>
+<h2 id="1-使用Zotero管理文献"><a href="#1-使用Zotero管理文献" class="headerlink" title="1. 使用Zotero管理文献"></a>1. 使用Zotero管理文献</h2><p>Zotero是一个免费开源的文献管理工具，可以轻松地收集、管理、阅读和引用文献。</p>
+<p>Zotero的功能可以参考：<a href="https://zhuanlan.zhihu.com/p/98428625" target="_blank" rel="external">Zotero的操作指南</a></p>
+<h3 id="1-1-Zotero文献收集"><a href="#1-1-Zotero文献收集" class="headerlink" title="1.1 Zotero文献收集"></a>1.1 Zotero文献收集</h3><p>Zotero有三种文献收集方式：</p>
+<ul>
+<li>导入已下载在本地的PDF文件</li>
+<li>输入文献DOI自动获取文献PDF文件</li>
+<li>使用浏览器插件Zotero Connector自动导入当前网页中的文献</li>
+</ul>
+<p>Zotero自动导入文献后，会自动解析PDF元数据，提取标题、作者、摘要等信息。</p>
+<h3 id="1-2-Zotero文献管理"><a href="#1-2-Zotero文献管理" class="headerlink" title="1.2 Zotero文献管理"></a>1.2 Zotero文献管理</h3><p>随着论文愈看愈多，为了解决大量PDF文件的管理问题，Zotero提供了Collection功能。实际上就类似于在文件管理系统中创建文件夹，将一个个文献归入相关文件夹中。Zotero的优势就是支持引用，允许一个文献归入多个不同Collection中。</p>
+<p>如果只是Collection功能完全不够，还需要辅以ZotFile插件，在配置后可以自动根据配置重命名、移动文件，使用WebDav实现跨平台同步。</p>
+<p>使用ZotFile自动组织PDF文件可以参考：<a href="https://www.cnblogs.com/jianghaonan0818/p/15376754.html" target="_blank" rel="external">zotero文献管理器插件：ZotFile的安装和使用</a></p>
+<p>两个小建议：</p>
+<ul>
+<li>文件组织：使用Collection层级关系作为PDF文件的相对路径</li>
+<li>重命名：使用年份+文章标题为PDF文件重命名</li>
+</ul>
+<blockquote>
+<p>看官可能不禁产生疑问，为什么要使用ZotFile对文献重新组织、重命名呢？不做这一步操作依旧可以正常使用Zotero原生的Collection功能进行文献管理与阅读。</p>
+<p>如果只在一台电脑上工作，没有多主机、跨平台同步，确实Collection就够了。但如果需要台式机、笔记本多主机同步文件，手机、平板以至于Web端跨平台阅读，Zotero默认的杂乱无章的文件组织方式就满足不了需求了。</p>
+<p>借助ZotFile，自动使用文件夹对PDF文件的组织方式进行重组，方便在不同应用中查找、阅读。</p>
+</blockquote>
+<h3 id="1-3-PDF文件的跨平台同步"><a href="#1-3-PDF文件的跨平台同步" class="headerlink" title="1.3 PDF文件的跨平台同步"></a>1.3 PDF文件的跨平台同步</h3><p>辛辛苦苦在ZotFile上配置文件组织、重命名规则，就是为了这一步<strong>文件跨平台同步</strong>。</p>
+<p>其主要原理就是<strong>支持WebDav协议的客户端</strong>和<strong>支持WebDav协议的云存储服务商</strong>之间，通过WebDav协议进行通信，实现文件的存储和下载。在Zotero中，由ZotFile插件实现对WebDav协议的支持。</p>
+<p>使用坚果云作为<strong>云存储服务商</strong>的解决方案可以参考：<a href="https://www.jianshu.com/p/5a9ceee33fac" target="_blank" rel="external">Zotero+坚果云WebDAV实现跨平台同步</a></p>
+<p>以上，成功将本地文献同步至支持WebDav协议的云盘中。接下来就是使用另一个平台上的<strong>支持WebDav协议的客户端</strong>，将云盘中的文献同步到本地使用。</p>
+<ul>
+<li>可以是另一台Windows主机上的坚果云客户端，实现不同主机上的无缝同步。</li>
+<li>可以是iPad上的PDF Expert（<a href="https://help.jianguoyun.com/?p=3482" target="_blank" rel="external">PDF Expert打开坚果云里的文件</a>），在iPad上阅读文献。</li>
+<li>可以是Android上的WPS（<a href="https://help.jianguoyun.com/?p=2622" target="_blank" rel="external">WPS打开坚果云里的文件</a>），在手机上阅读文献。</li>
+</ul>
+<p>三个小建议：</p>
+<ul>
+<li>坚果云免费空间太小，可以使用Koofr的云存储服务，免费空间充足。</li>
+<li>Android端只是偶尔进行文献阅读，没有PDF标注数据同步的需求，可以使用Koofr自身所提供的Android客户端，下载之后使用相应阅读器打开。</li>
+<li>iPad上会对PDF进行标注，使用PDF Expert通过WebDav协议连接Koofr，实现标注信息的实时同步。</li>
+</ul>
+<h2 id="2-Zotero与Obsidian的梦幻联动"><a href="#2-Zotero与Obsidian的梦幻联动" class="headerlink" title="2. Zotero与Obsidian的梦幻联动"></a>2. Zotero与Obsidian的梦幻联动</h2><p>上一节实现了使用Zotero随时随地，使用任何设备阅读文献。但阅读过程中不可避免的会想要对文献进行标注、关联，输出笔记、思维导图。随着阅读文献数量的增加，想要将具有某一相同主题的不同文献关联在一起，构建文献的<strong>知识图谱</strong>。作为MarginNote的重度用户，对于其点击引用直接跳转回原文的功能爱得深沉。</p>
+<p>那么，有没有一款应用能支持一键导出Zotero中的笔记，支持构建知识图谱，支持点击引用跳转回Zotero中原文？答案是<strong>Obsidian</strong>。</p>
+<p>用一句话描述Obsidian：支持双链的Markdown文件编辑、管理平台。其功能可以参考：<a href="https://sspai.com/post/67399" target="_blank" rel="external">Obsidian是什么以及它能用来做什么</a>。</p>
+<p>如果只看其原生功能，也就双链功能可以解决我构建知识图谱的痛点。但是，同Zotero一样，其强大之处在于其让人眼花缭乱的插件支持。</p>
+<p>如何使Obsidian与Zotero联动起来，像MarginNote般丝滑，参考：<a href="https://zhuanlan.zhihu.com/p/480911605" target="_blank" rel="external">Zotero和Obsidian联动最优解决方案</a>以及<a href="https://zhuanlan.zhihu.com/p/489141325" target="_blank" rel="external">最优解决方案的配置指南</a>。</p>
+<h2 id="3-Obsidian笔记跨平台同步"><a href="#3-Obsidian笔记跨平台同步" class="headerlink" title="3. Obsidian笔记跨平台同步"></a>3. Obsidian笔记跨平台同步</h2><p>上一节实现Obsidian与Zotero的联动，但一想到文献的跨平台阅读，我们不禁又想拥有笔记的跨平台阅读。好在Obsidian拥有全平台客户端，现在的问题只是如何在不同平台上同步Markdown文件。</p>
+<p>Markdown本身作为纯文本文件，使用Git进行版本控制、跨平台同步，pull到本地之后用Obsidian客户端打开即可。</p>
+<ol>
+<li>Github 创建私有仓库</li>
+<li>Windows 上将Obsidian的Vault文件夹push到本地仓库中</li>
+<li>Android 上使用spck editor作为git客户端拉取文件，使用Obsidian打开仓库</li>
+<li>iOS设备上使用iSH作为git客户端，使用mount指令实现多应用间共享文件夹，参考<a href="https://zhuanlan.zhihu.com/p/565028534" target="_blank" rel="external">iOS上使用iSH的git同步obsidian</a></li>
+</ol>
+<h2 id="4-总结"><a href="#4-总结" class="headerlink" title="4. 总结"></a>4. 总结</h2><p>各平台工作流支撑软件汇总：</p>
+<ul>
+<li>Windows: Zotero, Obsidian, Koofr, Git</li>
+<li>Android: Koofr, Spck Editor, Obsidian</li>
+<li>iOS: PDF Expert, iSH, Obsidian</li>
+<li>Cloud: Github, Koofr</li>
+</ul>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃萝卜<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://whiterabbitc.github.io/img/zhifubao.png">
+                      <span class="reward-type">支付宝^_^</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://whiterabbitc.github.io/img/weixin.png">
+                      <span class="reward-type">微信0_0</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">域名</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">云服务</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
+      
+      <span id="busuanzi_container_page_pv">
+	  | 阅读量(<span id="busuanzi_value_page_pv"></span>)
+      </span>
       
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/13/qiniu/">解锁全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2022/11/09/sciresworkflow/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2022/10/21/infogather/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">信息收集</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -234,108 +362,26 @@
 
 
 
-
-
-   <section id="comments" class="comments">
-     <style>
-       .comments{margin:30px;padding:10px;background:#fff}
-       @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
-     </style>
-     
-   <section id="comments" class="comments">
-     <style>
-       .comments{margin:30px;padding:10px;background:#fff}
-       @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
-     </style>
-     
- </section>
-
-
- </section>
-
-
   
-    <article id="post-https" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/19/https/">从流量的角度详解HTTPS协议握手过程</a>
-    </h1>
   
 
-        
-        <a href="/2018/11/19/https/" class="archive-article-date">
-  	<time datetime="2018-11-19T03:39:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-19</time>
-</a>
-        
-      </header>
-    
+  
+  <div id="SOHUCS" sid="sciresworkflow" ></div> 
+<script type="text/javascript"> 
+window.YiliaChangyanWrap = function() {
+    var appid = "cytj4oNi1"; 
+    var conf = "956774aadd9557459092650701f47376"; 
+    var width = window.innerWidth || document.documentElement.clientWidth; 
+    if (width < 960) { 
+    window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("//changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); }
+}
+</script>
+  
 
-<!-- 目录内容 -->
-    
-<!-- 目录内容结束 -->
+  
 
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>由于最近在思考搭建一个属于自己的网站，为了安全性，决定仔细研究了一下HTTPS。看了很多资料，对其中的很多细节做了研究，再加上亲手抓包来做参考，终于算是对整个握手过程和保证有了认识，所以尝试用文字性的语句描述下来，以最通俗易懂且详尽的方式来让更多读者理解。所以即使你是完全不懂https的小白，也能通过我的文章对其有一定的学习收获。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">流量</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">https</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/11/19/https/">解锁全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
+  
 
 
 
@@ -355,327 +401,6 @@
 
 
  </section>
-
-
-  
-    <article id="post-xueshu-2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/12/xueshu-2/">通过网络流量识别感染用户</a>
-    </h1>
-  
-
-        
-        <a href="/2018/11/12/xueshu-2/" class="archive-article-date">
-  	<time datetime="2018-11-12T03:39:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-12</time>
-</a>
-        
-      </header>
-    
-
-<!-- 目录内容 -->
-    
-<!-- 目录内容结束 -->
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>论文：Identifying infected users via network traffic<br>作者：Margaret Gratian a , Darshan Bhansali a , Michel Cukier a , Josiah Dykstra b<br>期刊：computers &amp; security<br>时间：2018<br>来源：SCI</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学术</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">论文</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/11/12/xueshu-2/">解锁全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-   <section id="comments" class="comments">
-     <style>
-       .comments{margin:30px;padding:10px;background:#fff}
-       @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
-     </style>
-     
-   <section id="comments" class="comments">
-     <style>
-       .comments{margin:30px;padding:10px;background:#fff}
-       @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
-     </style>
-     
- </section>
-
-
- </section>
-
-
-  
-    <article id="post-xsrf" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/01/xsrf/">当xss邂逅csrf：中招只在一瞬间</a>
-    </h1>
-  
-
-        
-        <a href="/2018/11/01/xsrf/" class="archive-article-date">
-  	<time datetime="2018-11-01T03:39:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-01</time>
-</a>
-        
-      </header>
-    
-
-<!-- 目录内容 -->
-    
-<!-- 目录内容结束 -->
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这篇博文来自之前挖掘一套CMS漏洞时，同时挖出了xss和csrf漏洞。不过我提交漏洞后，xss漏洞被接受了，而csrf漏洞被退回了，理由是：利用难度太大，不予收录。可以想象当时我的心情是十分不爽的，所以我绞尽脑汁，将xss和csrf配合使用，向某机构证明是可以利用的，而且很方便。最后漏洞被收录吗？嘿嘿，你们自己猜吧，不过这次经历说明了当xss配合csrf打出组合拳时，会有意想不到的效果。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">渗透</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">xss</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">csrf</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/11/01/xsrf/">解锁全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-   <section id="comments" class="comments">
-     <style>
-       .comments{margin:30px;padding:10px;background:#fff}
-       @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
-     </style>
-     
-   <section id="comments" class="comments">
-     <style>
-       .comments{margin:30px;padding:10px;background:#fff}
-       @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
-     </style>
-     
- </section>
-
-
- </section>
-
-
-  
-    <article id="post-dev-openstack" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/25/dev-openstack/">Openstack部署all-in-one初体验</a>
-    </h1>
-  
-
-        
-        <a href="/2018/10/25/dev-openstack/" class="archive-article-date">
-  	<time datetime="2018-10-25T03:39:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-25</time>
-</a>
-        
-      </header>
-    
-
-<!-- 目录内容 -->
-    
-<!-- 目录内容结束 -->
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近在学习openstack，因为人懒不想跟着官方文档一步步敲命令行部署，我最终是使用devstack来部署openstack的，由于脸黑，我用了2天时间才成功在虚拟机中部署成功。所以在这里分享一下怎么使用devstack来完成<strong>all-in-one</strong>的openstack部署。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">私有云</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">openstack</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/10/25/dev-openstack/">解锁全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-   <section id="comments" class="comments">
-     <style>
-       .comments{margin:30px;padding:10px;background:#fff}
-       @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
-     </style>
-     
-   <section id="comments" class="comments">
-     <style>
-       .comments{margin:30px;padding:10px;background:#fff}
-       @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
-     </style>
-     
- </section>
-
-
- </section>
-
-
-  
-  
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; 上页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/">下页 &raquo;</a>
-    </nav>
-  
 
 
           </div>
@@ -707,8 +432,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
