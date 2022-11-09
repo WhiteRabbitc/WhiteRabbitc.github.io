@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>WhiteRabbit的博客</title>
+  <title>科研工作流 | WhiteRabbit的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="科研工作流老白兔今天总结一下自己论文查找、阅读、记录的工作流。主要包含三部分内容：  文献管理：使用Zotero管理文献 文献阅读：在Windows平台上实现Zotero与笔记应用Obsidian跨应用联动 数据跨平台同步：文献PDF文件与Obsidian笔记在Windows, iOS, Android全平台同步">
+  <meta name="description" content="老白兔今天总结一下自己论文查找、阅读、记录的工作流。主要包含三部分内容：  文献管理：使用Zotero管理文献 文献阅读：在Windows平台上实现Zotero与笔记应用Obsidian跨应用联动 数据跨平台同步：文献PDF文件与Obsidian笔记在Windows, iOS, Android全平台同步">
+<meta name="keywords" content="科研,学术">
 <meta property="og:type" content="article">
-<meta property="og:title" content="WhiteRabbit的博客">
+<meta property="og:title" content="科研工作流">
 <meta property="og:url" content="http://yoursite.com/2022/11/09/sciresworkflow/index.html">
 <meta property="og:site_name" content="WhiteRabbit的博客">
-<meta property="og:description" content="科研工作流老白兔今天总结一下自己论文查找、阅读、记录的工作流。主要包含三部分内容：  文献管理：使用Zotero管理文献 文献阅读：在Windows平台上实现Zotero与笔记应用Obsidian跨应用联动 数据跨平台同步：文献PDF文件与Obsidian笔记在Windows, iOS, Android全平台同步">
-<meta property="og:updated_time" content="2022-11-09T10:59:55.063Z">
+<meta property="og:description" content="老白兔今天总结一下自己论文查找、阅读、记录的工作流。主要包含三部分内容：  文献管理：使用Zotero管理文献 文献阅读：在Windows平台上实现Zotero与笔记应用Obsidian跨应用联动 数据跨平台同步：文献PDF文件与Obsidian笔记在Windows, iOS, Android全平台同步">
+<meta property="og:updated_time" content="2022-11-09T11:08:20.414Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="WhiteRabbit的博客">
-<meta name="twitter:description" content="科研工作流老白兔今天总结一下自己论文查找、阅读、记录的工作流。主要包含三部分内容：  文献管理：使用Zotero管理文献 文献阅读：在Windows平台上实现Zotero与笔记应用Obsidian跨应用联动 数据跨平台同步：文献PDF文件与Obsidian笔记在Windows, iOS, Android全平台同步">
+<meta name="twitter:title" content="科研工作流">
+<meta name="twitter:description" content="老白兔今天总结一下自己论文查找、阅读、记录的工作流。主要包含三部分内容：  文献管理：使用Zotero管理文献 文献阅读：在Windows平台上实现Zotero与笔记应用Obsidian跨应用联动 数据跨平台同步：文献PDF文件与Obsidian笔记在Windows, iOS, Android全平台同步">
   
     <link rel="alternative" href="/atom.xml" title="WhiteRabbit的博客" type="application/atom+xml">
   
@@ -157,14 +158,53 @@
             <article id="post-sciresworkflow" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      科研工作流
+    </h1>
+  
+
+        
+        <a href="/2022/11/09/sciresworkflow/" class="archive-article-date">
+  	<time datetime="2022-11-09T10:39:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-09</time>
+</a>
+        
+      </header>
+    
 
 <!-- 目录内容 -->
     
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+	<div id="toc-article" class="toc-article">
+	    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+		<strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-使用Zotero管理文献"><span class="toc-number">1.</span> <span class="toc-text">1. 使用Zotero管理文献</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-Zotero文献收集"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 Zotero文献收集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-Zotero文献管理"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 Zotero文献管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-PDF文件的跨平台同步"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 PDF文件的跨平台同步</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Zotero与Obsidian的梦幻联动"><span class="toc-number">2.</span> <span class="toc-text">2. Zotero与Obsidian的梦幻联动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Obsidian笔记跨平台同步"><span class="toc-number">3.</span> <span class="toc-text">3. Obsidian笔记跨平台同步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-总结"><span class="toc-number">4.</span> <span class="toc-text">4. 总结</span></a></li></ol>
+         </div>
+   <script type="text/javascript">
+	function showToc(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:block");
+		show_toc_btn.setAttribute("style","display:none");
+		};
+	function showBtn(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:none");
+		show_toc_btn.setAttribute("style","display:block");
+		};
+   </script>
+      
 <!-- 目录内容结束 -->
 
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="科研工作流"><a href="#科研工作流" class="headerlink" title="科研工作流"></a>科研工作流</h1><p>老白兔今天总结一下自己论文查找、阅读、记录的工作流。主要包含三部分内容：</p>
+        <p>老白兔今天总结一下自己论文查找、阅读、记录的工作流。主要包含三部分内容：</p>
 <ul>
 <li><strong>文献管理</strong>：使用Zotero管理文献</li>
 <li><strong>文献阅读</strong>：在Windows平台上实现Zotero与笔记应用Obsidian跨应用联动</li>
@@ -267,6 +307,21 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">科研</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学术</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
       <span id="busuanzi_container_page_pv">
 	  | 阅读量(<span id="busuanzi_value_page_pv"></span>)
@@ -357,6 +412,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-使用Zotero管理文献"><span class="toc-number">1.</span> <span class="toc-text">1. 使用Zotero管理文献</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-Zotero文献收集"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 Zotero文献收集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-Zotero文献管理"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 Zotero文献管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-PDF文件的跨平台同步"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 PDF文件的跨平台同步</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Zotero与Obsidian的梦幻联动"><span class="toc-number">2.</span> <span class="toc-text">2. Zotero与Obsidian的梦幻联动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Obsidian笔记跨平台同步"><span class="toc-number">3.</span> <span class="toc-text">3. Obsidian笔记跨平台同步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-总结"><span class="toc-number">4.</span> <span class="toc-text">4. 总结</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -512,6 +580,14 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安全</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">cobra</a>
               </li>
              
@@ -521,14 +597,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">规则</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安全</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -560,14 +628,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">私有云</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">openstack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
@@ -584,11 +644,15 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">搜索</a>
+                <a href="javascript:void(0)" class="js-tag color4">私有云</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">https</a>
+                <a href="javascript:void(0)" class="js-tag color5">openstack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">搜索</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -596,11 +660,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">域名</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">云服务</a>
+                <a href="javascript:void(0)" class="js-tag color1">https</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -612,7 +672,19 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">csrf</a>
+                <a href="javascript:void(0)" class="js-tag color3">域名</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">云服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">科研</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">学术</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -624,7 +696,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">学术</a>
+                <a href="javascript:void(0)" class="js-tag color5">csrf</a>
               </li>
              
               <li class="article-tag-list-item">
