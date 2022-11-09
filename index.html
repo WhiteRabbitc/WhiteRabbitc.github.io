@@ -168,64 +168,7 @@
 <li><strong>文献阅读</strong>：在Windows平台上实现Zotero与笔记应用Obsidian跨应用联动</li>
 <li><strong>数据跨平台同步</strong>：文献PDF文件与Obsidian笔记在Windows, iOS, Android全平台同步</li>
 </ul>
-<h2 id="1-使用Zotero管理文献"><a href="#1-使用Zotero管理文献" class="headerlink" title="1. 使用Zotero管理文献"></a>1. 使用Zotero管理文献</h2><p>Zotero是一个免费开源的文献管理工具，可以轻松地收集、管理、阅读和引用文献。</p>
-<p>Zotero的功能可以参考：<a href="https://zhuanlan.zhihu.com/p/98428625" target="_blank" rel="external">Zotero的操作指南</a></p>
-<h3 id="1-1-Zotero文献收集"><a href="#1-1-Zotero文献收集" class="headerlink" title="1.1 Zotero文献收集"></a>1.1 Zotero文献收集</h3><p>Zotero有三种文献收集方式：</p>
-<ul>
-<li>导入已下载在本地的PDF文件</li>
-<li>输入文献DOI自动获取文献PDF文件</li>
-<li>使用浏览器插件Zotero Connector自动导入当前网页中的文献</li>
-</ul>
-<p>Zotero自动导入文献后，会自动解析PDF元数据，提取标题、作者、摘要等信息。</p>
-<h3 id="1-2-Zotero文献管理"><a href="#1-2-Zotero文献管理" class="headerlink" title="1.2 Zotero文献管理"></a>1.2 Zotero文献管理</h3><p>随着论文愈看愈多，为了解决大量PDF文件的管理问题，Zotero提供了Collection功能。实际上就类似于在文件管理系统中创建文件夹，将一个个文献归入相关文件夹中。Zotero的优势就是支持引用，允许一个文献归入多个不同Collection中。</p>
-<p>如果只是Collection功能完全不够，还需要辅以ZotFile插件，在配置后可以自动根据配置重命名、移动文件，使用WebDav实现跨平台同步。</p>
-<p>使用ZotFile自动组织PDF文件可以参考：<a href="https://www.cnblogs.com/jianghaonan0818/p/15376754.html" target="_blank" rel="external">zotero文献管理器插件：ZotFile的安装和使用</a></p>
-<p>两个小建议：</p>
-<ul>
-<li>文件组织：使用Collection层级关系作为PDF文件的相对路径</li>
-<li>重命名：使用年份+文章标题为PDF文件重命名</li>
-</ul>
-<blockquote>
-<p>看官可能不禁产生疑问，为什么要使用ZotFile对文献重新组织、重命名呢？不做这一步操作依旧可以正常使用Zotero原生的Collection功能进行文献管理与阅读。</p>
-<p>如果只在一台电脑上工作，没有多主机、跨平台同步，确实Collection就够了。但如果需要台式机、笔记本多主机同步文件，手机、平板以至于Web端跨平台阅读，Zotero默认的杂乱无章的文件组织方式就满足不了需求了。</p>
-<p>借助ZotFile，自动使用文件夹对PDF文件的组织方式进行重组，方便在不同应用中查找、阅读。</p>
-</blockquote>
-<h3 id="1-3-PDF文件的跨平台同步"><a href="#1-3-PDF文件的跨平台同步" class="headerlink" title="1.3 PDF文件的跨平台同步"></a>1.3 PDF文件的跨平台同步</h3><p>辛辛苦苦在ZotFile上配置文件组织、重命名规则，就是为了这一步<strong>文件跨平台同步</strong>。</p>
-<p>其主要原理就是<strong>支持WebDav协议的客户端</strong>和<strong>支持WebDav协议的云存储服务商</strong>之间，通过WebDav协议进行通信，实现文件的存储和下载。在Zotero中，由ZotFile插件实现对WebDav协议的支持。</p>
-<p>使用坚果云作为<strong>云存储服务商</strong>的解决方案可以参考：<a href="https://www.jianshu.com/p/5a9ceee33fac" target="_blank" rel="external">Zotero+坚果云WebDAV实现跨平台同步</a></p>
-<p>以上，成功将本地文献同步至支持WebDav协议的云盘中。接下来就是使用另一个平台上的<strong>支持WebDav协议的客户端</strong>，将云盘中的文献同步到本地使用。</p>
-<ul>
-<li>可以是另一台Windows主机上的坚果云客户端，实现不同主机上的无缝同步。</li>
-<li>可以是iPad上的PDF Expert（<a href="https://help.jianguoyun.com/?p=3482" target="_blank" rel="external">PDF Expert打开坚果云里的文件</a>），在iPad上阅读文献。</li>
-<li>可以是Android上的WPS（<a href="https://help.jianguoyun.com/?p=2622" target="_blank" rel="external">WPS打开坚果云里的文件</a>），在手机上阅读文献。</li>
-</ul>
-<p>三个小建议：</p>
-<ul>
-<li>坚果云免费空间太小，可以使用Koofr的云存储服务，免费空间充足。</li>
-<li>Android端只是偶尔进行文献阅读，没有PDF标注数据同步的需求，可以使用Koofr自身所提供的Android客户端，下载之后使用相应阅读器打开。</li>
-<li>iPad上会对PDF进行标注，使用PDF Expert通过WebDav协议连接Koofr，实现标注信息的实时同步。</li>
-</ul>
-<h2 id="2-Zotero与Obsidian的梦幻联动"><a href="#2-Zotero与Obsidian的梦幻联动" class="headerlink" title="2. Zotero与Obsidian的梦幻联动"></a>2. Zotero与Obsidian的梦幻联动</h2><p>上一节实现了使用Zotero随时随地，使用任何设备阅读文献。但阅读过程中不可避免的会想要对文献进行标注、关联，输出笔记、思维导图。随着阅读文献数量的增加，想要将具有某一相同主题的不同文献关联在一起，构建文献的<strong>知识图谱</strong>。作为MarginNote的重度用户，对于其点击引用直接跳转回原文的功能爱得深沉。</p>
-<p>那么，有没有一款应用能支持一键导出Zotero中的笔记，支持构建知识图谱，支持点击引用跳转回Zotero中原文？答案是<strong>Obsidian</strong>。</p>
-<p>用一句话描述Obsidian：支持双链的Markdown文件编辑、管理平台。其功能可以参考：<a href="https://sspai.com/post/67399" target="_blank" rel="external">Obsidian是什么以及它能用来做什么</a>。</p>
-<p>如果只看其原生功能，也就双链功能可以解决我构建知识图谱的痛点。但是，同Zotero一样，其强大之处在于其让人眼花缭乱的插件支持。</p>
-<p>如何使Obsidian与Zotero联动起来，像MarginNote般丝滑，参考：<a href="https://zhuanlan.zhihu.com/p/480911605" target="_blank" rel="external">Zotero和Obsidian联动最优解决方案</a>以及<a href="https://zhuanlan.zhihu.com/p/489141325" target="_blank" rel="external">最优解决方案的配置指南</a>。</p>
-<h2 id="3-Obsidian笔记跨平台同步"><a href="#3-Obsidian笔记跨平台同步" class="headerlink" title="3. Obsidian笔记跨平台同步"></a>3. Obsidian笔记跨平台同步</h2><p>上一节实现Obsidian与Zotero的联动，但一想到文献的跨平台阅读，我们不禁又想拥有笔记的跨平台阅读。好在Obsidian拥有全平台客户端，现在的问题只是如何在不同平台上同步Markdown文件。</p>
-<p>Markdown本身作为纯文本文件，使用Git进行版本控制、跨平台同步，pull到本地之后用Obsidian客户端打开即可。</p>
-<ol>
-<li>Github 创建私有仓库</li>
-<li>Windows 上将Obsidian的Vault文件夹push到本地仓库中</li>
-<li>Android 上使用spck editor作为git客户端拉取文件，使用Obsidian打开仓库</li>
-<li>iOS设备上使用iSH作为git客户端，使用mount指令实现多应用间共享文件夹，参考<a href="https://zhuanlan.zhihu.com/p/565028534" target="_blank" rel="external">iOS上使用iSH的git同步obsidian</a></li>
-</ol>
-<h2 id="4-总结"><a href="#4-总结" class="headerlink" title="4. 总结"></a>4. 总结</h2><p>各平台工作流支撑软件汇总：</p>
-<ul>
-<li>Windows: Zotero, Obsidian, Koofr, Git</li>
-<li>Android: Koofr, Spck Editor, Obsidian</li>
-<li>iOS: PDF Expert, iSH, Obsidian</li>
-<li>Cloud: Github, Koofr</li>
-</ul>
-
+        
       
 
       
@@ -814,6 +757,18 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">cobra</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">审计</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">规则</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">安全</a>
               </li>
              
@@ -838,18 +793,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">cobra</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">审计</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">规则</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">pandas</a>
               </li>
              
@@ -859,6 +802,18 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">私有云</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">openstack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -874,23 +829,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">博客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">私有云</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">openstack</a>
+                <a href="javascript:void(0)" class="js-tag color3">搜索</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">https</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">搜索</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -914,15 +857,15 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">csrf</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">scrapy</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">csrf</a>
               </li>
              
               <li class="article-tag-list-item">
