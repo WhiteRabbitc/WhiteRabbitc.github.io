@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 渗透 | WhiteRabbit的博客</title>
+  <title>扫描工具Xray使用方法 | WhiteRabbit的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="WhiteRabbit的博客">
-<meta property="og:url" content="http://yoursite.com/tags/渗透/index.html">
+  <meta name="description" content="当我们需要寻找一个网站的漏洞时，自动化漏洞扫描工具XRAY是一个不错的选择，省时省力，还可以通过编写代码实现对批量网站的自动扫描。">
+<meta name="keywords" content="ctf,漏洞挖掘">
+<meta property="og:type" content="article">
+<meta property="og:title" content="扫描工具Xray使用方法">
+<meta property="og:url" content="http://yoursite.com/2022/12/30/xrayab/index.html">
 <meta property="og:site_name" content="WhiteRabbit的博客">
+<meta property="og:description" content="当我们需要寻找一个网站的漏洞时，自动化漏洞扫描工具XRAY是一个不错的选择，省时省力，还可以通过编写代码实现对批量网站的自动扫描。">
+<meta property="og:updated_time" content="2023-01-09T05:29:57.316Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="WhiteRabbit的博客">
+<meta name="twitter:title" content="扫描工具Xray使用方法">
+<meta name="twitter:description" content="当我们需要寻找一个网站的漏洞时，自动化漏洞扫描工具XRAY是一个不错的选择，省时省力，还可以通过编写代码实现对批量网站的自动扫描。">
   
     <link rel="alternative" href="/atom.xml" title="WhiteRabbit的博客" type="application/atom+xml">
   
@@ -150,162 +155,296 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-xrayab" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/10/21/infogather/" class="archive-article-date">
-  	<time datetime="2022-10-21T09:39:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-21</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/10/21/infogather/">信息收集</a>
+    <h1 class="article-title" itemprop="name">
+      扫描工具Xray使用方法
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2022/12/30/xrayab/" class="archive-article-date">
+  	<time datetime="2022-12-30T10:39:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-12-30</time>
+</a>
+        
+      </header>
+    
+
+<!-- 目录内容 -->
+    
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+	<div id="toc-article" class="toc-article">
+	    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+		<strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-XRAY简介"><span class="toc-number">1.</span> <span class="toc-text">1. XRAY简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-运行"><span class="toc-number">2.</span> <span class="toc-text">2. 运行</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-代理模式扫描"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 代理模式扫描</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-基础爬虫模式扫描"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 基础爬虫模式扫描</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-服务模式扫描"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 服务模式扫描</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-实现批量自动扫描"><span class="toc-number">3.</span> <span class="toc-text">3. 实现批量自动扫描</span></a></li></ol>
+         </div>
+   <script type="text/javascript">
+	function showToc(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:block");
+		show_toc_btn.setAttribute("style","display:none");
+		};
+	function showBtn(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:none");
+		show_toc_btn.setAttribute("style","display:block");
+		};
+   </script>
+      
+<!-- 目录内容结束 -->
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>当我们需要寻找一个网站的漏洞时，自动化漏洞扫描工具XRAY是一个不错的选择，省时省力，还可以通过编写代码实现对批量网站的自动扫描。</p>
+<a id="more"></a>
+<h2 id="1-XRAY简介"><a href="#1-XRAY简介" class="headerlink" title="1. XRAY简介"></a>1. XRAY简介</h2><p>根据官方文档介绍，XRAY目前支持的漏洞检测类型包括:</p>
+<ul>
+<li>XSS漏洞检测 (key: xss)</li>
+</ul>
+<ul>
+<li>SQL 注入检测 (key: sqldet)</li>
+<li>命令/代码注入检测 (key: cmd-injection)</li>
+<li>目录枚举 (key: dirscan)</li>
+<li>路径穿越检测 (key: path-traversal)</li>
+<li>XML 实体注入检测 (key: xxe)</li>
+<li>文件上传检测 (key: upload)</li>
+<li>弱口令检测 (key: brute-force)</li>
+<li>jsonp 检测 (key: jsonp)</li>
+<li>ssrf 检测 (key: ssrf)</li>
+<li>基线检查 (key: baseline)</li>
+<li>任意跳转检测 (key: redirect)</li>
+<li>CRLF 注入 (key: crlf-injection)</li>
+<li>Struts2 系列漏洞检测 (高级版，key: struts)</li>
+<li>Thinkphp系列漏洞检测 (高级版，key: thinkphp)</li>
+<li>POC 框架 (key: phantasm)</li>
+</ul>
+<p>大至 OWASP Top 10 通用漏洞检测，小至各种 CMS 框架 POC，均可以支持。并且作为为一款安全辅助评估工具，而不是攻击工具，内置的所有 payload 和 poc 均为无害化检查。还可以通过配置文件对功能进行定制。扫描结果有四种输出方式，分笔试屏幕输出、JSON文件输出、HTML报告输出和Webhook输出。</p>
+<h2 id="2-运行"><a href="#2-运行" class="headerlink" title="2. 运行"></a>2. 运行</h2><p>XRAY提供了三种扫描模式，分别是代理模式、基础爬虫模式和服务模式，每种扫描模式各有优劣，选择适合自己需求的扫描模式使用即可。</p>
+<h3 id="2-1-代理模式扫描"><a href="#2-1-代理模式扫描" class="headerlink" title="2.1 代理模式扫描"></a>2.1 代理模式扫描</h3><p>当XRAY作为浏览器代理进行工作时，它会作为中间人将浏览器的请求和服务器的响应原样转发，但会记录下浏览器的访问对象，对访问对象进行漏洞扫描工作。</p>
+<p>若浏览器使用https协议进行通行，我们首先应配置CA证书，获取浏览器的信任后才可作为代理工作。XRAY有自动生成CA证书的命令。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">.\xray_windows_amd64.exe genca</div></pre></td></tr></table></figure>
+<p>获取CA证书后，依照自己使用的浏览器，进行证书添加即可。添加完证书后，不要忘记对浏览器进行相应的代理配置。准备工作完成后，输入下方命令即可运行XRAY代理。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">.\xray_windows_amd64.exe webscan --listen 127.0.0.1:7777 --html-output xray-testphp.html</div></pre></td></tr></table></figure>
+<p>开启运行后，XRAY就会对我们使用浏览器访问的网页进行自动扫描了。</p>
+<h3 id="2-2-基础爬虫模式扫描"><a href="#2-2-基础爬虫模式扫描" class="headerlink" title="2.2 基础爬虫模式扫描"></a>2.2 基础爬虫模式扫描</h3><p>爬虫模式与代理模式的不同之处在于，在命令行输入需要扫描的对象即可进行扫描，与编程语言结合使用时，还可实现对批量网站的自动化后台扫描。但该模式有一个缺点，不能处理js渲染的页面。</p>
+<p>运行爬虫模式的命令为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./xray_windows_amd64 webscan --basic-crawler http://testphp.vulnweb.com/ --html-output xray-crawler-testphp.html</div></pre></td></tr></table></figure>
+<h3 id="2-3-服务模式扫描"><a href="#2-3-服务模式扫描" class="headerlink" title="2.3 服务模式扫描"></a>2.3 服务模式扫描</h3><p>XRAY的常用功能是web扫描，但其在逐渐研发服务扫描的相关能力，目前主要是服务扫描相关的 poc。目前只有一个 tomcat-cve-2020-1938 ajp 协议任意文件检测 poc。</p>
+<p>目前支持两种扫描方式，分别问检测单个目标和批量检测文件中的多个目标：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">./xray servicescan --target 127.0.0.1:8009</div><div class="line">./xray servicescan --target-file 1.file</div></pre></td></tr></table></figure>
+<h2 id="3-实现批量自动扫描"><a href="#3-实现批量自动扫描" class="headerlink" title="3. 实现批量自动扫描"></a>3. 实现批量自动扫描</h2><p>这里为大家介绍使用PYTHON编写自动扫描脚本的方法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</div><div class="line"><span class="keyword">import</span> subprocess</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">xray</span><span class="params">(host)</span>:</span></div><div class="line">    </div><div class="line">    <span class="comment"># 将域名作为HTML输出文件的文件名，存储该网站链接的扫描结果</span></div><div class="line">    <span class="comment"># 使用subprocess.Popen方法创建子程序执行XRAY命令</span></div><div class="line">    <span class="comment"># 调用wait方法，一次只扫描一个网站链接，可根据性能对并发度进行调整</span></div><div class="line">    name = host.replace(<span class="string">'https://'</span>, <span class="string">''</span>).replace(<span class="string">'http://'</span>, <span class="string">''</span>).replace(<span class="string">'/'</span>, <span class="string">''</span>)</div><div class="line">    cmd = [<span class="string">"xray"</span>, <span class="string">"webscan"</span>, <span class="string">"--basic-crawler"</span>]</div><div class="line">    cmd += [host]</div><div class="line">    cmd += [<span class="string">"--json-output"</span>, name]</div><div class="line">    p = subprocess.Popen(cmd)</div><div class="line">    p.wait()</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</div><div class="line">	</div><div class="line">    <span class="comment"># 读取data文件，提取data文件中的网站链接</span></div><div class="line">    <span class="comment"># 对每一个网站链接，执行相应的xray扫描命令，扫描模式为基础爬虫模式</span></div><div class="line">    xlsx = pd.ExcelFile(<span class="string">r'data.xlsx'</span>)</div><div class="line">    sheet1 = pd.read_excel(xlsx, <span class="string">'Sheet1'</span>)</div><div class="line">    <span class="keyword">for</span> host <span class="keyword">in</span> sheet1[<span class="string">'网站链接'</span>]:</div><div class="line">        xray(host)</div><div class="line">    xlsx.close()</div></pre></td></tr></table></figure>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃萝卜<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://whiterabbitc.github.io/img/zhifubao.png">
+                      <span class="reward-type">支付宝^_^</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://whiterabbitc.github.io/img/weixin.png">
+                      <span class="reward-type">微信0_0</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">渗透</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ctf</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">内网</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">漏洞挖掘</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
       
-        </div></section>
+      <span id="busuanzi_container_page_pv">
+	  | 阅读量(<span id="busuanzi_value_page_pv"></span>)
+      </span>
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/01/xsrf/" class="archive-article-date">
-  	<time datetime="2018-11-01T03:39:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/01/xsrf/">当xss邂逅csrf：中招只在一瞬间</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">渗透</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">xss</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">csrf</a>
-        		</li>
-      		
-		</ul>
-	</div>
+      
 
-          
-
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2022/12/30/xrayab/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/02/27/WAFbypass/" class="archive-article-date">
-  	<time datetime="2018-02-27T03:39:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-27</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2022/11/09/sciresworkflow/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">科研工作流</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/02/27/WAFbypass/">绕过WAF的9种方法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">渗透</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">WAF</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-XRAY简介"><span class="toc-number">1.</span> <span class="toc-text">1. XRAY简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-运行"><span class="toc-number">2.</span> <span class="toc-text">2. 运行</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-代理模式扫描"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 代理模式扫描</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-基础爬虫模式扫描"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 基础爬虫模式扫描</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-服务模式扫描"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 服务模式扫描</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-实现批量自动扫描"><span class="toc-number">3.</span> <span class="toc-text">3. 实现批量自动扫描</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
   
-    </div></section>
   
 
-    
+  
+  <div id="SOHUCS" sid="xrayab" ></div> 
+<script type="text/javascript"> 
+window.YiliaChangyanWrap = function() {
+    var appid = "cytj4oNi1"; 
+    var conf = "956774aadd9557459092650701f47376"; 
+    var width = window.innerWidth || document.documentElement.clientWidth; 
+    if (width < 960) { 
+    window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("//changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); }
+}
+</script>
+  
+
+  
+
+  
+
+
+
+   <section id="comments" class="comments">
+     <style>
+       .comments{margin:30px;padding:10px;background:#fff}
+       @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+     </style>
+     
+   <section id="comments" class="comments">
+     <style>
+       .comments{margin:30px;padding:10px;background:#fff}
+       @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+     </style>
+     
+ </section>
+
+
+ </section>
 
 
           </div>
@@ -338,9 +477,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
