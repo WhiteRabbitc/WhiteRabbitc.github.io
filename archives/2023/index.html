@@ -6,19 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Yara：恶意软件检测神器 | WhiteRabbit的博客</title>
+  <title>Archives: 2023 | WhiteRabbit的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="yara是一款用于帮助软件研究人员检测恶意软件和代码的开源工具，可以分析各种文件以及正在运行的进程。">
-<meta name="keywords" content="安全,工具">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Yara：恶意软件检测神器">
-<meta property="og:url" content="http://yoursite.com/2017/10/21/Yara/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="WhiteRabbit的博客">
+<meta property="og:url" content="http://yoursite.com/archives/2023/index.html">
 <meta property="og:site_name" content="WhiteRabbit的博客">
-<meta property="og:description" content="yara是一款用于帮助软件研究人员检测恶意软件和代码的开源工具，可以分析各种文件以及正在运行的进程。">
-<meta property="og:updated_time" content="2018-02-27T06:53:36.601Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Yara：恶意软件检测神器">
-<meta name="twitter:description" content="yara是一款用于帮助软件研究人员检测恶意软件和代码的开源工具，可以分析各种文件以及正在运行的进程。">
+<meta name="twitter:title" content="WhiteRabbit的博客">
   
     <link rel="alternative" href="/atom.xml" title="WhiteRabbit的博客" type="application/atom+xml">
   
@@ -155,243 +150,43 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Yara" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
+            
+  
+  
     
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Yara：恶意软件检测神器
-    </h1>
-  
-
-        
-        <a href="/2017/10/21/Yara/" class="archive-article-date">
-  	<time datetime="2017-10-21T07:08:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-21</time>
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2023" class="archive-year">2023</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2023/01/09/xray/" class="archive-article-date">
+  	<time datetime="2023-01-09T05:16:31.871Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-09</time>
 </a>
-        
-      </header>
-    
-
-<!-- 目录内容 -->
-    
-<!-- 目录内容结束 -->
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>yara是一款用于帮助软件研究人员检测恶意软件和代码的开源工具，可以分析各种文件以及正在运行的进程。</p>
-<a id="more"></a>
-<h2 id="Yara支持的系统平台"><a href="#Yara支持的系统平台" class="headerlink" title="Yara支持的系统平台"></a>Yara支持的系统平台</h2><p>  Yara工具自带了一个小型的搜索引擎，可以在window、linux、MacOS系统上运行，而且支持python扩展，允许通过python脚本访问搜索引擎。</p>
-<h2 id="Yara的使用构成："><a href="#Yara的使用构成：" class="headerlink" title="Yara的使用构成："></a>Yara的使用构成：</h2><p>Yara的使用由三部分构成：yara工具、规则文件、目标文件（进程）</p>
-<h3 id="yara工具"><a href="#yara工具" class="headerlink" title="yara工具"></a>yara工具</h3><p>我在yara工具的安装时遇到各种各样的问题，花了很多时间，总结如下<br>1.推荐用python自带的pip来安装:</p>
-<pre><code>pip install yara
-yara-ctypes -h
-</code></pre><p>2.yara工具与linux的亲和度比较高</p>
-<h3 id="yara规则文件"><a href="#yara规则文件" class="headerlink" title="yara规则文件"></a>yara规则文件</h3><p>yara的规则的标识符类似于C语言结构，其规则声明以rule标识，在规则描述中可以包括字母、数字甚至下划线字符，但字符串第一个字符不能是数字，且单条描述不能超过128个字符。和C语言一样，YARA规则也有关键字，具体的规则文件编写可以参考<a href="http://yara.readthedocs.io/en/v3.6.0/" target="_blank" rel="external">yara文档说明</a>。</p>
-<h3 id="目标文件"><a href="#目标文件" class="headerlink" title="目标文件"></a>目标文件</h3><p>yara的检测目标可以是文件也可以是进程，在命令行中输入</p>
-<pre><code>yara 规则文件 目标文件
-</code></pre><p>就可以执行了，如果是python的话就要调用yara-ctype来执行，用–help可以查看参数要求。</p>
-<h2 id="Yara的规则库的收集："><a href="#Yara的规则库的收集：" class="headerlink" title="Yara的规则库的收集："></a>Yara的规则库的收集：</h2><p>yara的强大在于它可以不断的添加规则进入自己的规则库来强化自己，所以开发人员对规则库的收集和填充是十分重要的，但是由于yara在国内使用的贫瘠，yara库的收集并不容易。目前网络上的开源规则库，基本上来自国外的恶意软件分析提取、安全研究室的开源、安全社区的开放以及个人大牛的共享。</p>
-<h2 id="Yara的未来："><a href="#Yara的未来：" class="headerlink" title="Yara的未来："></a>Yara的未来：</h2><p>随着国内对网络安全越来越重视，可以预见Yara在国内势必引来一波流行期，到时网络上的规则文件共享会越来越多，大家注意在下载某些<strong>个人共享</strong>的规则文件时，要注意可能刻意隐藏在其中的恶意代码，会对你的电脑形成攻击漏洞。<br>这篇博客就到这里，谢谢大家！</p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃萝卜<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="https://whiterabbitc.github.io/img/zhifubao.png">
-                      <span class="reward-type">支付宝^_^</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="https://whiterabbitc.github.io/img/weixin.png">
-                      <span class="reward-type">微信0_0</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
         </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">安全</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
-        		</li>
-      		
-		</ul>
-	</div>
+    	 
+        <div class="article-info info-on-right">
+          
+          
 
-      
-      <span id="busuanzi_container_page_pv">
-	  | 阅读量(<span id="busuanzi_value_page_pv"></span>)
-      </span>
-      
-      
-
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/10/21/Yara/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2017/11/07/python-scapy/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          使用Python的Scapy库解析Paca文件
-        
-      </div>
-    </a>
   
   
-    <a href="/2017/10/16/googlesearchskill/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Google高级搜索hacker技巧</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-  <div id="SOHUCS" sid="Yara" ></div> 
-<script type="text/javascript"> 
-window.YiliaChangyanWrap = function() {
-    var appid = "cytj4oNi1"; 
-    var conf = "956774aadd9557459092650701f47376"; 
-    var width = window.innerWidth || document.documentElement.clientWidth; 
-    if (width < 960) { 
-    window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("//changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); }
-}
-</script>
-  
-
-  
-
-  
-
-
-
-   <section id="comments" class="comments">
-     <style>
-       .comments{margin:30px;padding:10px;background:#fff}
-       @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
-     </style>
-     
-   <section id="comments" class="comments">
-     <style>
-       .comments{margin:30px;padding:10px;background:#fff}
-       @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
-     </style>
-     
- </section>
-
-
- </section>
+    
 
 
           </div>
@@ -424,8 +219,8 @@ window.YiliaChangyanWrap = function() {
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

@@ -6,19 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Yara：恶意软件检测神器 | WhiteRabbit的博客</title>
+  <title>WhiteRabbit的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="yara是一款用于帮助软件研究人员检测恶意软件和代码的开源工具，可以分析各种文件以及正在运行的进程。">
-<meta name="keywords" content="安全,工具">
+  <meta name="description" content="XRAY扫描工具的使用方法当我们需要寻找一个网站的漏洞时，自动化漏洞扫描工具XRAY是一个不错的选择，省时省力，还可以通过编写代码实现对批量网站的自动扫描。 1. XRAY简介根据官方文档介绍，XRAY目前支持的漏洞检测类型包括:  XSS漏洞检测 (key: xss)   SQL 注入检测 (key: sqldet) 命令/代码注入检测 (key: cmd-injection) 目录枚举 (ke">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Yara：恶意软件检测神器">
-<meta property="og:url" content="http://yoursite.com/2017/10/21/Yara/index.html">
+<meta property="og:title" content="WhiteRabbit的博客">
+<meta property="og:url" content="http://yoursite.com/2023/01/09/xray/index.html">
 <meta property="og:site_name" content="WhiteRabbit的博客">
-<meta property="og:description" content="yara是一款用于帮助软件研究人员检测恶意软件和代码的开源工具，可以分析各种文件以及正在运行的进程。">
-<meta property="og:updated_time" content="2018-02-27T06:53:36.601Z">
+<meta property="og:description" content="XRAY扫描工具的使用方法当我们需要寻找一个网站的漏洞时，自动化漏洞扫描工具XRAY是一个不错的选择，省时省力，还可以通过编写代码实现对批量网站的自动扫描。 1. XRAY简介根据官方文档介绍，XRAY目前支持的漏洞检测类型包括:  XSS漏洞检测 (key: xss)   SQL 注入检测 (key: sqldet) 命令/代码注入检测 (key: cmd-injection) 目录枚举 (ke">
+<meta property="og:updated_time" content="2023-01-09T05:16:31.872Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Yara：恶意软件检测神器">
-<meta name="twitter:description" content="yara是一款用于帮助软件研究人员检测恶意软件和代码的开源工具，可以分析各种文件以及正在运行的进程。">
+<meta name="twitter:title" content="WhiteRabbit的博客">
+<meta name="twitter:description" content="XRAY扫描工具的使用方法当我们需要寻找一个网站的漏洞时，自动化漏洞扫描工具XRAY是一个不错的选择，省时省力，还可以通过编写代码实现对批量网站的自动扫描。 1. XRAY简介根据官方文档介绍，XRAY目前支持的漏洞检测类型包括:  XSS漏洞检测 (key: xss)   SQL 注入检测 (key: sqldet) 命令/代码注入检测 (key: cmd-injection) 目录枚举 (ke">
   
     <link rel="alternative" href="/atom.xml" title="WhiteRabbit的博客" type="application/atom+xml">
   
@@ -155,23 +154,8 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Yara" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-xray" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Yara：恶意软件检测神器
-    </h1>
-  
-
-        
-        <a href="/2017/10/21/Yara/" class="archive-article-date">
-  	<time datetime="2017-10-21T07:08:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-21</time>
-</a>
-        
-      </header>
     
 
 <!-- 目录内容 -->
@@ -180,20 +164,44 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p>yara是一款用于帮助软件研究人员检测恶意软件和代码的开源工具，可以分析各种文件以及正在运行的进程。</p>
-<a id="more"></a>
-<h2 id="Yara支持的系统平台"><a href="#Yara支持的系统平台" class="headerlink" title="Yara支持的系统平台"></a>Yara支持的系统平台</h2><p>  Yara工具自带了一个小型的搜索引擎，可以在window、linux、MacOS系统上运行，而且支持python扩展，允许通过python脚本访问搜索引擎。</p>
-<h2 id="Yara的使用构成："><a href="#Yara的使用构成：" class="headerlink" title="Yara的使用构成："></a>Yara的使用构成：</h2><p>Yara的使用由三部分构成：yara工具、规则文件、目标文件（进程）</p>
-<h3 id="yara工具"><a href="#yara工具" class="headerlink" title="yara工具"></a>yara工具</h3><p>我在yara工具的安装时遇到各种各样的问题，花了很多时间，总结如下<br>1.推荐用python自带的pip来安装:</p>
-<pre><code>pip install yara
-yara-ctypes -h
-</code></pre><p>2.yara工具与linux的亲和度比较高</p>
-<h3 id="yara规则文件"><a href="#yara规则文件" class="headerlink" title="yara规则文件"></a>yara规则文件</h3><p>yara的规则的标识符类似于C语言结构，其规则声明以rule标识，在规则描述中可以包括字母、数字甚至下划线字符，但字符串第一个字符不能是数字，且单条描述不能超过128个字符。和C语言一样，YARA规则也有关键字，具体的规则文件编写可以参考<a href="http://yara.readthedocs.io/en/v3.6.0/" target="_blank" rel="external">yara文档说明</a>。</p>
-<h3 id="目标文件"><a href="#目标文件" class="headerlink" title="目标文件"></a>目标文件</h3><p>yara的检测目标可以是文件也可以是进程，在命令行中输入</p>
-<pre><code>yara 规则文件 目标文件
-</code></pre><p>就可以执行了，如果是python的话就要调用yara-ctype来执行，用–help可以查看参数要求。</p>
-<h2 id="Yara的规则库的收集："><a href="#Yara的规则库的收集：" class="headerlink" title="Yara的规则库的收集："></a>Yara的规则库的收集：</h2><p>yara的强大在于它可以不断的添加规则进入自己的规则库来强化自己，所以开发人员对规则库的收集和填充是十分重要的，但是由于yara在国内使用的贫瘠，yara库的收集并不容易。目前网络上的开源规则库，基本上来自国外的恶意软件分析提取、安全研究室的开源、安全社区的开放以及个人大牛的共享。</p>
-<h2 id="Yara的未来："><a href="#Yara的未来：" class="headerlink" title="Yara的未来："></a>Yara的未来：</h2><p>随着国内对网络安全越来越重视，可以预见Yara在国内势必引来一波流行期，到时网络上的规则文件共享会越来越多，大家注意在下载某些<strong>个人共享</strong>的规则文件时，要注意可能刻意隐藏在其中的恶意代码，会对你的电脑形成攻击漏洞。<br>这篇博客就到这里，谢谢大家！</p>
+        <h1 id="XRAY扫描工具的使用方法"><a href="#XRAY扫描工具的使用方法" class="headerlink" title="XRAY扫描工具的使用方法"></a>XRAY扫描工具的使用方法</h1><p>当我们需要寻找一个网站的漏洞时，自动化漏洞扫描工具XRAY是一个不错的选择，省时省力，还可以通过编写代码实现对批量网站的自动扫描。</p>
+<h2 id="1-XRAY简介"><a href="#1-XRAY简介" class="headerlink" title="1. XRAY简介"></a>1. XRAY简介</h2><p>根据官方文档介绍，XRAY目前支持的漏洞检测类型包括:</p>
+<ul>
+<li>XSS漏洞检测 (key: xss)</li>
+</ul>
+<ul>
+<li>SQL 注入检测 (key: sqldet)</li>
+<li>命令/代码注入检测 (key: cmd-injection)</li>
+<li>目录枚举 (key: dirscan)</li>
+<li>路径穿越检测 (key: path-traversal)</li>
+<li>XML 实体注入检测 (key: xxe)</li>
+<li>文件上传检测 (key: upload)</li>
+<li>弱口令检测 (key: brute-force)</li>
+<li>jsonp 检测 (key: jsonp)</li>
+<li>ssrf 检测 (key: ssrf)</li>
+<li>基线检查 (key: baseline)</li>
+<li>任意跳转检测 (key: redirect)</li>
+<li>CRLF 注入 (key: crlf-injection)</li>
+<li>Struts2 系列漏洞检测 (高级版，key: struts)</li>
+<li>Thinkphp系列漏洞检测 (高级版，key: thinkphp)</li>
+<li>POC 框架 (key: phantasm)</li>
+</ul>
+<p>大至 OWASP Top 10 通用漏洞检测，小至各种 CMS 框架 POC，均可以支持。并且作为为一款安全辅助评估工具，而不是攻击工具，内置的所有 payload 和 poc 均为无害化检查。还可以通过配置文件对功能进行定制。扫描结果有四种输出方式，分笔试屏幕输出、JSON文件输出、HTML报告输出和Webhook输出。</p>
+<h2 id="2-运行"><a href="#2-运行" class="headerlink" title="2. 运行"></a>2. 运行</h2><p>XRAY提供了三种扫描模式，分别是代理模式、基础爬虫模式和服务模式，每种扫描模式各有优劣，选择适合自己需求的扫描模式使用即可。</p>
+<h3 id="2-1-代理模式扫描"><a href="#2-1-代理模式扫描" class="headerlink" title="2.1 代理模式扫描"></a>2.1 代理模式扫描</h3><p>当XRAY作为浏览器代理进行工作时，它会作为中间人将浏览器的请求和服务器的响应原样转发，但会记录下浏览器的访问对象，对访问对象进行漏洞扫描工作。</p>
+<p>若浏览器使用https协议进行通行，我们首先应配置CA证书，获取浏览器的信任后才可作为代理工作。XRAY有自动生成CA证书的命令。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">.\xray_windows_amd64.exe genca</div></pre></td></tr></table></figure>
+<p>获取CA证书后，依照自己使用的浏览器，进行证书添加即可。添加完证书后，不要忘记对浏览器进行相应的代理配置。准备工作完成后，输入下方命令即可运行XRAY代理。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">.\xray_windows_amd64.exe webscan --listen 127.0.0.1:7777 --html-output xray-testphp.html</div></pre></td></tr></table></figure>
+<p>开启运行后，XRAY就会对我们使用浏览器访问的网页进行自动扫描了。</p>
+<h3 id="2-2-基础爬虫模式扫描"><a href="#2-2-基础爬虫模式扫描" class="headerlink" title="2.2 基础爬虫模式扫描"></a>2.2 基础爬虫模式扫描</h3><p>爬虫模式与代理模式的不同之处在于，在命令行输入需要扫描的对象即可进行扫描，与编程语言结合使用时，还可实现对批量网站的自动化后台扫描。但该模式有一个缺点，不能处理js渲染的页面。</p>
+<p>运行爬虫模式的命令为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./xray_windows_amd64 webscan --basic-crawler http://testphp.vulnweb.com/ --html-output xray-crawler-testphp.html</div></pre></td></tr></table></figure>
+<h3 id="2-3-服务模式扫描"><a href="#2-3-服务模式扫描" class="headerlink" title="2.3 服务模式扫描"></a>2.3 服务模式扫描</h3><p>XRAY的常用功能是web扫描，但其在逐渐研发服务扫描的相关能力，目前主要是服务扫描相关的 poc。目前只有一个 tomcat-cve-2020-1938 ajp 协议任意文件检测 poc。</p>
+<p>目前支持两种扫描方式，分别问检测单个目标和批量检测文件中的多个目标：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">./xray servicescan --target 127.0.0.1:8009</div><div class="line">./xray servicescan --target-file 1.file</div></pre></td></tr></table></figure>
+<h2 id="3-实现批量自动扫描"><a href="#3-实现批量自动扫描" class="headerlink" title="3. 实现批量自动扫描"></a>3. 实现批量自动扫描</h2><p>这里为大家介绍使用PYTHON编写自动扫描脚本的方法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</div><div class="line"><span class="keyword">import</span> subprocess</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">xray</span><span class="params">(host)</span>:</span></div><div class="line">    </div><div class="line">    <span class="comment"># 将域名作为HTML输出文件的文件名，存储该网站链接的扫描结果</span></div><div class="line">    <span class="comment"># 使用subprocess.Popen方法创建子程序执行XRAY命令</span></div><div class="line">    <span class="comment"># 调用wait方法，一次只扫描一个网站链接，可根据性能对并发度进行调整</span></div><div class="line">    name = host.replace(<span class="string">'https://'</span>, <span class="string">''</span>).replace(<span class="string">'http://'</span>, <span class="string">''</span>).replace(<span class="string">'/'</span>, <span class="string">''</span>)</div><div class="line">    cmd = [<span class="string">"xray"</span>, <span class="string">"webscan"</span>, <span class="string">"--basic-crawler"</span>]</div><div class="line">    cmd += [host]</div><div class="line">    cmd += [<span class="string">"--json-output"</span>, name]</div><div class="line">    p = subprocess.Popen(cmd)</div><div class="line">    p.wait()</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</div><div class="line">	</div><div class="line">    <span class="comment"># 读取data文件，提取data文件中的网站链接</span></div><div class="line">    <span class="comment"># 对每一个网站链接，执行相应的xray扫描命令，扫描模式为基础爬虫模式</span></div><div class="line">    xlsx = pd.ExcelFile(<span class="string">r'data.xlsx'</span>)</div><div class="line">    sheet1 = pd.read_excel(xlsx, <span class="string">'Sheet1'</span>)</div><div class="line">    <span class="keyword">for</span> host <span class="keyword">in</span> sheet1[<span class="string">'网站链接'</span>]:</div><div class="line">        xray(host)</div><div class="line">    xlsx.close()</div></pre></td></tr></table></figure>
 
       
 
@@ -233,21 +241,6 @@ yara-ctypes -h
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">安全</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
       <span id="busuanzi_container_page_pv">
 	  | 阅读量(<span id="busuanzi_value_page_pv"></span>)
@@ -303,7 +296,7 @@ yara-ctypes -h
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/10/21/Yara/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2023/01/09/xray/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -317,18 +310,9 @@ yara-ctypes -h
   
 <nav id="article-nav">
   
-    <a href="/2017/11/07/python-scapy/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          使用Python的Scapy库解析Paca文件
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/10/16/googlesearchskill/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Google高级搜索hacker技巧</div>
+    <a href="/2022/11/09/sciresworkflow/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">科研工作流</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -358,7 +342,7 @@ yara-ctypes -h
   
 
   
-  <div id="SOHUCS" sid="Yara" ></div> 
+  <div id="SOHUCS" sid="xray" ></div> 
 <script type="text/javascript"> 
 window.YiliaChangyanWrap = function() {
     var appid = "cytj4oNi1"; 
