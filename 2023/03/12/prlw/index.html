@@ -6,12 +6,12 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>信息收集 | WhiteRabbit的博客</title>
+  <title>CollAFL:在提高代码覆盖精确度背景下优化漏洞挖掘效果 | WhiteRabbit的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="这是一篇来自于IEEE TDSC的文章分享，文章名为《Path Sensitive Fuzzing for Native Applications》。其关注点是模糊测试中代码覆盖这一环节的精确度，由此进一步去提高模糊测试的准确性。">
 <meta name="keywords" content="论文分享,漏洞挖掘">
 <meta property="og:type" content="article">
-<meta property="og:title" content="信息收集">
+<meta property="og:title" content="CollAFL:在提高代码覆盖精确度背景下优化漏洞挖掘效果">
 <meta property="og:url" content="http://yoursite.com/2023/03/12/prlw/index.html">
 <meta property="og:site_name" content="WhiteRabbit的博客">
 <meta property="og:description" content="这是一篇来自于IEEE TDSC的文章分享，文章名为《Path Sensitive Fuzzing for Native Applications》。其关注点是模糊测试中代码覆盖这一环节的精确度，由此进一步去提高模糊测试的准确性。">
@@ -30,9 +30,9 @@
 <meta property="og:image" content="https://picture.whiterabbitxyj.com/blogPicture/CollAFL_pr0306/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-03-02%20111849.png">
 <meta property="og:image" content="https://picture.whiterabbitxyj.com/blogPicture/CollAFL_pr0306/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-03-02%20132814.png">
 <meta property="og:image" content="https://picture.whiterabbitxyj.com/blogPicture/CollAFL_pr0306/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-03-02%20141354.png">
-<meta property="og:updated_time" content="2023-03-17T01:47:40.236Z">
+<meta property="og:updated_time" content="2023-03-17T01:58:44.778Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="信息收集">
+<meta name="twitter:title" content="CollAFL:在提高代码覆盖精确度背景下优化漏洞挖掘效果">
 <meta name="twitter:description" content="这是一篇来自于IEEE TDSC的文章分享，文章名为《Path Sensitive Fuzzing for Native Applications》。其关注点是模糊测试中代码覆盖这一环节的精确度，由此进一步去提高模糊测试的准确性。">
 <meta name="twitter:image" content="https://picture.whiterabbitxyj.com/blogPicture/CollAFL_pr0306/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-03-02%20090810.png">
   
@@ -178,7 +178,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      信息收集
+      CollAFL:在提高代码覆盖精确度背景下优化漏洞挖掘效果
     </h1>
   
 
@@ -582,22 +582,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">渗透</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">WAF</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">CORS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">漏洞</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">安全</a>
               </li>
              
@@ -618,6 +602,22 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">渗透</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">WAF</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">CORS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">漏洞</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">pandas</a>
               </li>
              
@@ -630,11 +630,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ctf</a>
+                <a href="javascript:void(0)" class="js-tag color1">sql注入</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">sql注入</a>
+                <a href="javascript:void(0)" class="js-tag color4">ctf</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -650,6 +650,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">博客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">私有云</a>
               </li>
              
@@ -658,15 +662,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">博客</a>
+                <a href="javascript:void(0)" class="js-tag color1">https</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">搜索</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">https</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -706,15 +706,15 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">csrf</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">scrapy</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">csrf</a>
               </li>
              
               <li class="article-tag-list-item">
